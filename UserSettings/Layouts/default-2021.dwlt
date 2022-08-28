@@ -1,0 +1,2645 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 1920
+    y: 43.2
+    width: 1536
+    height: 790.4
+  m_ShowMode: 4
+  m_Title: Project
+  m_RootView: {fileID: 2}
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_Maximized: 1
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 3}
+  - {fileID: 5}
+  - {fileID: 4}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1536
+    height: 790.4
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_UseTopView: 1
+  m_TopViewHeight: 30
+  m_UseBottomView: 1
+  m_BottomViewHeight: 20
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1536
+    height: 30
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+  m_LastLoadedLayoutName: 
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 770.4
+    width: 1536
+    height: 20
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 6}
+  - {fileID: 11}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1536
+    height: 740.4
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 107
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 7}
+  - {fileID: 10}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1096
+    height: 740.4
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 20
+--- !u!114 &7
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 8}
+  - {fileID: 9}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1096
+    height: 479.2
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 21
+--- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 252.8
+    height: 479.2
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &9
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 252.8
+    y: 0
+    width: 843.2
+    height: 479.2
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  - {fileID: 12}
+  - {fileID: 15}
+  - {fileID: 16}
+  m_Selected: 0
+  m_LastSelected: 2
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ProjectBrowser
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 479.2
+    width: 1096
+    height: 261.2
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  - {fileID: 18}
+  - {fileID: 19}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: InspectorWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1096
+    y: 0
+    width: 440
+    height: 740.4
+  m_MinSize: {x: 276, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 20}
+  m_Panes:
+  - {fileID: 20}
+  - {fileID: 21}
+  - {fileID: 22}
+  m_Selected: 0
+  m_LastSelected: 2
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Game
+    m_Image: {fileID: 257045534191678443, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2172.8
+    y: 73.6
+    width: 841.2
+    height: 458.2
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 1366, y: 768}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 0
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 04000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -546.4
+    m_HBaseRangeMax: 546.4
+    m_VBaseRangeMin: -307.2
+    m_VBaseRangeMax: 307.2
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 0
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 841.2
+      height: 437.2
+    m_Scale: {x: 0.71158856, y: 0.71158856}
+    m_Translation: {x: 420.6, y: 218.60002}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -591.0719
+      y: -307.2
+      width: 1182.1438
+      height: 614.4
+    m_MinimalGUI: 1
+  m_defaultScale: 0.71158856
+  m_LastWindowPixelSize: {x: 1051.5, y: 572.75}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 01000000000100000100
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Hierarchy
+    m_Image: {fileID: -9000905672528348964, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1920
+    y: 73.6
+    width: 251.8
+    height: 458.2
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 6a6a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 96b6feff54b7feff8ab7feff8eb7feffc4ccfeff82cdfeffb8cdfeffbccdfeff4cf7feff7202ffff3003ffff5205ffff5605ffffc042fffff442ffff6646ffff2447ffff5a47ffff5e47ffff1250ffff7650ffff9853ffff5654ffff7656ffff7a56ffff2a6dffffe86dffff1e6effff226effffa28affff628bffff828dffff868dffff42adffffe2e0ffffe2e1ffffbceaffff36fbffff967e0000
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 9}
+      m_SearchString: 
+    m_ExpandedScenes: []
+    m_CurrenRootInstanceID: 0
+    m_LockTracker:
+      m_IsLocked: 0
+    m_CurrentSortingName: TransformSorting
+  m_WindowGUID: 46b7a0fefa812c44ca6fda42b4d7b176
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12013, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Scene
+    m_Image: {fileID: -131512000283675692, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2172.8
+    y: 73.6
+    width: 841.2
+    height: 458.2
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData:
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: -100, y: -25.600006}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 3
+      id: Tool Settings
+      index: 0
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: -141, y: 149}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-grid-and-snap-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 24.8}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-scene-view-toolbar
+      index: 0
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-search-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-container--left
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 24.8}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-transform-toolbar
+      index: 0
+      layout: 2
+    - dockPosition: 0
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 67.5, y: 86}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Orientation
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Light Settings
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Camera
+      index: 1
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Constraints
+      index: 2
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Collisions
+      index: 3
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Navmesh Display
+      index: 4
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Agent Display
+      index: 5
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Obstacle Display
+      index: 6
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Occlusion Culling
+      index: 7
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Physics Debugger
+      index: 8
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Scene Visibility
+      index: 9
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Particles
+      index: 10
+      layout: 4
+  m_WindowGUID: d69a67902db7f994ca099bec79d22ce1
+  m_Gizmos: 1
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
+  m_SceneLighting: 1
+  m_2DMode: 0
+  m_isRotationLocked: 0
+  m_PlayAudio: 0
+  m_AudioPlay: 0
+  m_Position:
+    m_Target: {x: 200.37808, y: 49.61836, z: -211.52434}
+    speed: 2
+    m_Value: {x: 200.37808, y: 49.61836, z: -211.52434}
+  m_RenderMode: 0
+  m_CameraMode:
+    drawMode: 0
+    name: Shaded
+    section: Shading Mode
+  m_ValidateTrueMetals: 0
+  m_DoValidateTrueMetals: 0
+  m_ExposureSliderValue: 0
+  m_SceneViewState:
+    m_AlwaysRefresh: 0
+    showFog: 1
+    showSkybox: 1
+    showFlares: 1
+    showImageEffects: 1
+    showParticleSystems: 1
+    showVisualEffectGraphs: 1
+    m_FxEnabled: 1
+  m_Grid:
+    xGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 0, y: 0}
+    yGrid:
+      m_Fade:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    zGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    m_ShowGrid: 1
+    m_GridAxis: 1
+    m_gridOpacity: 0.5
+  m_Rotation:
+    m_Target: {x: -0.012175597, y: -0.9854316, z: 0.12392884, w: -0.1274463}
+    speed: 2
+    m_Value: {x: -0.012158438, y: -0.9840428, z: 0.12375418, w: -0.12726668}
+  m_Size:
+    m_Target: 109.12354
+    speed: 2
+    m_Value: 109.12354
+  m_Ortho:
+    m_Target: 0
+    speed: 2
+    m_Value: 0
+  m_CameraSettings:
+    m_Speed: 1.1840999
+    m_SpeedNormalized: 0.59
+    m_SpeedMin: 0.01
+    m_SpeedMax: 2
+    m_EasingEnabled: 1
+    m_EasingDuration: 0.4
+    m_AccelerationEnabled: 1
+    m_FieldOfViewHorizontalOrVertical: 60
+    m_NearClip: 0.03
+    m_FarClip: 10000
+    m_DynamicClip: 0
+    m_OcclusionCulling: 0
+  m_LastSceneViewRotation: {x: 0.01720952, y: -0.9429478, z: 0.03798864, w: 0.3340835}
+  m_LastSceneViewOrtho: 0
+  m_ReplacementShader: {fileID: 0}
+  m_ReplacementString: 
+  m_SceneVisActive: 1
+  m_LastLockedObject: {fileID: 0}
+  m_ViewIsLockedToObject: 0
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12111, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 400, y: 100}
+  m_MaxSize: {x: 2048, y: 2048}
+  m_TitleContent:
+    m_Text: Asset Store
+    m_Image: {fileID: -4391848389275900105, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2172.8
+    y: 73.6
+    width: 841.2
+    height: 458.2
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12914, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animator
+    m_Image: {fileID: -6973158847631862895, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 260.80002
+    y: 73.6
+    width: 997
+    height: 544
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_ViewTransforms:
+    m_KeySerializationHelper:
+    - {fileID: 4649477905782114841, guid: 5f12e003c9dd7f446b6d0c71377f491c, type: 2}
+    m_ValueSerializationHelper:
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_PreviewAnimator: {fileID: 0}
+  m_AnimatorController: {fileID: 9100000, guid: 5f12e003c9dd7f446b6d0c71377f491c,
+    type: 2}
+  m_BreadCrumbs:
+  - m_Target: {fileID: 4649477905782114841, guid: 5f12e003c9dd7f446b6d0c71377f491c,
+      type: 2}
+    m_ScrollPosition: {x: 0, y: 0}
+  stateMachineGraph: {fileID: 0}
+  stateMachineGraphGUI: {fileID: 0}
+  blendTreeGraph: {fileID: 0}
+  blendTreeGraphGUI: {fileID: 0}
+  m_AutoLiveLink: 1
+  m_MiniTool: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_CurrentEditor: 0
+  m_LayerEditor:
+    m_SelectedLayerIndex: 0
+--- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_TitleContent:
+    m_Text: Project
+    m_Image: {fileID: -2032128904892744680, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1920
+    y: 552.8
+    width: 1095
+    height: 240.20001
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_VersionControlStates: []
+    m_SoftLockControlStates: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets
+    m_Globs: []
+    m_OriginalText: 
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: D:\dev\LifesBane
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 6a6a0000
+    m_LastClickedID: 27242
+    m_ExpandedIDs: 000000006a6a0000f06b0000fe8800000889000000ca9a3bffffff7f
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 000000006a6a0000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000000000000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 10}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 64
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 208
+--- !u!114 &18
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Console
+    m_Image: {fileID: -3303252850963283158, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1920
+    y: 552.8
+    width: 1095
+    height: 240.20001
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+--- !u!114 &19
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12373, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Audio Mixer
+    m_Image: {fileID: 923997255885558976, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 541.60004
+    width: 1041
+    height: 251
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_MixersTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 24488
+    m_ExpandedIDs: 12eb343c
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 0
+      m_ClientGUIView: {fileID: 10}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_LayoutStripsOnTop:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes:
+      - 65
+      - 35
+      relativeSizes:
+      - 0.65
+      - 0.35000002
+      minSizes:
+      - 85
+      - 105
+      maxSizes:
+      - 0
+      - 0
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+      m_Version: 1
+      oldRealSizes: 
+      oldMinSizes: 
+      oldMaxSizes: 
+      oldSplitSize: 0
+    m_HorizontalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes:
+      - 60
+      - 60
+      - 60
+      - 60
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes:
+      - 85
+      - 85
+      - 85
+      - 85
+      maxSizes:
+      - 0
+      - 0
+      - 0
+      - 0
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+      m_Version: 1
+      oldRealSizes: 
+      oldMinSizes: 
+      oldMaxSizes: 
+      oldSplitSize: 0
+  m_LayoutStripsOnRight:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes:
+      - 60
+      - 60
+      - 60
+      - 60
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes:
+      - 100
+      - 85
+      - 85
+      - 85
+      maxSizes:
+      - 0
+      - 0
+      - 0
+      - 0
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+      m_Version: 1
+      oldRealSizes: 
+      oldMinSizes: 
+      oldMaxSizes: 
+      oldSplitSize: 0
+    m_HorizontalSplitter:
+      ID: 170
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes:
+      - 312
+      - 728.80005
+      relativeSizes:
+      - 0.3
+      - 0.7
+      minSizes:
+      - 160
+      - 160
+      maxSizes:
+      - 0
+      - 0
+      lastTotalSize: 1040.8
+      splitSize: 6
+      xOffset: 0
+      m_Version: 1
+      oldRealSizes: 
+      oldMinSizes: 
+      oldMaxSizes: 
+      oldSplitSize: 0
+  m_SectionOrder: 00000000030000000100000002000000
+  m_LayoutMode: 1
+  m_SortGroupsAlphabetically: 0
+  m_ShowReferencedBuses: 1
+  m_ShowBusConnections: 0
+  m_ShowBusConnectionsOfSelection: 0
+--- !u!114 &20
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: 8356117983803934776, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 3016
+    y: 73.6
+    width: 439
+    height: 719.4
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_ObjectsLockedBeforeSerialization: []
+  m_InstanceIDsLockedBeforeSerialization: 
+  m_PreviewResizer:
+    m_CachedPref: -160
+    m_ControlHash: 1412526313
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_PreviewWindow: {fileID: 0}
+--- !u!114 &21
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12070, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 880, y: 216}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Profiler
+    m_Image: {fileID: -3113586994723608586, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 943.2
+    y: 73.6
+    width: 592
+    height: 719
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Recording: 1
+  m_ActiveNativePlatformSupportModuleName: 
+  m_AllModules:
+  - rid: 214871446418882560
+  - rid: 214871446418882561
+  - rid: 214871446418882562
+  - rid: 214871446418882563
+  - rid: 214871446418882564
+  - rid: 214871446418882565
+  - rid: 214871446418882566
+  - rid: 214871446418882567
+  - rid: 214871446418882568
+  - rid: 214871446418882569
+  - rid: 214871446418882570
+  - rid: 214871446418882571
+  - rid: 214871446418882572
+  - rid: 214871446418882573
+  - rid: 214871446418882574
+  - rid: 214871446418882575
+  m_CallstackRecordMode: 1
+  m_ClearOnPlay: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 214871446418882560
+      type: {class: CPUProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.CPUProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_ViewType: 0
+        updateViewLive: 0
+        m_CurrentFrameIndex: -1
+        m_HierarchyOverruledThreadFromSelection: 0
+        m_ProfilerViewFilteringOptions: 1
+        m_FrameDataHierarchyView:
+          m_Serialized: 0
+          m_TreeViewState:
+            scrollPos: {x: 0, y: 0}
+            m_SelectedIDs: 
+            m_LastClickedID: 0
+            m_ExpandedIDs: 
+            m_RenameOverlay:
+              m_UserAcceptedRename: 0
+              m_Name: 
+              m_OriginalName: 
+              m_EditFieldRect:
+                serializedVersion: 2
+                x: 0
+                y: 0
+                width: 0
+                height: 0
+              m_UserData: 0
+              m_IsWaitingForDelay: 0
+              m_IsRenaming: 0
+              m_OriginalEventType: 11
+              m_IsRenamingFilename: 0
+              m_ClientGUIView: {fileID: 0}
+            m_SearchString: 
+          m_MultiColumnHeaderState:
+            m_Columns: []
+            m_VisibleColumns: 
+            m_SortedColumns: 
+          m_ThreadIndexInThreadNames: 0
+          m_DetailedViewType: 0
+          m_DetailedViewSpliterState:
+            ID: 0
+            splitterInitialOffset: 0
+            currentActiveSplitter: 0
+            realSizes: []
+            relativeSizes: []
+            minSizes: []
+            maxSizes: []
+            lastTotalSize: 0
+            splitSize: 0
+            xOffset: 0
+            m_Version: 1
+            oldRealSizes: 
+            oldMinSizes: 
+            oldMaxSizes: 
+            oldSplitSize: 0
+          m_DetailedObjectsView:
+            m_SelectedID: 0
+            m_TreeViewState:
+              scrollPos: {x: 0, y: 0}
+              m_SelectedIDs: 
+              m_LastClickedID: 0
+              m_ExpandedIDs: 
+              m_RenameOverlay:
+                m_UserAcceptedRename: 0
+                m_Name: 
+                m_OriginalName: 
+                m_EditFieldRect:
+                  serializedVersion: 2
+                  x: 0
+                  y: 0
+                  width: 0
+                  height: 0
+                m_UserData: 0
+                m_IsWaitingForDelay: 0
+                m_IsRenaming: 0
+                m_OriginalEventType: 11
+                m_IsRenamingFilename: 0
+                m_ClientGUIView: {fileID: 0}
+              m_SearchString: 
+            m_MultiColumnHeaderState:
+              m_Columns: []
+              m_VisibleColumns: 
+              m_SortedColumns: 
+            m_VertSplit:
+              ID: 0
+              splitterInitialOffset: 0
+              currentActiveSplitter: 0
+              realSizes: []
+              relativeSizes: []
+              minSizes: []
+              maxSizes: []
+              lastTotalSize: 0
+              splitSize: 0
+              xOffset: 0
+              m_Version: 1
+              oldRealSizes: 
+              oldMinSizes: 
+              oldMaxSizes: 
+              oldSplitSize: 0
+          m_DetailedCallsView:
+            m_SelectedID: -1
+            m_VertSplit:
+              ID: 0
+              splitterInitialOffset: 0
+              currentActiveSplitter: 0
+              realSizes: []
+              relativeSizes: []
+              minSizes: []
+              maxSizes: []
+              lastTotalSize: 0
+              splitSize: 0
+              xOffset: 0
+              m_Version: 1
+              oldRealSizes: 
+              oldMinSizes: 
+              oldMaxSizes: 
+              oldSplitSize: 0
+            m_CalleesTreeView:
+              m_ViewState:
+                scrollPos: {x: 0, y: 0}
+                m_SelectedIDs: 
+                m_LastClickedID: 0
+                m_ExpandedIDs: 
+                m_RenameOverlay:
+                  m_UserAcceptedRename: 0
+                  m_Name: 
+                  m_OriginalName: 
+                  m_EditFieldRect:
+                    serializedVersion: 2
+                    x: 0
+                    y: 0
+                    width: 0
+                    height: 0
+                  m_UserData: 0
+                  m_IsWaitingForDelay: 0
+                  m_IsRenaming: 0
+                  m_OriginalEventType: 11
+                  m_IsRenamingFilename: 0
+                  m_ClientGUIView: {fileID: 0}
+                m_SearchString: 
+              m_ViewHeaderState:
+                m_Columns:
+                - width: 150
+                  sortedAscending: 1
+                  headerContent:
+                    m_Text: Called From
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 'Parents the selected function is called from
+
+
+                      (Press
+                      ''F'' for frame selection)'
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 150
+                  maxWidth: 1000000
+                  autoResize: 1
+                  allowToggleVisibility: 0
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Calls
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total number of calls in a selected frame
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: GC Alloc
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time ms
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total time the selected function spends within a parent
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time %
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Shows how often the selected function was called from
+                      the parent call
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                m_VisibleColumns: 0000000001000000020000000300000004000000
+                m_SortedColumns: 03000000
+            m_CallersTreeView:
+              m_ViewState:
+                scrollPos: {x: 0, y: 0}
+                m_SelectedIDs: 
+                m_LastClickedID: 0
+                m_ExpandedIDs: 
+                m_RenameOverlay:
+                  m_UserAcceptedRename: 0
+                  m_Name: 
+                  m_OriginalName: 
+                  m_EditFieldRect:
+                    serializedVersion: 2
+                    x: 0
+                    y: 0
+                    width: 0
+                    height: 0
+                  m_UserData: 0
+                  m_IsWaitingForDelay: 0
+                  m_IsRenaming: 0
+                  m_OriginalEventType: 11
+                  m_IsRenamingFilename: 0
+                  m_ClientGUIView: {fileID: 0}
+                m_SearchString: 
+              m_ViewHeaderState:
+                m_Columns:
+                - width: 150
+                  sortedAscending: 1
+                  headerContent:
+                    m_Text: Called From
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 'Parents the selected function is called from
+
+
+                      (Press
+                      ''F'' for frame selection)'
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 150
+                  maxWidth: 1000000
+                  autoResize: 1
+                  allowToggleVisibility: 0
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Calls
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total number of calls in a selected frame
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: GC Alloc
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time ms
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total time the selected function spends within a parent
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time %
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Shows how often the selected function was called from
+                      the parent call
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                m_VisibleColumns: 0000000001000000020000000300000004000000
+                m_SortedColumns: 03000000
+          m_FullThreadName: Main Thread
+          m_ThreadName: Main Thread
+          <threadId>k__BackingField: 0
+          <threadIndex>k__BackingField: -1
+          m_GroupName: 
+    - rid: 214871446418882561
+      type: {class: GPUProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.GPUProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_ViewType: 0
+        updateViewLive: 0
+        m_CurrentFrameIndex: -1
+        m_HierarchyOverruledThreadFromSelection: 0
+        m_ProfilerViewFilteringOptions: 1
+        m_FrameDataHierarchyView:
+          m_Serialized: 0
+          m_TreeViewState:
+            scrollPos: {x: 0, y: 0}
+            m_SelectedIDs: 
+            m_LastClickedID: 0
+            m_ExpandedIDs: 
+            m_RenameOverlay:
+              m_UserAcceptedRename: 0
+              m_Name: 
+              m_OriginalName: 
+              m_EditFieldRect:
+                serializedVersion: 2
+                x: 0
+                y: 0
+                width: 0
+                height: 0
+              m_UserData: 0
+              m_IsWaitingForDelay: 0
+              m_IsRenaming: 0
+              m_OriginalEventType: 11
+              m_IsRenamingFilename: 0
+              m_ClientGUIView: {fileID: 0}
+            m_SearchString: 
+          m_MultiColumnHeaderState:
+            m_Columns: []
+            m_VisibleColumns: 
+            m_SortedColumns: 
+          m_ThreadIndexInThreadNames: 0
+          m_DetailedViewType: 0
+          m_DetailedViewSpliterState:
+            ID: 0
+            splitterInitialOffset: 0
+            currentActiveSplitter: 0
+            realSizes: []
+            relativeSizes: []
+            minSizes: []
+            maxSizes: []
+            lastTotalSize: 0
+            splitSize: 0
+            xOffset: 0
+            m_Version: 1
+            oldRealSizes: 
+            oldMinSizes: 
+            oldMaxSizes: 
+            oldSplitSize: 0
+          m_DetailedObjectsView:
+            m_SelectedID: 0
+            m_TreeViewState:
+              scrollPos: {x: 0, y: 0}
+              m_SelectedIDs: 
+              m_LastClickedID: 0
+              m_ExpandedIDs: 
+              m_RenameOverlay:
+                m_UserAcceptedRename: 0
+                m_Name: 
+                m_OriginalName: 
+                m_EditFieldRect:
+                  serializedVersion: 2
+                  x: 0
+                  y: 0
+                  width: 0
+                  height: 0
+                m_UserData: 0
+                m_IsWaitingForDelay: 0
+                m_IsRenaming: 0
+                m_OriginalEventType: 11
+                m_IsRenamingFilename: 0
+                m_ClientGUIView: {fileID: 0}
+              m_SearchString: 
+            m_MultiColumnHeaderState:
+              m_Columns: []
+              m_VisibleColumns: 
+              m_SortedColumns: 
+            m_VertSplit:
+              ID: 0
+              splitterInitialOffset: 0
+              currentActiveSplitter: 0
+              realSizes: []
+              relativeSizes: []
+              minSizes: []
+              maxSizes: []
+              lastTotalSize: 0
+              splitSize: 0
+              xOffset: 0
+              m_Version: 1
+              oldRealSizes: 
+              oldMinSizes: 
+              oldMaxSizes: 
+              oldSplitSize: 0
+          m_DetailedCallsView:
+            m_SelectedID: -1
+            m_VertSplit:
+              ID: 0
+              splitterInitialOffset: 0
+              currentActiveSplitter: 0
+              realSizes: []
+              relativeSizes: []
+              minSizes: []
+              maxSizes: []
+              lastTotalSize: 0
+              splitSize: 0
+              xOffset: 0
+              m_Version: 1
+              oldRealSizes: 
+              oldMinSizes: 
+              oldMaxSizes: 
+              oldSplitSize: 0
+            m_CalleesTreeView:
+              m_ViewState:
+                scrollPos: {x: 0, y: 0}
+                m_SelectedIDs: 
+                m_LastClickedID: 0
+                m_ExpandedIDs: 
+                m_RenameOverlay:
+                  m_UserAcceptedRename: 0
+                  m_Name: 
+                  m_OriginalName: 
+                  m_EditFieldRect:
+                    serializedVersion: 2
+                    x: 0
+                    y: 0
+                    width: 0
+                    height: 0
+                  m_UserData: 0
+                  m_IsWaitingForDelay: 0
+                  m_IsRenaming: 0
+                  m_OriginalEventType: 11
+                  m_IsRenamingFilename: 0
+                  m_ClientGUIView: {fileID: 0}
+                m_SearchString: 
+              m_ViewHeaderState:
+                m_Columns:
+                - width: 150
+                  sortedAscending: 1
+                  headerContent:
+                    m_Text: Called From
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 'Parents the selected function is called from
+
+
+                      (Press
+                      ''F'' for frame selection)'
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 150
+                  maxWidth: 1000000
+                  autoResize: 1
+                  allowToggleVisibility: 0
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Calls
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total number of calls in a selected frame
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: GC Alloc
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time ms
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total time the selected function spends within a parent
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time %
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Shows how often the selected function was called from
+                      the parent call
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                m_VisibleColumns: 0000000001000000020000000300000004000000
+                m_SortedColumns: 03000000
+            m_CallersTreeView:
+              m_ViewState:
+                scrollPos: {x: 0, y: 0}
+                m_SelectedIDs: 
+                m_LastClickedID: 0
+                m_ExpandedIDs: 
+                m_RenameOverlay:
+                  m_UserAcceptedRename: 0
+                  m_Name: 
+                  m_OriginalName: 
+                  m_EditFieldRect:
+                    serializedVersion: 2
+                    x: 0
+                    y: 0
+                    width: 0
+                    height: 0
+                  m_UserData: 0
+                  m_IsWaitingForDelay: 0
+                  m_IsRenaming: 0
+                  m_OriginalEventType: 11
+                  m_IsRenamingFilename: 0
+                  m_ClientGUIView: {fileID: 0}
+                m_SearchString: 
+              m_ViewHeaderState:
+                m_Columns:
+                - width: 150
+                  sortedAscending: 1
+                  headerContent:
+                    m_Text: Called From
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 'Parents the selected function is called from
+
+
+                      (Press
+                      ''F'' for frame selection)'
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 150
+                  maxWidth: 1000000
+                  autoResize: 1
+                  allowToggleVisibility: 0
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Calls
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total number of calls in a selected frame
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: GC Alloc
+                    m_Image: {fileID: 0}
+                    m_Tooltip: 
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time ms
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Total time the selected function spends within a parent
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                - width: 60
+                  sortedAscending: 0
+                  headerContent:
+                    m_Text: Time %
+                    m_Image: {fileID: 0}
+                    m_Tooltip: Shows how often the selected function was called from
+                      the parent call
+                  contextMenuText: 
+                  headerTextAlignment: 0
+                  sortingArrowAlignment: 2
+                  minWidth: 60
+                  maxWidth: 1000000
+                  autoResize: 0
+                  allowToggleVisibility: 1
+                  canSort: 1
+                  userData: 0
+                m_VisibleColumns: 0000000001000000020000000300000004000000
+                m_SortedColumns: 03000000
+          m_FullThreadName: Main Thread
+          m_ThreadName: Main Thread
+          <threadId>k__BackingField: 0
+          <threadIndex>k__BackingField: -1
+          m_GroupName: 
+    - rid: 214871446418882562
+      type: {class: RenderingProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.RenderingProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882563
+      type: {class: MemoryProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.MemoryProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_ViewSplit:
+          ID: 0
+          splitterInitialOffset: 0
+          currentActiveSplitter: -1
+          realSizes:
+          - 0
+          - 0
+          relativeSizes:
+          - 0.7
+          - 0.3
+          minSizes:
+          - 450
+          - 50
+          maxSizes:
+          - 0
+          - 0
+          lastTotalSize: 0
+          splitSize: 6
+          xOffset: 0
+          m_Version: 1
+          oldRealSizes: 
+          oldMinSizes: 
+          oldMaxSizes: 
+          oldSplitSize: 0
+    - rid: 214871446418882564
+      type: {class: AudioProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.AudioProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_ShowInactiveDSPChains: 0
+        m_HighlightAudibleDSPChains: 1
+        m_DSPGraphZoomFactor: 1
+    - rid: 214871446418882565
+      type: {class: VideoProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.VideoProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882566
+      type: {class: PhysicsProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.PhysicsProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882567
+      type: {class: Physics2DProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.Physics2DProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882568
+      type: {class: NetworkingMessagesProfilerModule, ns: UnityEditorInternal.Profiling,
+        asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.NetworkingMessagesProfilerModule,
+          UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882569
+      type: {class: NetworkingOperationsProfilerModule, ns: UnityEditorInternal.Profiling,
+        asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.NetworkingOperationsProfilerModule,
+          UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_NetworkSplit:
+          ID: 0
+          splitterInitialOffset: 0
+          currentActiveSplitter: -1
+          realSizes:
+          - 0
+          - 0
+          relativeSizes:
+          - 0.2
+          - 0.8
+          minSizes:
+          - 100
+          - 100
+          maxSizes:
+          - 0
+          - 0
+          lastTotalSize: 0
+          splitSize: 6
+          xOffset: 0
+          m_Version: 1
+          oldRealSizes: 
+          oldMinSizes: 
+          oldMaxSizes: 
+          oldSplitSize: 0
+        msgNames:
+        - UserMessage
+        - ObjectDestroy
+        - ClientRpc
+        - ObjectSpawn
+        - Owner
+        - Command
+        - LocalPlayerTransform
+        - SyncEvent
+        - SyncVars
+        - SyncList
+        - ObjectSpawnScene
+        - NetworkInfo
+        - SpawnFinished
+        - ObjectHide
+        - CRC
+        - ClientAuthority
+    - rid: 214871446418882570
+      type: {class: UIProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.UIProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882571
+      type: {class: UIDetailsProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.UIDetailsProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882572
+      type: {class: GlobalIlluminationProfilerModule, ns: UnityEditorInternal.Profiling,
+        asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.GlobalIlluminationProfilerModule,
+          UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882573
+      type: {class: VirtualTexturingProfilerModule, ns: UnityEditorInternal.Profiling,
+        asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.VirtualTexturingProfilerModule,
+          UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+        m_VTProfilerView:
+          rid: 214871446418882576
+    - rid: 214871446418882574
+      type: {class: FileIOProfilerModule, ns: UnityEditorInternal.Profiling, asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.FileIOProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882575
+      type: {class: AssetLoadingProfilerModule, ns: UnityEditorInternal.Profiling,
+        asm: UnityEditor.CoreModule}
+      data:
+        m_Identifier: UnityEditorInternal.Profiling.AssetLoadingProfilerModule, UnityEditor.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        m_PaneScroll: {x: 0, y: 0}
+    - rid: 214871446418882576
+      type: {class: VirtualTexturingProfilerView, ns: UnityEditor, asm: UnityEditor.CoreModule}
+      data:
+        m_SortAscending: 0
+        m_SortedColumn: -1
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 3016
+    y: 73.6
+    width: 439
+    height: 719.4
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 6796
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 486.4
+    - 162.4
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 648.8
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 0
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 22}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[LifesBane][suite]'
+      name: LifesBane
+      fullName: LifesBane
+      resultStatus: 1
+      duration: 0.5475749
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1004
+      uniqueId: '[TestsBase][D:/dev/LifesBane/Library/ScriptAssemblies/TestsBase.dll][suite]'
+      name: TestsBase.dll
+      fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsBase.dll
+      resultStatus: 1
+      duration: 0.0680938
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[LifesBane][suite]'
+    - id: 1001
+      uniqueId: TestsBase.dll/[TestsBase][EcsBaseTest][suite]
+      name: EcsBaseTest
+      fullName: EcsBaseTest
+      resultStatus: 1
+      duration: 0.05196
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1004
+      parentUniqueId: '[TestsBase][D:/dev/LifesBane/Library/ScriptAssemblies/TestsBase.dll][suite]'
+    - id: 1002
+      uniqueId: TestsBase.dll/EcsBaseTest/[TestsBase][EcsBaseTest.SetEntity]
+      name: SetEntity
+      fullName: EcsBaseTest.SetEntity
+      resultStatus: 1
+      duration: 0.0249305
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: TestsBase.dll/[TestsBase][EcsBaseTest][suite]
+    - id: 1003
+      uniqueId: TestsBase.dll/EcsBaseTest/[TestsBase][EcsBaseTest.SetGameObject]
+      name: SetGameObject
+      fullName: EcsBaseTest.SetGameObject
+      resultStatus: 1
+      duration: 0.005443
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: TestsBase.dll/[TestsBase][EcsBaseTest][suite]
+    - id: 1008
+      uniqueId: '[TestsNet][D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll][suite]'
+      name: TestsNet.dll
+      fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll
+      resultStatus: 1
+      duration: 0.2344096
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[LifesBane][suite]'
+    - id: 1005
+      uniqueId: TestsNet.dll/[TestsNet][NetSpawnTest][suite]
+      name: NetSpawnTest
+      fullName: NetSpawnTest
+      resultStatus: 1
+      duration: 0.038899
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[TestsNet][D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll][suite]'
+    - id: 1007
+      uniqueId: TestsNet.dll/NetSpawnTest/[TestsNet][NetSpawnTest.ConstructMessageAutosync]
+      name: ConstructMessageAutosync
+      fullName: NetSpawnTest.ConstructMessageAutosync
+      resultStatus: 1
+      duration: 0.0223238
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsNet.dll/[TestsNet][NetSpawnTest][suite]
+    - id: 1006
+      uniqueId: TestsNet.dll/NetSpawnTest/[TestsNet][NetSpawnTest.NetSpawnEntity]
+      name: NetSpawnEntity
+      fullName: NetSpawnTest.NetSpawnEntity
+      resultStatus: 1
+      duration: 0.0105928
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsNet.dll/[TestsNet][NetSpawnTest][suite]
+    - id: 1005
+      uniqueId: TestsNet.dll/[TestsNet][ServiceTest][suite]
+      name: ServiceTest
+      fullName: ServiceTest
+      resultStatus: 1
+      duration: 0.1916564
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1008
+      parentUniqueId: '[TestsNet][D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll][suite]'
+    - id: 1007
+      uniqueId: TestsNet.dll/ServiceTest/[TestsNet][ServiceTest.BaggageSerializerTest]
+      name: BaggageSerializerTest
+      fullName: ServiceTest.BaggageSerializerTest
+      resultStatus: 1
+      duration: 0.1804104
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsNet.dll/[TestsNet][ServiceTest][suite]
+    - id: 1006
+      uniqueId: TestsNet.dll/ServiceTest/[TestsNet][ServiceTest.NetIdTest]
+      name: NetIdTest
+      fullName: ServiceTest.NetIdTest
+      resultStatus: 1
+      duration: 0.0067302
+      messages: 
+      output: '[Server] function ''System.Boolean MyEcs.Net.NetIdService::IsNetIdUsed(System.UInt16)''
+        called when server was not active
+
+        [Server] function ''System.UInt16
+        MyEcs.Net.NetIdService::AllocateNetId()'' called when server was not active
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsNet.dll/[TestsNet][ServiceTest][suite]
+    - id: 1007
+      uniqueId: '[TestsSpawn][D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll][suite]'
+      name: TestsSpawn.dll
+      fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll
+      resultStatus: 1
+      duration: 0.0539292
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[LifesBane][suite]'
+    - id: 1005
+      uniqueId: TestsSpawn.dll/[TestsSpawn][BaggageTest][suite]
+      name: BaggageTest
+      fullName: BaggageTest
+      resultStatus: 1
+      duration: 0.0252428
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1013
+      parentUniqueId: '[TestsSpawn][D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll][suite]'
+    - id: 1006
+      uniqueId: TestsSpawn.dll/BaggageTest/[TestsSpawn][BaggageTest.BaggageListTest]
+      name: BaggageListTest
+      fullName: BaggageTest.BaggageListTest
+      resultStatus: 1
+      duration: 0.0051531
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][BaggageTest][suite]
+    - id: 1007
+      uniqueId: TestsSpawn.dll/BaggageTest/[TestsSpawn][BaggageTest.UnloadTest]
+      name: UnloadTest
+      fullName: BaggageTest.UnloadTest
+      resultStatus: 1
+      duration: 0.0020572
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][BaggageTest][suite]
+    - id: 1008
+      uniqueId: TestsSpawn.dll/BaggageTest/[TestsSpawn][BaggageTest.UpdatableBaggageTest]
+      name: UpdatableBaggageTest
+      fullName: BaggageTest.UpdatableBaggageTest
+      resultStatus: 1
+      duration: 0.001267
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][BaggageTest][suite]
+    - id: 1005
+      uniqueId: TestsSpawn.dll/[TestsSpawn][DestroyTest][suite]
+      name: DestroyTest
+      fullName: DestroyTest
+      resultStatus: 1
+      duration: 0.0155024
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1010
+      parentUniqueId: '[TestsSpawn][D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll][suite]'
+    - id: 1007
+      uniqueId: TestsSpawn.dll/DestroyTest/[TestsSpawn][DestroyTest.DelayedDestroyEntity]
+      name: DelayedDestroyEntity
+      fullName: DestroyTest.DelayedDestroyEntity
+      resultStatus: 1
+      duration: 0.0057666
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][DestroyTest][suite]
+    - id: 1006
+      uniqueId: TestsSpawn.dll/DestroyTest/[TestsSpawn][DestroyTest.DestroyEntity]
+      name: DestroyEntity
+      fullName: DestroyTest.DestroyEntity
+      resultStatus: 1
+      duration: 0.0004587
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][DestroyTest][suite]
+    - id: 1005
+      uniqueId: TestsSpawn.dll/[TestsSpawn][SpawnTest][suite]
+      name: SpawnTest
+      fullName: SpawnTest
+      resultStatus: 1
+      duration: 0.0089787
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: '[TestsSpawn][D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll][suite]'
+    - id: 1006
+      uniqueId: TestsSpawn.dll/SpawnTest/[TestsSpawn][SpawnTest.SpawnEntity]
+      name: SpawnEntity
+      fullName: SpawnTest.SpawnEntity
+      resultStatus: 1
+      duration: 0.0009658
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][SpawnTest][suite]
+    - id: 1014
+      uniqueId: TestsSpawn.dll/SpawnTest/[TestsSpawn][SpawnTest.UnloadBaggage]
+      name: UnloadBaggage
+      fullName: SpawnTest.UnloadBaggage
+      resultStatus: 1
+      duration: 0.0019734
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsSpawn.dll/[TestsSpawn][SpawnTest][suite]
+    m_ResultText: BaggageSerializerTest (0.180s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: a45304db
+      m_LastClickedID: -620473436
+      m_ExpandedIDs: d6fd2781ec040e9596129d9a195d8dae25732bb9c32195c101214bc656328fd011c108d8774c36e15f993201fff04e1880d3982103fe4433388d6a36c74f0e524ff9485307aeb653db71c45601a3086a8a3a876dffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 22}
+    m_NewResultList:
+    - id: 1012
+      uniqueId: '[LifesBane][suite]'
+      name: LifesBane
+      fullName: LifesBane
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 774c36e103fe44338a3a876dffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
