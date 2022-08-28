@@ -1,0 +1,28 @@
+{
+    "name": "MainAssembly",
+    "rootNamespace": "",
+    "references": [
+        "Leopotam.EcsLite",
+        "Leopotam.EcsLite.Di",
+        "Leopotam.EcsLite.ExtendedSystems",
+        "Leopotam.EcsLite.ExtendedSystemsDI",
+        "Mirror",
+        "Mirror.Authenticators",
+        "Mirror.CompilerSymbols",
+        "Mirror.Components",
+        "Mirror.Editor",
+        "Unity.Mirror.CodeGen",
+        "MyEcsBase",
+        "MyEcsNet",
+        "MyEcsSpawn"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
