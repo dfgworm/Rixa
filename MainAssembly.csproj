@@ -70,6 +70,7 @@
     <Compile Include="Assets\MainAssembly\Startup\MonoEcsLauncher.cs" />
     <Compile Include="Assets\MainAssembly\Startup\EcsLauncher.cs" />
     <Compile Include="Assets\MainAssembly\Services\PrefabRegistry.cs" />
+    <Compile Include="Assets\MainAssembly\Systems\InterpolatedPositionSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MainAssembly\MainAssembly.asmdef" />

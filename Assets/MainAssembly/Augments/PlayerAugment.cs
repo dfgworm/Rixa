@@ -5,6 +5,7 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
+using Mirror;
 using MyEcs.Net;
 using MyEcs.Spawn;
 
@@ -31,15 +32,16 @@ public class PlayerAugment : MonoBehaviour, ISpawnAugment, IDestroyAugment
             EcsStatic.GetPool<ECMover>().Add(ent).speed = moveSpeed;
             EcsStatic.GetPool<ECSyncSend>().Add(ent).payload = new BaggagePayload().Add(new PositionBaggage());
         }
-        else
+        else if (NetStatic.IsServer)
         {
             EcsStatic.GetPool<ECSyncReceive>().Add(ent);
-            if (NetStatic.IsServer)
-            {
-                ref var send = ref EcsStatic.GetPool<ECSyncSend>().Add(ent);
-                send.payload = new BaggagePayload().Add(new PositionBaggage());
-                send.exceptConnectionId = pb.connection.connectionId;
-            }
+            ref var send = ref EcsStatic.GetPool<ECInterpolatePositionSend>().Add(ent);
+            send.sendPeriod = 1 / 15f;
+            send.exceptionConnectionId = pb.connection.connectionId;
+        }
+        else
+        {
+            EcsStatic.GetPool<ECInterpolatePositionReceive>().Add(ent).Reset(EcsStatic.GetPool<ECPosition>().Get(ent).position, (float)NetworkTime.time);
         }
 
     }

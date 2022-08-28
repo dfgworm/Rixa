@@ -40,7 +40,7 @@ namespace MyEcs.Net
                 bufferMessage.netId = netId.id;
                 bufferPayload.UpdateThis(world.Value, ent);
                 if (NetStatic.IsServer)
-                    NetCommunication.BroadcastToReadyExcept(send.exceptConnectionId, bufferMessage, Channels.Unreliable);
+                    NetCommunication.BroadcastToReadyExcept(send.exceptionConnectionId, bufferMessage, Channels.Unreliable);
                 else
                     NetCommunication.SendToServer(bufferMessage, Channels.Unreliable);
             }
@@ -54,7 +54,7 @@ namespace MyEcs.Net
     }
     public struct ECSyncSend
     {
-        public int exceptConnectionId;
+        public int exceptionConnectionId;
         public BaggagePayload payload;
     }
     public struct NetSyncMessage :NetworkMessage

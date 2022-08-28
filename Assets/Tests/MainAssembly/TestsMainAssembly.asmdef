@@ -1,0 +1,35 @@
+{
+    "name": "TestsMainAssembly",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Leopotam.EcsLite",
+        "Leopotam.EcsLite.Di",
+        "Leopotam.EcsLite.ExtendedSystems",
+        "Leopotam.EcsLite.ExtendedSystemsDI",
+        "Mirror",
+        "Mirror.Authenticators",
+        "Mirror.Components",
+        "Mirror.Editor",
+        "Unity.Mirror.CodeGen",
+        "Mirror.CompilerSymbols",
+        "MyEcsBase",
+        "MyEcsSpawn",
+        "MyEcsNet",
+        "MainAssembly"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

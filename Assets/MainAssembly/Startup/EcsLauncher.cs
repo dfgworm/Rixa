@@ -38,6 +38,7 @@ public class EcsLauncher
             .DelHere<EMSpawned>()
             .Add(bus.GetClearSystem())
 
+            .Add(new InterpolatedPositionSystem())
             .Add(new SyncSendSystem())
             .Add(new SyncReceiveSystem())
             ;
