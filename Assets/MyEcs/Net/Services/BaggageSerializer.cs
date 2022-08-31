@@ -21,21 +21,11 @@ namespace MyEcs.Net
                 return;
             _init = true;
             typeToId = new Dictionary<Type, byte>();
-            idToType = new List<Type>();
-            byte idCount = 0;
-            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
-                foreach (Type type in assembly.GetTypes())
-                    if (typeof(IBaggage).IsAssignableFrom(type))
-                    {
-                        idToType.Add(type);
-                        idCount++;
-                        if (idCount == 0b_1111_1111)
-                            throw new Exception(typeof(IBaggage).Name+" class count exceeded maximum");
-                    }
-
-            idToType.Sort( (x,y) => x.Name.CompareTo(y.Name) );
-            for (byte i = 0; i < idCount; i++)
+            idToType = TypeSerializer.ProduceIdList(typeof(IBaggage));
+            for (byte i = 0; i < idToType.Count; i++)
+            {
                 typeToId.Add(idToType[i], i);
+            }
         }
         public static Type GetType(byte id)
         {

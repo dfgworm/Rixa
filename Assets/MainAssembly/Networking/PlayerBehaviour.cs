@@ -59,6 +59,7 @@ public class PlayerBehaviour : NetworkBehaviour
     {
         ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
         ev.payload = new BaggagePayload()
+            .Add(new SpawnPipelineBaggage(typeof(PlayerSpawnPipeline)))
             .Add(new PrefabIdBaggage { id = PrefabId.player } )
             .Add(new PositionBaggage { position = new Vector2(2,2) } )
             .Add(new NetOwnerBaggage { playerId = playerId })
