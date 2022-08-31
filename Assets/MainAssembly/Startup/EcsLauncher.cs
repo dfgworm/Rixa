@@ -31,6 +31,7 @@ public class EcsLauncher
             .Add(new PlayerInputSystem())
 
             .Add(new SpawnSystem())
+            .Add(new SpawnPipelineSystem())
             .Add(new NetSpawnSystem())
             //.Add(new DebugSystem())
 

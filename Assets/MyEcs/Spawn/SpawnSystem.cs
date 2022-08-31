@@ -12,8 +12,6 @@ namespace MyEcs.Spawn
     {
         readonly EcsWorldInject world = default;
 
-        readonly EcsFilterInject<Inc<ECGameObject, EMSpawned>> gameObjectFilter = default;
-
         readonly EcsCustomInject<EventBus> bus = default;
 
 
@@ -25,8 +23,6 @@ namespace MyEcs.Spawn
         {
             foreach (int i in bus.Value.GetEventBodies<EVSpawn>(out var pool))
                 SpawnEntity(i, ref pool.Get(i));
-            foreach (int i in gameObjectFilter.Value)
-                Augment(i, gameObjectFilter.Pools.Inc1.Get(i).gameObject);
         }
         void SpawnEntity(int eventId, ref EVSpawn ev)
         {
@@ -37,21 +33,6 @@ namespace MyEcs.Spawn
             ev.payload.UnloadToWorld(world.Value, entity);
         }
 
-        void Augment(int entity, GameObject go)
-        {
-
-            ISpawnEarlyAugment[] earlyAugmenters = go.GetComponents<ISpawnEarlyAugment>();
-            foreach (var aug in earlyAugmenters)
-                aug.EarlyAugment(entity);
-
-            ISpawnAugment[] augmenters = go.GetComponents<ISpawnAugment>();
-            foreach (var aug in augmenters)
-                aug.SpawnAugment(entity);
-
-            ISpawnLateAugment[] lateAugmenters = go.GetComponents<ISpawnLateAugment>();
-            foreach (var aug in lateAugmenters)
-                aug.LateAugment(entity);
-        }
     }
     public struct EVSpawn : IEventReplicant
     {
@@ -61,17 +42,5 @@ namespace MyEcs.Spawn
     public struct EMSpawned
     {
         public BaggagePayload payload;
-    }
-    public interface ISpawnEarlyAugment
-    {
-        public void EarlyAugment(int ent);
-    }
-    public interface ISpawnAugment
-    {
-        public void SpawnAugment(int ent);
-    }
-    public interface ISpawnLateAugment
-    {
-        public void LateAugment(int ent);
     }
 }

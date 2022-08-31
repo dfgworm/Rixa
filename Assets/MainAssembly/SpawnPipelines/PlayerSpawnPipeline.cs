@@ -9,14 +9,13 @@ using Mirror;
 using MyEcs.Net;
 using MyEcs.Spawn;
 
-public class PlayerAugment : MonoBehaviour, ISpawnAugment, IDestroyAugment
+public class PlayerSpawnPipeline : ISpawnPipeline
 {
     public float moveSpeed = 5f;
-    public void SpawnAugment(int ent)
+    public void Spawn(EcsWorld world, int ent)
     {
         Debug.Log("Player Augmenting");
 
-        var world = EcsStatic.world;
         ref var netOwner = ref EcsStatic.GetPool<ECNetOwner>().Get(ent);
         var pb = PlayerBehaviour.GetById(netOwner.playerId);
 
@@ -45,7 +44,7 @@ public class PlayerAugment : MonoBehaviour, ISpawnAugment, IDestroyAugment
         }
 
     }
-    public void DestroyAugment(int ent)
+    public void Destroy(EcsWorld world, int ent)
     {
 
     }

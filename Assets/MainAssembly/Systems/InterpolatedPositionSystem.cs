@@ -7,8 +7,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Mirror;
 
-using MyEcs.Spawn;
-
 namespace MyEcs.Net
 {
     public class InterpolatedPositionSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
@@ -17,7 +15,6 @@ namespace MyEcs.Net
         public static float interpolationDelay = 0.1f;
 
 
-        readonly EcsWorldInject world = default;
 
         readonly EcsPoolInject<ECInterpolatePositionReceive> recPool = default;
 
