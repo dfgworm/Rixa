@@ -41,7 +41,6 @@ public class PlayerBehaviour : NetworkBehaviour
     {
         localPlayer = this;
         CmdReady();
-        Debug.Log("PB Authority started");
     }
     public override void OnStopAuthority()
     {
@@ -52,7 +51,6 @@ public class PlayerBehaviour : NetworkBehaviour
     {
         NetSpawnSystem.SendAllToClient(connection);
         SpawnModel();
-        Debug.Log("CmdReady");
     }
     [Server]
     public void SpawnModel()

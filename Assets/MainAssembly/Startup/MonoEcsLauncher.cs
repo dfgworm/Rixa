@@ -9,10 +9,10 @@ public class MonoEcsLauncher : MonoBehaviour
     private void Awake()
     {
         ecsSystems = new EcsLauncher();
+        ecsSystems.Start();
     }
     private void Start()
     {
-        ecsSystems.Start();
     }
     private void Update()
     {
