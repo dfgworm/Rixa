@@ -45,6 +45,7 @@ public class MyNetworkManager : NetworkManager
             // this is now allowed (was not for a while)
             //Debug.Log("Ready with no player object");
         }
+        Debug.Log("Client ready");
         NetworkServer.SetClientReady(conn);
     }
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
@@ -81,6 +82,7 @@ public class MyNetworkManager : NetworkManager
     public override void OnClientSceneChanged()
     {
         // always become ready.
+        Debug.Log("Client Scene Changed, is ready: "+ NetworkClient.ready);
         if (!NetworkClient.ready) NetworkClient.Ready();
 
         // Only call AddPlayer for normal scene changes, not additive load/unload

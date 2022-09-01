@@ -41,7 +41,6 @@ public class PlayerBehaviour : NetworkBehaviour
     {
         localPlayer = this;
         CmdReady();
-        Debug.Log("PB Authority started");
     }
     public override void OnStopAuthority()
     {
