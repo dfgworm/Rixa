@@ -32,7 +32,7 @@ public class NetSpawnTest
 
         var msg = new NetSpawnMessage { payload = payload };
 
-        system.ReadSyncPacket(ref msg, 0);
+        system.ReadPacket(ref msg, 0);
 
         EVSpawn sp = new EVSpawn();
         ref var ev = ref sp;

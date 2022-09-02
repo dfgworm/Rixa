@@ -13,7 +13,7 @@ namespace MyEcs.Net
     {
         private static Dictionary<ushort, EcsPackedEntityWithWorld> netEntities = new Dictionary<ushort, EcsPackedEntityWithWorld>();
         private static ushort nextId = 1;
-        [Server]
+        //[Server]
         public static ushort AllocateNetId()
         {
             ushort id = nextId;
@@ -57,7 +57,7 @@ namespace MyEcs.Net
             ent = -1;
             return false;
         }
-        [Server]
+        //[Server]
         public static bool IsNetIdUsed(ushort netId)
         {
             return netId > 0 && netId < nextId;

@@ -35,9 +35,11 @@ public class EcsLauncher
             .Add(new NetSpawnSystem())
             //.Add(new DebugSystem())
 
+            .Add(new NetDestroySystem())
             .Add(new DestroySystem())
             .DelHere<EMSpawned>()
-            .Add(bus.GetClearSystem())
+            .Add(bus.GetDestroyEventsSystem().IncReplicant<EVSpawn>())
+            //.Add(bus.GetClearSystem())
 
             .Add(new InterpolatedPositionSystem())
             .Add(new SyncSendSystem())

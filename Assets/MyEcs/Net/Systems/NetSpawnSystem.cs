@@ -30,19 +30,13 @@ namespace MyEcs.Net
             foreach (int i in _instance.autoSpawnFilter.Value)
                 NetCommunication.SendToClient(conn, _instance.ConstructMessage(i), Channels.Reliable);
         }
-        [Server]
-        public static void SendToClients(int ent)
-        {
-            var msg = _instance.ConstructMessage(ent);
-            NetCommunication.BroadcastToReady(msg, Channels.Reliable);
-        }
         public void Init(IEcsSystems systems)
         {
             _instance = this;
             if (NetStatic.IsServer) { }
             //NetworkServer.RegisterHandler<NetSpawnMessage>(ReadSyncPacketServer);
-            else if (NetStatic.IsClient) { }
-                NetworkClient.RegisterHandler<NetSpawnMessage>(ReadSyncPacketClient);
+            else if (NetStatic.IsClient)
+                NetworkClient.RegisterHandler<NetSpawnMessage>(ReadPacketClient);
         }
 
         public void Run(IEcsSystems systems)
@@ -51,20 +45,16 @@ namespace MyEcs.Net
                 foreach (int i in justSpawnedFilter.Value)
                 {
                     justSpawnedFilter.Pools.Inc2.Get(i).payload = justSpawnedFilter.Pools.Inc1.Get(i).payload;
-                    SendToClients(i);
+                    var msg = _instance.ConstructMessage(i);
+                    NetCommunication.BroadcastToReady(msg, Channels.Reliable);
                 }
         }
-        [Server]
-        public void ReadSyncPacketServer(NetworkConnection conn, NetSpawnMessage msg)
-        {
-            ReadSyncPacket(ref msg, (float)conn.remoteTimeStamp);
-        }
         [Client]
-        public void ReadSyncPacketClient(NetSpawnMessage msg)
+        public void ReadPacketClient(NetSpawnMessage msg)
         {
-            ReadSyncPacket(ref msg, (float)NetworkClient.connection.remoteTimeStamp);
+            ReadPacket(ref msg, (float)NetworkClient.connection.remoteTimeStamp);
         }
-        public void ReadSyncPacket(ref NetSpawnMessage msg, float time)
+        public void ReadPacket(ref NetSpawnMessage msg, float time)
         {
             ref var spawnEv = ref bus.Value.NewEvent<EVSpawn>();
             spawnEv.payload = msg.payload;
