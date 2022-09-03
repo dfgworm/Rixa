@@ -9,7 +9,8 @@ using Mirror;
 using MyEcs.Net;
 using MyEcs.Spawn;
 
-public class PlayerSpawnPipeline : ISpawnPipeline
+[CreateAssetMenu(fileName = nameof(PlayerSpawnPipeline), menuName = "SpawnPipelines/"+nameof(PlayerSpawnPipeline), order = 1)]
+public class PlayerSpawnPipeline : ScriptableObject, ISpawnPipeline
 {
     public float moveSpeed = 5f;
     public void Spawn(EcsWorld world, int ent)

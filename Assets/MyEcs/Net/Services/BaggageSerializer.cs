@@ -15,6 +15,7 @@ namespace MyEcs.Net
         static Dictionary<Type, byte> typeToId;
         static List<Type> idToType;
         static bool _init = false;
+        [RuntimeInitializeOnLoadMethod]
         public static void Init()
         {
             if (_init)

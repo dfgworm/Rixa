@@ -28,6 +28,7 @@ public class MyNetworkManager : NetworkManager
             }
 #endif
         DontDestroyOnLoad(this);
+
     }
     public override void OnStartServer()
     {
