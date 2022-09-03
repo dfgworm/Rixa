@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 790.4
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 311
+  controlID: 121
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 55
+  controlID: 97
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 56
+  controlID: 98
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 261.6
     height: 476
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -217,14 +217,14 @@ MonoBehaviour:
     height: 476
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 14}
   - {fileID: 12}
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -244,15 +244,15 @@ MonoBehaviour:
     y: 476
     width: 1182.4
     height: 264.40002
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: 257045534191678443, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -2087823869225018852, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: -9000905672528348964, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -590624980919486359, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -406,9 +406,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d43fffff
-      m_LastClickedID: -49196
-      m_ExpandedIDs: d43fffffc4f3ffff7cf4fffff4f4fffff8f4ffff2afbffff
+      m_SelectedIDs: 286a0000
+      m_LastClickedID: 27176
+      m_ExpandedIDs: 36fbffff386a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: -131512000283675692, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 2318424515335265636, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -658,9 +658,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 153.96956, y: -42.930435, z: -201.19531}
+    m_Target: {x: 364.6989, y: 234.20631, z: -5.633892}
     speed: 2
-    m_Value: {x: 153.96956, y: -42.930435, z: -201.19531}
+    m_Value: {x: 364.6989, y: 234.20631, z: -5.633892}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -707,13 +707,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0011199388, y: -0.9613497, z: 0.2802483, w: -0.010381125}
+    m_Target: {x: 0.030337732, y: -0.8709312, z: -0.047219876, w: -0.49111107}
     speed: 2
-    m_Value: {x: 0.0011492696, y: -0.96082205, z: 0.2769698, w: -0.010363026}
+    m_Value: {x: 0.03190828, y: -0.8680674, z: -0.049669404, w: -0.4929237}
   m_Size:
-    m_Target: 154.06651
+    m_Target: 75.873436
     speed: 2
-    m_Value: 147.43207
+    m_Value: 72.606155
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_MaxSize: {x: 2048, y: 2048}
   m_TitleContent:
     m_Text: Asset Store
-    m_Image: {fileID: -4391848389275900105, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 357073275683767465, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animator
-    m_Image: {fileID: -6973158847631862895, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 663490763026382308, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -2032128904892744680, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -7501376956915960154, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -889,9 +889,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 72770000
-    m_LastClickedID: 30578
-    m_ExpandedIDs: 00000000726a000032770000387700008e79000000ca9a3bffffff7f
+    m_SelectedIDs: f06c0000
+    m_LastClickedID: 27888
+    m_ExpandedIDs: 00000000966a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -919,7 +919,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000726a0000
+    m_ExpandedIDs: 00000000966a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -944,8 +944,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 286a0000
+    m_LastClickedInstanceID: 27176
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -3303252850963283158, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 111653112392082826, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Audio Mixer
-    m_Image: {fileID: 923997255885558976, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 5436946869657106676, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Profiler
-    m_Image: {fileID: -3113586994723608586, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 248956144125838126, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 119
+    ID: 729
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -2177,7 +2177,7 @@ MonoBehaviour:
       name: LifesBane
       fullName: LifesBane
       resultStatus: 1
-      duration: 0.6561714
+      duration: 0.6542501
       messages: 
       output: 
       stacktrace: 
@@ -2193,7 +2193,7 @@ MonoBehaviour:
       name: TestsBase.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsBase.dll
       resultStatus: 1
-      duration: 0.086241
+      duration: 0.0595411
       messages: 
       output: 
       stacktrace: 
@@ -2209,7 +2209,7 @@ MonoBehaviour:
       name: EcsBaseTest
       fullName: EcsBaseTest
       resultStatus: 1
-      duration: 0.0778997
+      duration: 0.0476412
       messages: 
       output: 
       stacktrace: 
@@ -2225,7 +2225,7 @@ MonoBehaviour:
       name: SetEntity
       fullName: EcsBaseTest.SetEntity
       resultStatus: 1
-      duration: 0.0394901
+      duration: 0.0235076
       messages: 
       output: 
       stacktrace: 
@@ -2242,7 +2242,7 @@ MonoBehaviour:
       name: SetGameObject
       fullName: EcsBaseTest.SetGameObject
       resultStatus: 1
-      duration: 0.0042505
+      duration: 0.0043137
       messages: 
       output: 
       stacktrace: 
@@ -2259,7 +2259,7 @@ MonoBehaviour:
       name: TestsMainAssembly.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsMainAssembly.dll
       resultStatus: 1
-      duration: 0.0107132
+      duration: 0.0114226
       messages: 
       output: 
       stacktrace: 
@@ -2275,7 +2275,7 @@ MonoBehaviour:
       name: InterpolationTest
       fullName: InterpolationTest
       resultStatus: 1
-      duration: 0.0066718
+      duration: 0.0086047
       messages: 
       output: 
       stacktrace: 
@@ -2291,7 +2291,7 @@ MonoBehaviour:
       name: PositionInterpolation
       fullName: InterpolationTest.PositionInterpolation
       resultStatus: 1
-      duration: 0.0036213
+      duration: 0.0055956
       messages: 
       output: 
       stacktrace: 
@@ -2308,7 +2308,7 @@ MonoBehaviour:
       name: TestsNet.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll
       resultStatus: 1
-      duration: 0.2585786
+      duration: 0.2610653
       messages: 
       output: 
       stacktrace: 
@@ -2319,12 +2319,62 @@ MonoBehaviour:
       categories: []
       parentId: 1000
       parentUniqueId: '[LifesBane][suite]'
+    - id: 1008
+      uniqueId: TestsNet.dll/[TestsNet][NetDestroyTest][suite]
+      name: NetDestroyTest
+      fullName: NetDestroyTest
+      resultStatus: 1
+      duration: 0.2098639
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1017
+      parentUniqueId: '[TestsNet][D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll][suite]'
+    - id: 1010
+      uniqueId: TestsNet.dll/NetDestroyTest/[TestsNet][NetDestroyTest.DelayedDestroy]
+      name: DelayedDestroy
+      fullName: NetDestroyTest.DelayedDestroy
+      resultStatus: 1
+      duration: 0.2044542
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: TestsNet.dll/[TestsNet][NetDestroyTest][suite]
+    - id: 1009
+      uniqueId: TestsNet.dll/NetDestroyTest/[TestsNet][NetDestroyTest.Destroy]
+      name: Destroy
+      fullName: NetDestroyTest.Destroy
+      resultStatus: 1
+      duration: 0.002124
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: TestsNet.dll/[TestsNet][NetDestroyTest][suite]
     - id: 1005
       uniqueId: TestsNet.dll/[TestsNet][NetSpawnTest][suite]
       name: NetSpawnTest
       fullName: NetSpawnTest
       resultStatus: 1
-      duration: 0.2125684
+      duration: 0.0230813
       messages: 
       output: 
       stacktrace: 
@@ -2340,7 +2390,7 @@ MonoBehaviour:
       name: ConstructMessageAutosync
       fullName: NetSpawnTest.ConstructMessageAutosync
       resultStatus: 1
-      duration: 0.2023012
+      duration: 0.011845
       messages: 
       output: 
       stacktrace: 
@@ -2357,7 +2407,7 @@ MonoBehaviour:
       name: NetSpawnEntity
       fullName: NetSpawnTest.NetSpawnEntity
       resultStatus: 1
-      duration: 0.0061465
+      duration: 0.0067927
       messages: 
       output: 
       stacktrace: 
@@ -2374,7 +2424,7 @@ MonoBehaviour:
       name: ServiceTest
       fullName: ServiceTest
       resultStatus: 1
-      duration: 0.042164
+      duration: 0.0241271
       messages: 
       output: 
       stacktrace: 
@@ -2390,7 +2440,7 @@ MonoBehaviour:
       name: BaggageSerializerTest
       fullName: ServiceTest.BaggageSerializerTest
       resultStatus: 1
-      duration: 0.0297781
+      duration: 0.012902
       messages: 
       output: 
       stacktrace: 
@@ -2407,15 +2457,9 @@ MonoBehaviour:
       name: NetIdTest
       fullName: ServiceTest.NetIdTest
       resultStatus: 1
-      duration: 0.0087268
+      duration: 0.0008842
       messages: 
-      output: '[Server] function ''System.Boolean MyEcs.Net.NetIdService::IsNetIdUsed(System.UInt16)''
-        called when server was not active
-
-        [Server] function ''System.UInt16
-        MyEcs.Net.NetIdService::AllocateNetId()'' called when server was not active
-
-'
+      output: 
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -2430,7 +2474,7 @@ MonoBehaviour:
       name: TestsSpawn.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll
       resultStatus: 1
-      duration: 0.1578227
+      duration: 0.1395098
       messages: 
       output: 
       stacktrace: 
@@ -2446,7 +2490,7 @@ MonoBehaviour:
       name: BaggageTest
       fullName: BaggageTest
       resultStatus: 1
-      duration: 0.0195622
+      duration: 0.014924
       messages: 
       output: 
       stacktrace: 
@@ -2462,7 +2506,7 @@ MonoBehaviour:
       name: BaggageListTest
       fullName: BaggageTest.BaggageListTest
       resultStatus: 1
-      duration: 0.0103427
+      duration: 0.0067252
       messages: 
       output: 
       stacktrace: 
@@ -2479,7 +2523,7 @@ MonoBehaviour:
       name: UnloadTest
       fullName: BaggageTest.UnloadTest
       resultStatus: 1
-      duration: 0.0024861
+      duration: 0.0021058
       messages: 
       output: 
       stacktrace: 
@@ -2496,7 +2540,7 @@ MonoBehaviour:
       name: UpdatableBaggageTest
       fullName: BaggageTest.UpdatableBaggageTest
       resultStatus: 1
-      duration: 0.0012269
+      duration: 0.0018056
       messages: 
       output: 
       stacktrace: 
@@ -2513,7 +2557,7 @@ MonoBehaviour:
       name: DestroyTest
       fullName: DestroyTest
       resultStatus: 1
-      duration: 0.0133146
+      duration: 0.0067283
       messages: 
       output: 
       stacktrace: 
@@ -2529,7 +2573,7 @@ MonoBehaviour:
       name: DelayedDestroyEntity
       fullName: DestroyTest.DelayedDestroyEntity
       resultStatus: 1
-      duration: 0.0091566
+      duration: 0.0022081
       messages: 
       output: 
       stacktrace: 
@@ -2546,7 +2590,7 @@ MonoBehaviour:
       name: DestroyEntity
       fullName: DestroyTest.DestroyEntity
       resultStatus: 1
-      duration: 0.0004985
+      duration: 0.000473
       messages: 
       output: 
       stacktrace: 
@@ -2563,7 +2607,7 @@ MonoBehaviour:
       name: SpawnPipelineTest
       fullName: SpawnPipelineTest
       resultStatus: 1
-      duration: 0.1014484
+      duration: 0.1040284
       messages: 
       output: 
       stacktrace: 
@@ -2579,7 +2623,7 @@ MonoBehaviour:
       name: PipelineSpawnDestroyActivation
       fullName: SpawnPipelineTest.PipelineSpawnDestroyActivation
       resultStatus: 1
-      duration: 0.0976243
+      duration: 0.097307
       messages: 
       output: 
       stacktrace: 
@@ -2596,7 +2640,7 @@ MonoBehaviour:
       name: SpawnTest
       fullName: SpawnTest
       resultStatus: 1
-      duration: 0.0112619
+      duration: 0.0085264
       messages: 
       output: 
       stacktrace: 
@@ -2612,7 +2656,7 @@ MonoBehaviour:
       name: SpawnEntity
       fullName: SpawnTest.SpawnEntity
       resultStatus: 1
-      duration: 0.0009024
+      duration: 0.001227
       messages: 
       output: 
       stacktrace: 
@@ -2629,7 +2673,7 @@ MonoBehaviour:
       name: UnloadBaggage
       fullName: SpawnTest.UnloadBaggage
       resultStatus: 1
-      duration: 0.0028108
+      duration: 0.0023048
       messages: 
       output: 
       stacktrace: 
@@ -2641,13 +2685,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1012
       parentUniqueId: TestsSpawn.dll/[TestsSpawn][SpawnTest][suite]
-    m_ResultText: PipelineSpawnDestroyActivation (0.098s)
+    m_ResultText: DelayedDestroy (0.204s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 979f6d1f
-      m_LastClickedID: 527277975
-      m_ExpandedIDs: d6fd2781ec040e9596129d9a195d8dae25732bb9c32195c101214bc656328fd011c108d8774c36e1618fcae15f993201bd41f902fff04e1880d3982103fe4433388d6a36c74f0e524ff9485307aeb6539d948756db71c45601a3086a8a3a876d80b6607effffff7f
+      m_SelectedIDs: f2fcd236
+      m_LastClickedID: 919796978
+      m_ExpandedIDs: d6fd2781ec040e9596129d9a195d8dae25732bb9c32195c101214bc656328fd011c108d8774c36e1618fcae15f993201bd41f902fff04e1880d3982103fe4433388d6a36c74f0e524ff9485307aeb6539d948756db71c4567e6c2c6401a3086a8a3a876d80b6607effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

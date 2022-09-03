@@ -14,7 +14,6 @@ public class PlayerSpawnPipeline : ISpawnPipeline
     public float moveSpeed = 5f;
     public void Spawn(EcsWorld world, int ent)
     {
-        Debug.Log("Player Augmenting");
 
         ref var netOwner = ref EcsStatic.GetPool<ECNetOwner>().Get(ent);
         var pb = PlayerBehaviour.GetById(netOwner.playerId);
@@ -29,7 +28,9 @@ public class PlayerSpawnPipeline : ISpawnPipeline
         if (netOwner.BelongsToLocalPlayer)
         {
             EcsStatic.GetPool<ECMover>().Add(ent).speed = moveSpeed;
-            EcsStatic.GetPool<ECSyncSend>().Add(ent).payload = new BaggagePayload().Add(new PositionBaggage());
+            ref var send = ref EcsStatic.GetPool<ECSyncSend>().Add(ent);
+            send.sendPeriod = 1 / 15;
+            send.payload = new BaggagePayload().Add(new PositionBaggage());
         }
         else if (NetStatic.IsServer)
         {

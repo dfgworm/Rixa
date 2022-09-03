@@ -82,7 +82,6 @@ public class MyNetworkManager : NetworkManager
     public override void OnClientSceneChanged()
     {
         // always become ready.
-        Debug.Log("Client Scene Changed, is ready: "+ NetworkClient.ready);
         if (!NetworkClient.ready) NetworkClient.Ready();
 
         // Only call AddPlayer for normal scene changes, not additive load/unload

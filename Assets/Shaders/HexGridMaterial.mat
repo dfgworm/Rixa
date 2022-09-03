@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HexGridMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: f0f3d1b866d60c54a8b858648645a552,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: b7e91b75d51df3b4eb653bb6ae6f5838, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4

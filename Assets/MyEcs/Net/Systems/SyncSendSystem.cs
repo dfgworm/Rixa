@@ -33,6 +33,9 @@ namespace MyEcs.Net
         }
         public void SendSync(int ent, ref ECSyncSend send, ref ECNetId netId)
         {
+            if (!send.PeriodPassed)
+                return;
+            send.SetNext();
             bufferPayload.List.Clear();
             int c = send.payload.GetNeedsUpdate(world.Value, ent, bufferPayload.List);
             if (c > 0)
@@ -54,8 +57,12 @@ namespace MyEcs.Net
     }
     public struct ECSyncSend
     {
+        public bool PeriodPassed => nextSend < Time.time;
+        public float sendPeriod;
         public int exceptionConnectionId;
         public BaggagePayload payload;
+        float nextSend;
+        public void SetNext() => nextSend = Time.time + sendPeriod;
     }
     public struct NetSyncMessage :NetworkMessage
     {
