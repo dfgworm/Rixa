@@ -1,24 +1,14 @@
 {
-    "name": "TestsMainAssembly",
+    "name": "TestsPhysics",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Leopotam.EcsLite",
-        "Leopotam.EcsLite.Di",
-        "Leopotam.EcsLite.ExtendedSystems",
-        "Leopotam.EcsLite.ExtendedSystemsDI",
-        "Mirror",
-        "Mirror.Authenticators",
-        "Mirror.Components",
-        "Mirror.Editor",
-        "Unity.Mirror.CodeGen",
-        "Mirror.CompilerSymbols",
         "MyEcsBase",
-        "MyEcsSpawn",
-        "MyEcsNet",
         "MyEcsPhysics",
-        "MainAssembly"
+        "Leopotam.EcsLite.Di",
+        "Mirror"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

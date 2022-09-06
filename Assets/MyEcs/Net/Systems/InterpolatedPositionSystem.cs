@@ -7,6 +7,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Mirror;
 
+
 namespace MyEcs.Net
 {
     public class InterpolatedPositionSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem

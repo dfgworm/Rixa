@@ -8,11 +8,15 @@ using Leopotam.EcsLite;
 using Mirror;
 using MyEcs.Net;
 using MyEcs.Spawn;
+using MyEcs.Physics;
 
-[CreateAssetMenu(fileName = nameof(PlayerSpawnPipeline), menuName = "SpawnPipelines/"+nameof(PlayerSpawnPipeline), order = 1)]
 public class PlayerSpawnPipeline : ScriptableObject, ISpawnPipeline
 {
     public float moveSpeed = 5f;
+    public float collisionSize = 1f;
+    public float syncPeriodFromClient = 1 / 20f;
+    public float syncPeriodFromServer = 1 / 20f;
+
     public void Spawn(EcsWorld world, int ent)
     {
 
@@ -28,16 +32,24 @@ public class PlayerSpawnPipeline : ScriptableObject, ISpawnPipeline
         EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
         if (netOwner.BelongsToLocalPlayer)
         {
-            EcsStatic.GetPool<ECMover>().Add(ent).speed = moveSpeed;
+            ref var acc = ref EcsStatic.GetPool<ECAcceleration>().Add(ent);
+            acc.targetSpeed = moveSpeed;
+            acc.acceleration = 25;
+            EcsStatic.GetPool<ECVelocity>().Add(ent);
+            EcsStatic.GetPool<ECRespectObstacles>().Add(ent);
+            ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
+            col.type = ColliderType.circle;
+            col.size = new Vector2(collisionSize, 0);
+
             ref var send = ref EcsStatic.GetPool<ECSyncSend>().Add(ent);
-            send.sendPeriod = 1 / 15;
+            send.sendPeriod = syncPeriodFromClient;
             send.payload = new BaggagePayload().Add(new PositionBaggage());
         }
         else if (NetStatic.IsServer)
         {
             EcsStatic.GetPool<ECSyncReceive>().Add(ent);
             ref var send = ref EcsStatic.GetPool<ECInterpolatePositionSend>().Add(ent);
-            send.sendPeriod = 1 / 15f;
+            send.sendPeriod = syncPeriodFromServer;
             send.exceptionConnectionId = pb.connection.connectionId;
         }
         else

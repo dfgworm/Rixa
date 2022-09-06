@@ -9,6 +9,12 @@ using Leopotam.EcsLite;
 
 public static class EcsGameObjectService
 {
+    public static void Link(int entity, GameObject go) => Link(EcsStatic.world, entity, go);
+    public static void Link(EcsWorld world, int entity, GameObject go)
+    {
+        SetEntity(go, world, entity);
+        SetGameObject(world, entity, go);
+    }
     public static void SetEntity(GameObject gb, int entity) => SetEntity(gb, EcsStatic.world, entity);
     public static void SetEntity(GameObject gb, EcsWorld world, int entity)
     {
@@ -55,8 +61,4 @@ public static class EcsGameObjectService
             return null;
         return pool.Get(entity).gameObject;
     }
-}
-public struct ECGameObject
-{
-    public GameObject gameObject;
 }

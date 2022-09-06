@@ -9,22 +9,20 @@ using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.ExtendedSystems;
 
 using MyEcs.Spawn;
+using MyEcs.Physics;
 using MyEcs.Net;
 
 public class EcsLauncher
 {
-    EcsWorld world;
     IEcsSystems updateSystems;
     IEcsSystems fixedUpdateSystems;
-    EventBus bus;
 
     public void Start()
     {
         Debug.Log("EcsSystemService Starting");
         EcsStatic.Load();
         PrefabRegistry.Init();
-        world = EcsStatic.world;
-        bus = EcsStatic.bus;
+        var bus = EcsStatic.bus;
 
         updateSystems = EcsStatic.updateSystems
 
@@ -46,9 +44,14 @@ public class EcsLauncher
             .Add(new SyncReceiveSystem())
             ;
         fixedUpdateSystems = EcsStatic.fixedUpdateSystems
-            .Add(new PositionSystem())
+            .Add(new MovementSystem())
             .Add(new RotationSystem())
             .Add(new TransformSystem())
+
+            .Add(bus.GetDestroyEventsSystem().IncReplicant<EVCollision>())
+            .Add(new CollisionSystem())
+            .Add(new MovementObstacleSystem())
+
             ;
         EcsStatic.updateSystems = updateSystems;
         EcsStatic.fixedUpdateSystems = fixedUpdateSystems;
@@ -58,6 +61,7 @@ public class EcsLauncher
         fixedUpdateSystems.Inject(bus)
             .Init();
 
+        InitialSpawn.Spawn();
     }
     public void Update()
     {

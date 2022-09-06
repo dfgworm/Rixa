@@ -14,7 +14,8 @@
         "Unity.Mirror.CodeGen",
         "MyEcsBase",
         "MyEcsNet",
-        "MyEcsSpawn"
+        "MyEcsSpawn",
+        "MyEcsPhysics"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

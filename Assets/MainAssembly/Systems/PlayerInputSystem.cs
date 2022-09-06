@@ -6,10 +6,12 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
+using MyEcs.Physics;
+
 public class PlayerInputSystem : IEcsRunSystem
 {
 
-    readonly EcsFilterInject<Inc<ECMover, ECLocalPlayer>> moveFilter = default;
+    readonly EcsFilterInject<Inc<ECAcceleration, ECLocalPlayer>> moveFilter = default;
 
 
 
@@ -19,7 +21,7 @@ public class PlayerInputSystem : IEcsRunSystem
             ControlMove(ref moveFilter.Pools.Inc1.Get(i));
     }
 
-    void ControlMove(ref ECMover mover)
+    void ControlMove(ref ECAcceleration mover)
     {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
