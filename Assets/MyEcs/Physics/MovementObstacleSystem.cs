@@ -53,7 +53,12 @@ namespace MyEcs.Physics
         }
         void ApplyPushForce(ref ECRespectObstacles pushable, ref ECVelocity vel)
         {
-            vel.velocity += pushable.force * Time.fixedDeltaTime;
+            //perhaps i need some kind of limitation here so it doesn't push the object too hard in case of high dt?
+            //force = Mathf.min(force, vel.Dot(force.normalized));
+            //but then why don't i just nullify the velocity along push direction?
+            //Because i want the system to be soft so there are no stuck locks anywhere?
+            //Should probably act only if problems are discovered
+            vel.velocity += pushable.force * Time.fixedDeltaTime; 
         }
         bool IsMover(int ent)
         {

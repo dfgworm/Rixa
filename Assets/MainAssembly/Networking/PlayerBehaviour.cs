@@ -71,9 +71,6 @@ public class PlayerBehaviour : NetworkBehaviour
         EcsStatic.GetPool<ECDestroy>().SoftAdd(ent);
     }
 }
-public struct ECLocalPlayer
-{
-}
 public struct ECPlayerBehaviour
 {
     public PlayerBehaviour pb;

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: PlayerSpawnPipeline
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  collisionSize: 0.5
+  syncPeriodFromClient: 0.06666667
+  syncPeriodFromServer: 0.05

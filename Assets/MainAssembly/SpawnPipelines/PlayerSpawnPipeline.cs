@@ -26,7 +26,7 @@ public class PlayerSpawnPipeline : ScriptableObject, ISpawnPipeline
         world.GetPool<ECPlayerBehaviour>().Add(ent).pb = pb;
         pb.entity = world.PackEntity(ent);
         if (netOwner.BelongsToLocalPlayer)
-            world.GetPool<ECLocalPlayer>().Add(ent);
+            world.GetPool<ECLocalControllable>().Add(ent);
 
         EcsStatic.GetPool<ECNetAutoSpawn>().Add(ent);
         EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
@@ -44,6 +44,8 @@ public class PlayerSpawnPipeline : ScriptableObject, ISpawnPipeline
             ref var send = ref EcsStatic.GetPool<ECSyncSend>().Add(ent);
             send.sendPeriod = syncPeriodFromClient;
             send.payload = new BaggagePayload().Add(new PositionBaggage());
+
+            //LoadCameraFocus(world); moved it to InitialSpawn. Tying it to player seems meaningsless, should find another place
         }
         else if (NetStatic.IsServer)
         {

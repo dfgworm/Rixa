@@ -19,6 +19,7 @@ public static class InitialSpawn
         SpawnWall(5, 5);
         SpawnWall(5, 0);
         SpawnWall(0, 5);
+        LoadCameraFocus(EcsStatic.world);
     }
     static void SpawnWall(float x, float y)
     {
@@ -27,5 +28,14 @@ public static class InitialSpawn
             .Add(new PositionBaggage { position = new Vector2(x,y) })
             .Add(SpawnPipelineBaggage.Get<WallSpawnPipeline>())
             ;
+    }
+    static void LoadCameraFocus(EcsWorld world)
+    {
+        var cam = GameObject.FindObjectOfType<CameraFocus>();
+        if (!cam)
+            throw new Exception("No CameraFocus found");
+        int ent = world.NewEntity();
+        world.GetPool<ECCameraFocus>().Add(ent).focus = cam;
+
     }
 }

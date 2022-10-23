@@ -26,7 +26,10 @@ public class EcsLauncher
 
         updateSystems = EcsStatic.updateSystems
 
+            
             .Add(new PlayerInputSystem())
+            .Add(new LocalControllableSystem())
+            .Add(new LocalCameraSystem())
 
             .Add(new SpawnSystem())
             .Add(new SpawnPipelineSystem())
@@ -36,8 +39,9 @@ public class EcsLauncher
             .Add(new NetDestroySystem())
             .Add(new DestroySystem())
             .DelHere<EMSpawned>()
-            .Add(bus.GetDestroyEventsSystem().IncReplicant<EVSpawn>())
-            //.Add(bus.GetClearSystem())
+            .Add(bus.GetDestroyEventsSystem()
+                .IncReplicant<EVSpawn>()
+                )
 
             .Add(new InterpolatedPositionSystem())
             .Add(new SyncSendSystem())
@@ -48,7 +52,9 @@ public class EcsLauncher
             .Add(new RotationSystem())
             .Add(new TransformSystem())
 
-            .Add(bus.GetDestroyEventsSystem().IncReplicant<EVCollision>())
+            .Add(bus.GetDestroyEventsSystem()
+                .IncReplicant<EVCollision>()
+                )
             .Add(new CollisionSystem())
             .Add(new MovementObstacleSystem())
 
