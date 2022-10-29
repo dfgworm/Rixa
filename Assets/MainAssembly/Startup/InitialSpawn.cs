@@ -16,17 +16,30 @@ public static class InitialSpawn
 {
     public static void Spawn()
     {
-        SpawnWall(5, 5);
-        SpawnWall(5, 0);
-        SpawnWall(0, 5);
+        if (NetStatic.IsServer) {
+            SpawnWall(5, 5);
+            SpawnWall(5, 0);
+            SpawnWall(0, 5);
+            SpawnEnemy(0, -5);
+        }
         LoadCameraFocus(EcsStatic.world);
     }
     static void SpawnWall(float x, float y)
     {
         ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
-        ev.payload = new BaggagePayload()
-            .Add(new PositionBaggage { position = new Vector2(x,y) })
-            .Add(SpawnPipelineBaggage.Get<WallSpawnPipeline>())
+        ev.Payload
+            .Add(SpawnPipelineBaggage.Get<WallSP>())
+            .Add(new PositionBaggage { position = new Vector2(x, y) })
+            .Add(NetIdBaggage.Allocate())
+            ;
+    }
+    static void SpawnEnemy(float x, float y)
+    {
+        ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
+        ev.Payload
+            .Add(SpawnPipelineBaggage.Get<EnemySP>())
+            .Add(new PositionBaggage { position = new Vector2(x, y) })
+            .Add(NetIdBaggage.Allocate())
             ;
     }
     static void LoadCameraFocus(EcsWorld world)

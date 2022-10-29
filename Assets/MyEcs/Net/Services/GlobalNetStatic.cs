@@ -40,4 +40,9 @@ public static class NetStatic
             throw new Exception("SetIsServer has already been called");
         isClient = true;
     }
+    public static void Reset()
+    {
+        isClient = false;
+        isServer = false;
+    }
 }

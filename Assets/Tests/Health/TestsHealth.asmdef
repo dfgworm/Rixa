@@ -1,0 +1,29 @@
+{
+    "name": "TestsHealth",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Leopotam.EcsLite",
+        "Leopotam.EcsLite.Di",
+        "Mirror",
+        "MyEcsBase",
+        "MyEcsPhysics",
+        "MyEcsHealth",
+        "MyEcsNet",
+        "MyEcsSpawn"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

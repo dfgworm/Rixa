@@ -10,13 +10,15 @@ using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 
-public class WallSpawnPipeline : ScriptableObject, ISpawnPipeline
+public class WallSP : ScriptableObject, ISpawnPipeline
 {
     public void Spawn(EcsWorld world, int ent)
     {
         EcsStatic.GetPool<ECNetAutoSpawn>().Add(ent);
 
-        EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
+        PositionPipe.BuildPosition(world, ent, new PositionPipe.PosArgs{
+            positionToTransform = true,
+        });
         EcsStatic.GetPool<ECObstacle>().Add(ent);
         var model = GameObject.CreatePrimitive(PrimitiveType.Cube);
         EcsGameObjectService.Link(world, ent, model);

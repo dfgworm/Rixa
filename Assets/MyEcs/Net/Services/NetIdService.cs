@@ -85,7 +85,7 @@ namespace MyEcs.Net
     {
         public ushort id;
     }
-    public class NetIdBaggage : MyEcs.Spawn.IBaggage
+    public class NetIdBaggage : MyEcs.Spawn.IBaggageAutoUnload
     {
         public ushort id;
         public NetIdBaggage()
@@ -95,11 +95,11 @@ namespace MyEcs.Net
         {
             id = _id;
         }
-        public NetIdBaggage(bool allocate)
+        public static NetIdBaggage Allocate()
         {
-            id = 0;
-            if (allocate)
-                id = NetIdService.AllocateNetId();
+            var baggage = new NetIdBaggage();
+            baggage.id = NetIdService.AllocateNetId();
+            return baggage;
         }
 
         public void UnloadToWorld(EcsWorld world, int ent)

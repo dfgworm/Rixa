@@ -9,7 +9,7 @@ using Leopotam.EcsLite.Di;
 using Mirror;
 
 using MyEcs.Spawn;
-public class TestBaggage : IBaggage
+public class TestBaggage : IBaggageAutoUnload
 {
     public int val;
     public void UnloadToWorld(EcsWorld world, int ent)
@@ -17,7 +17,7 @@ public class TestBaggage : IBaggage
         world.GetPool<TestComp>().SoftAdd(ent).val = val;
     }
 }
-public class TestBaggage2 : IBaggage
+public class TestBaggage2 : IBaggageAutoUnload
 {
     public Vector3 vector;
     public void UnloadToWorld(EcsWorld world, int ent)
@@ -25,7 +25,7 @@ public class TestBaggage2 : IBaggage
         world.GetPool<TestComp>().SoftAdd(ent).vector = vector;
     }
 }
-public class TestUpdatableBaggage : IUpdatableBaggage
+public class TestUpdatableBaggage : IUpdatableBaggage, IBaggageAutoUnload
 {
     public float num;
     public bool IsUpToDate(EcsWorld world, int ent) => num == world.GetPool<TestComp>().Get(ent).num;
@@ -35,7 +35,7 @@ public class TestUpdatableBaggage : IUpdatableBaggage
         world.GetPool<TestComp>().SoftAdd(ent).num = num;
     }
 
-    public void UpdateThis(EcsWorld world, int ent) => num = world.GetPool<TestComp>().Get(ent).num;
+    public void LoadToBaggage(EcsWorld world, int ent) => num = world.GetPool<TestComp>().Get(ent).num;
 }
 public struct TestComp
 {

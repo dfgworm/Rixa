@@ -13,9 +13,17 @@ public static class VectorExtentions
     {
         return Mathf.Abs(v1.x - v2.x) < Vector2.kEpsilon && Mathf.Abs(v1.y - v2.y) < Vector2.kEpsilon;
     }
+    public static Vector3 Vec3(this Vector2 v)
+    {
+        return new Vector3(v.x, 0, v.y);
+    }
     public static bool FuzzyEquals(this Vector3 v1, Vector3 v2)
     {
         return Mathf.Abs(v1.x - v2.x) < Vector3.kEpsilon && Mathf.Abs(v1.y - v2.y) < Vector3.kEpsilon && Mathf.Abs(v1.z - v2.z) < Vector3.kEpsilon;
+    }
+    public static Vector2 Vec2(this Vector3 v)
+    {
+        return new Vector2(v.x, v.z);
     }
 
 }

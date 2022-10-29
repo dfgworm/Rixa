@@ -15,7 +15,8 @@
         "MyEcsBase",
         "MyEcsNet",
         "MyEcsSpawn",
-        "MyEcsPhysics"
+        "MyEcsPhysics",
+        "MyEcsHealth"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

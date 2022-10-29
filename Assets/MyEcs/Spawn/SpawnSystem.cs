@@ -27,17 +27,25 @@ namespace MyEcs.Spawn
         void SpawnEntity(int eventId, ref EVSpawn ev)
         {
             int entity = world.Value.NewEntity();
-            world.Value.GetPool<EMSpawned>().Add(entity).payload = ev.payload;
+            world.Value.GetPool<EMSpawned>().Add(entity).payload = ev.Payload;
             ev.spawnedEntity = world.Value.PackEntity(entity);
-
-            ev.payload.UnloadToWorld(world.Value, entity);
+            ev.Payload.AutoUnloadToWorld(world.Value, entity);
         }
 
     }
     public struct EVSpawn : IEventReplicant
     {
         public EcsPackedEntity spawnedEntity;
-        public BaggagePayload payload;
+        BaggagePayload payload;
+        public BaggagePayload Payload {
+            get
+            {
+                if (payload == null)
+                    payload = new BaggagePayload();
+                return payload;
+            }
+            set => payload = value;
+        }
     }
     public struct EMSpawned
     {

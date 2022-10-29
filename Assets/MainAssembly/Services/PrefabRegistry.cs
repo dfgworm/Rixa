@@ -47,7 +47,7 @@ namespace MyEcs.Spawn
             prefabs[(int)id] = Resources.Load<GameObject>("Prefabs/" + path);
         }
     }
-    public class PrefabIdBaggage : IBaggage
+    public class PrefabIdBaggage : IBaggageAutoUnload
     {
         public PrefabId id;
 

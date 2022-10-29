@@ -23,13 +23,13 @@ public class SpawnTest
     public void SpawnEntity()
     {
         ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
-        ev.payload = new BaggagePayload();
+        ev.Payload = new BaggagePayload();
 
         EcsStatic.updateSystems.Run();
 
         Assert.IsTrue(ev.spawnedEntity.Unpack(EcsStatic.world, out int ent));
         Assert.IsTrue(EcsStatic.GetPool<EMSpawned>().Has(ent));
-        Assert.AreSame(ev.payload, EcsStatic.GetPool<EMSpawned>().Get(ent).payload);
+        Assert.AreSame(ev.Payload, EcsStatic.GetPool<EMSpawned>().Get(ent).payload);
 
         int[] _ = null;
         int c = EcsStatic.world.GetAllEntities(ref _);
@@ -42,7 +42,7 @@ public class SpawnTest
     public void UnloadBaggage()
     {
         ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
-        ev.payload = new BaggagePayload().Add(new TestBaggage { val = 5 });
+        ev.Payload = new BaggagePayload().Add(new TestBaggage { val = 5 });
 
         EcsStatic.updateSystems.Run();
 
@@ -57,7 +57,7 @@ public class SpawnTest
         EcsStatic.Unload();
     }
 
-    public class TestBaggage : IBaggage
+    public class TestBaggage : IBaggageAutoUnload
     {
         public int val;
         public void UnloadToWorld(EcsWorld world, int ent)

@@ -107,7 +107,7 @@ public class BaggageTest
                 world.GetPool<TestComp>().Add(ent).val = val;
         }
 
-        public void UpdateThis(EcsWorld world, int ent) => val = world.GetPool<TestComp>().Get(ent).val;
+        public void LoadToBaggage(EcsWorld world, int ent) => val = world.GetPool<TestComp>().Get(ent).val;
     }
     public struct TestComp
     {

@@ -13,9 +13,7 @@ namespace MyEcs.Spawn
     {
         readonly EcsWorldInject world = default;
 
-        readonly EcsFilterInject<Inc<ECSpawnPipeline, EMSpawned>> pipelineFilter = default;
-
-        ISpawnPipeline[] pipelines;
+        readonly EcsFilterInject<Inc<EMSpawned>> pipelineFilter = default;
 
         public void Init(IEcsSystems systems)
         {
@@ -27,9 +25,14 @@ namespace MyEcs.Spawn
             foreach (int i in pipelineFilter.Value)
                 ActivatePipeline(i, ref pipelineFilter.Pools.Inc1.Get(i));
         }
-        void ActivatePipeline(int ent, ref ECSpawnPipeline pipeline)
+        void ActivatePipeline(int ent, ref EMSpawned spawnedMark)
         {
-            pipeline.pipeline.Spawn(world.Value, ent);
+            var pipelineBaggage = spawnedMark.payload.Get<SpawnPipelineBaggage>();
+            if (pipelineBaggage != null)
+            {
+                pipelineBaggage.UnloadToWorld(world.Value, ent);
+                world.Value.GetPool<ECSpawnPipeline>().Get(ent).pipeline.Spawn(world.Value, ent);
+            }
         }
 
     }

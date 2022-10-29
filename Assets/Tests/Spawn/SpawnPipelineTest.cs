@@ -24,7 +24,7 @@ public class SpawnPipelineTest
     public void PipelineSpawnDestroyActivation()
     {
         ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
-        ev.payload = new BaggagePayload().Add(SpawnPipelineBaggage.Get<TestPipeline>());
+        ev.Payload.Add(SpawnPipelineBaggage.Get<TestPipeline>());
 
         EcsStatic.updateSystems.Run();
 

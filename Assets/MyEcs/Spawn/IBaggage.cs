@@ -12,6 +12,8 @@ namespace MyEcs.Spawn
     {
         public void UnloadToWorld(EcsWorld world, int ent);
     }
+    public interface IBaggageAutoUnload : IBaggage
+    { }
     public class BaggagePayload
     {
         public BaggagePayload()
@@ -40,6 +42,12 @@ namespace MyEcs.Spawn
         {
             foreach (var bag in List)
                 bag.UnloadToWorld(world, ent);
+        }
+        public void AutoUnloadToWorld(EcsWorld world, int ent)
+        {
+            foreach (var bag in List)
+                if (bag is IBaggageAutoUnload)
+                    bag.UnloadToWorld(world, ent);
         }
     }
 }

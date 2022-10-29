@@ -57,7 +57,7 @@ namespace MyEcs.Net
         public void ReadPacket(ref NetSpawnMessage msg, float time)
         {
             ref var spawnEv = ref bus.Value.NewEvent<EVSpawn>();
-            spawnEv.payload = msg.payload;
+            spawnEv.Payload = msg.payload;
         }
 
         public void Destroy(IEcsSystems systems)

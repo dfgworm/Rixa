@@ -11,6 +11,7 @@ using Leopotam.EcsLite.ExtendedSystems;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Net;
+using MyEcs.Health;
 
 public class EcsLauncher
 {
@@ -31,6 +32,9 @@ public class EcsLauncher
             .Add(new LocalControllableSystem())
             .Add(new LocalCameraSystem())
 
+            .Add(new HealthSystem())
+            .Add(new HealthDisplaySystem())
+
             .Add(new SpawnSystem())
             .Add(new SpawnPipelineSystem())
             .Add(new NetSpawnSystem())
@@ -41,6 +45,7 @@ public class EcsLauncher
             .DelHere<EMSpawned>()
             .Add(bus.GetDestroyEventsSystem()
                 .IncReplicant<EVSpawn>()
+                .IncReplicant<EVDamage>()
                 )
 
             .Add(new InterpolatedPositionSystem())

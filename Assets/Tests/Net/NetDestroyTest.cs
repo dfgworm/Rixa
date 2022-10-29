@@ -67,6 +67,7 @@ public class NetDestroyTest
     [TearDown]
     public void TearDown()
     {
+        NetStatic.Reset();
         EcsStatic.Unload();
     }
 }

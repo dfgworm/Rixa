@@ -33,19 +33,19 @@ namespace MyEcs.Net
         }
         public void SendSync(int ent, ref ECSyncSend send, ref ECNetId netId)
         {
-            if (!send.PeriodPassed)
+            if (!send.IsReadyToSend())
                 return;
             send.SetNext();
             bufferPayload.List.Clear();
-            int c = send.payload.GetNeedsUpdate(world.Value, ent, bufferPayload.List);
+            int c = send.Payload.GetNeedsUpdate(world.Value, ent, bufferPayload.List);
             if (c > 0)
             {
                 bufferMessage.netId = netId.id;
                 bufferPayload.UpdateThis(world.Value, ent);
                 if (NetStatic.IsServer)
-                    NetCommunication.BroadcastToReadyExcept(send.exceptionConnectionId, bufferMessage, Channels.Unreliable);
+                    NetCommunication.BroadcastToReadyExcept(send.exceptionConnectionId, bufferMessage, Channels.Reliable);
                 else
-                    NetCommunication.SendToServer(bufferMessage, Channels.Unreliable);
+                    NetCommunication.SendToServer(bufferMessage, Channels.Reliable);
             }
         }
 
@@ -57,11 +57,19 @@ namespace MyEcs.Net
     }
     public struct ECSyncSend
     {
-        public bool PeriodPassed => nextSend < Time.time;
         public float sendPeriod;
         public int exceptionConnectionId;
-        public BaggagePayload payload;
         float nextSend;
+        BaggagePayload payload;
+        public BaggagePayload Payload
+        {
+            get {
+                if (payload == null)
+                    payload = new BaggagePayload();
+                return payload;
+            }
+        }
+        public bool IsReadyToSend() => nextSend < Time.time;
         public void SetNext() => nextSend = Time.time + sendPeriod;
     }
     public struct NetSyncMessage :NetworkMessage
