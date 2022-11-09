@@ -6,6 +6,7 @@
         "Leopotam.EcsLite.Di",
         "Leopotam.EcsLite.ExtendedSystems",
         "Leopotam.EcsLite.ExtendedSystemsDI",
+        "Unity.InputSystem",
         "Mirror",
         "Mirror.Authenticators",
         "Mirror.CompilerSymbols",

@@ -12,6 +12,7 @@ using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Net;
 using MyEcs.Health;
+using MyEcs.Actions;
 
 public class EcsLauncher
 {
@@ -20,17 +21,24 @@ public class EcsLauncher
 
     public void Start()
     {
-        Debug.Log("EcsSystemService Starting");
+        Debug.Log("EcsLauncher Starting");
         EcsStatic.Load();
         PrefabRegistry.Init();
+        EcsActionService.Load();
         var bus = EcsStatic.bus;
 
         updateSystems = EcsStatic.updateSystems
 
+            .Add(new SyncReceiveSystem())
             
             .Add(new PlayerInputSystem())
             .Add(new LocalControllableSystem())
             .Add(new LocalCameraSystem())
+
+
+
+            .Add(new ActionSystem())
+            .Add(bus.GetDestroyEventsSystem().IncReplicant<AEVActionUse>())
 
             .Add(new HealthSystem())
             .Add(new HealthDisplaySystem())
@@ -38,7 +46,6 @@ public class EcsLauncher
             .Add(new SpawnSystem())
             .Add(new SpawnPipelineSystem())
             .Add(new NetSpawnSystem())
-            //.Add(new DebugSystem())
 
             .Add(new NetDestroySystem())
             .Add(new DestroySystem())
@@ -46,12 +53,13 @@ public class EcsLauncher
             .Add(bus.GetDestroyEventsSystem()
                 .IncReplicant<EVSpawn>()
                 .IncReplicant<EVDamage>()
+                .IncSingleton<InpActionUse>() //this should be a replicant as well
                 )
 
             .Add(new InterpolatedPositionSystem())
             .Add(new SyncSendSystem())
-            .Add(new SyncReceiveSystem())
             ;
+
         fixedUpdateSystems = EcsStatic.fixedUpdateSystems
             .Add(new MovementSystem())
             .Add(new RotationSystem())
@@ -61,6 +69,7 @@ public class EcsLauncher
                 .IncReplicant<EVCollision>()
                 )
             .Add(new CollisionSystem())
+            .Add(new HealthPhysicsSystem())
             .Add(new MovementObstacleSystem())
 
             ;
@@ -87,6 +96,7 @@ public class EcsLauncher
     public void Destroy()
     {
         EcsStatic.Unload();
-        Debug.Log("EcsSystemService Destroyed");
+        EcsActionService.Unload();
+        Debug.Log("EcsLauncher Destroyed");
     }
 }

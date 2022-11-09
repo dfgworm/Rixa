@@ -33,6 +33,15 @@ public static class EcsStatic
         world.Destroy();
         bus.Destroy();
     }
+    public static EcsWorld AddWorld(string name)
+    {
+        var world = new EcsWorld();
+        updateSystems.AddWorld(world, name);
+        fixedUpdateSystems.AddWorld(world, name);
+        return world;
+    }
+    public static EcsWorld GetWorld(string name)
+        => updateSystems.GetWorld(name);
     public static EcsPool<T> GetPool<T>() where T:struct
     {
         return world.GetPool<T>();

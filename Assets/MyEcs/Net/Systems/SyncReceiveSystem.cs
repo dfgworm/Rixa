@@ -31,6 +31,8 @@ namespace MyEcs.Net
         [Server]
         public void ReadSyncPacketServer(NetworkConnection conn, NetSyncMessage msg)
         {
+            if (!conn.OwnsNetId(msg.netId))
+                return;
             ReadSyncPacket(ref msg, (float)conn.remoteTimeStamp);
         }
         [Client]

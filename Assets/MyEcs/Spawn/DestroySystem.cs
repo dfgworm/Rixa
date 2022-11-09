@@ -15,7 +15,6 @@ namespace MyEcs.Spawn
         readonly EcsFilterInject<Inc<ECSpawnPipeline, ECDestroy>> pipelineFilter = default;
         readonly EcsFilterInject<Inc<ECGameObject, ECDestroy>> gameObjectFilter = default;
         readonly EcsPoolInject<ECDestroy> destroyPool = default;
-        readonly EcsPoolInject<ECDestroyDelayed> delayedPool = default;
 
         readonly EcsFilterInject<Inc<ECDestroy>> destroyFilter = default;
         readonly EcsFilterInject<Inc<ECDestroyDelayed>> delayFilter = default;
@@ -53,7 +52,6 @@ namespace MyEcs.Spawn
                 return;
             if (!destroyPool.Value.Has(entity))
                 destroyPool.Value.Add(entity);
-            delayedPool.Value.Del(entity);
         }
 
     }

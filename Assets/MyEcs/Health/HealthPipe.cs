@@ -15,7 +15,6 @@ namespace MyEcs.Health
     {
         public struct HealthArgs {
             public float max;
-            public float percent;
             public float regen;
         }
 
@@ -23,16 +22,17 @@ namespace MyEcs.Health
         {
             ref var hp = ref world.GetPool<ECHealth>().Add(ent);
             hp.max = args.max;
-            hp.Percent = args.percent;
+            hp.Percent = 1;
             if (args.regen > 0)
                 world.GetPool<ECHealthRegen>().Add(ent).regen = args.regen;
             ref var hpDisp = ref world.GetPool<ECHealthDisplay>().Add(ent);
             hpDisp.Init();
-            world.GetPool<EMSpawned>().Get(ent).payload.EnsureBaggage<HealthBaggage>(world, ent);
+            hpDisp.controller.shift = new Vector3(0,3,0);
+            world.GetPool<EMSpawned>().Get(ent).payload.EnsureBaggageAndUnload<HealthBaggage>(world, ent);
         }
         public static void BuildNetHealth(EcsWorld world, int ent)
         {
-            if (ECNetOwner.IsEntityLocalAuthority(world, ent))
+            if (PlayerBehaviourBase.IsEntityLocalAuthority(ent))
                 BuildHealthLocalAuthority(world, ent);
             else
                 BuildHealthRemoteAuthority(world, ent);
@@ -49,8 +49,9 @@ namespace MyEcs.Health
             {
                 ref var netOwner = ref world.GetPool<ECNetOwner>().Get(ent);
                 var pb = PlayerBehaviourBase.GetById(netOwner.playerId);
-                world.GetPool<ECSyncSend>().SoftAdd(ent)
-                    .exceptionConnectionId = pb.connection.connectionId;
+                ref var send = ref world.GetPool<ECSyncSend>().SoftAdd(ent);
+                send.Payload.Add(new HealthBaggage());
+                send.exceptionConnectionId = pb.connection.connectionId;
             }
         }
     }

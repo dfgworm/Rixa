@@ -28,7 +28,7 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
         ref var col = ref world.GetPool<ECCollider>().Add(ent);
         col.type = ColliderType.circle;
         col.size = new Vector2(1, 0);
-        model.transform.localScale = new Vector3(col.size.x, 1, col.size.x);
+        model.transform.localScale = new Vector3(col.size.x*2, 1, col.size.x*2);
 
         
 
@@ -37,7 +37,6 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
         HealthPipe.BuildHealth(world, ent, new HealthPipe.HealthArgs
         {
             max = health,
-            percent = 1,
         });
         HealthPipe.BuildNetHealth(world, ent);
     }

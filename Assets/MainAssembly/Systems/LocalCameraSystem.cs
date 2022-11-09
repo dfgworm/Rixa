@@ -38,14 +38,14 @@ public class LocalCameraSystem : IEcsRunSystem
     void ObeyMouseMovement(CameraFocus focus)
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
-        if (bus.Value.HasEventSingleton<EVMouseMoved>())
-            focus.Position -= bus.Value.GetEventBodySingleton<EVMouseMoved>().dpos / screenSize * dragSensivity;
+        if (bus.Value.HasEventSingleton<InpMouseMoved>())
+            focus.Position -= bus.Value.GetEventBodySingleton<InpMouseMoved>().dpos / screenSize * dragSensivity;
     }
 
     void ObeyEdgeTouch(CameraFocus focus)
     {
-        if (bus.Value.HasEventSingleton<EVScreenEdgeTouched>())
-            focus.Position += bus.Value.GetEventBodySingleton<EVScreenEdgeTouched>().edge * Time.deltaTime * edgeTouchSpeed;
+        if (bus.Value.HasEventSingleton<InpScreenEdgeTouched>())
+            focus.Position += bus.Value.GetEventBodySingleton<InpScreenEdgeTouched>().edge * Time.deltaTime * edgeTouchSpeed;
     }
     void UpdateZoomScroll(CameraFocus focus)
     {

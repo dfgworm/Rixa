@@ -14,15 +14,19 @@ public static class PositionPipe
 {
     public struct PosArgs
     {
-        public Vector2 position;
         public bool positionToTransform;
     }
     public static void BuildPosition(EcsWorld world, int ent, PosArgs args)
     {
-        world.GetPool<ECPosition>().Add(ent).position = args.position;
+        ref var pos = ref world.GetPool<ECPosition>().Add(ent);
+        world.GetPool<EMSpawned>().Get(ent).payload.EnsureBaggageAndUnload<PositionBaggage>(world, ent);
         if (args.positionToTransform)
+        {
             world.GetPool<ECPositionToTransform>().Add(ent);
-        world.GetPool<EMSpawned>().Get(ent).payload.EnsureBaggage<PositionBaggage>(world, ent);
+            var go = EcsGameObjectService.GetGameObject(ent);
+            if (go != null)
+                go.transform.position = pos.position.Vec3();
+        }
     }
     public struct NetPosArgs
     {

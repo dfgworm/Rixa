@@ -10,6 +10,7 @@ using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
+using MyEcs.Actions;
 
 public class PlayerSP : ScriptableObject, ISpawnPipeline
 {
@@ -40,11 +41,9 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
         {
             syncPeriodFromServer = syncPeriodFromServer,
         });
-
         HealthPipe.BuildHealth(world, ent, new HealthPipe.HealthArgs
         {
             max = health,
-            percent = 1,
             regen = regen,
         });
         HealthPipe.BuildNetHealth(world, ent);
@@ -54,6 +53,10 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
         ref var col = ref world.GetPool<ECCollider>().Add(ent);
         col.type = ColliderType.circle;
         col.size = new Vector2(collisionSize, 0);
+
+        var go = EcsGameObjectService.GetGameObject(ent);
+        go.transform.localScale = new Vector3(col.size.x * 2, 1, col.size.x * 2);
+
         if (netOwner.BelongsToLocalPlayer)
         {
             world.GetPool<ECSyncSend>().Get(ent).sendPeriod = syncPeriodFromClient;
@@ -69,6 +72,20 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
             
         }
 
+        GiveAbility(world, ent);
+    }
+    void GiveAbility(EcsWorld world, int ent)
+    {
+        ref var netOwner = ref world.GetPool<ECNetOwner>().Get(ent);
+
+        var acWorld = EcsStatic.GetWorld("actions");
+        int acEnt = EcsActionService.CreateAction(ent);
+        if (netOwner.BelongsToLocalPlayer)
+            acWorld.GetPool<ACLocalControllable>().Add(acEnt);
+        ref var proj = ref acWorld.GetPool<ACProjectileLaunch>().Add(acEnt);
+        proj.damage = 10;
+        proj.selfDestruct = true;
+        proj.velocity = 5;
     }
     public void Destroy(EcsWorld world, int ent)
     {

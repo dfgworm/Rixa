@@ -9,6 +9,7 @@ using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.ExtendedSystems;
 
 using MyEcs.Spawn;
+using MyEcs.Actions;
 using MyEcs.Physics;
 using MyEcs.Net;
 
@@ -23,6 +24,7 @@ public static class InitialSpawn
             SpawnEnemy(0, -5);
         }
         LoadCameraFocus(EcsStatic.world);
+        //SpawnChar();
     }
     static void SpawnWall(float x, float y)
     {
@@ -49,6 +51,18 @@ public static class InitialSpawn
             throw new Exception("No CameraFocus found");
         int ent = world.NewEntity();
         world.GetPool<ECCameraFocus>().Add(ent).focus = cam;
+    }
+    static void SpawnChar()
+    {
+        int ent = EcsStatic.world.NewEntity();
+        EcsStatic.GetPool<ECPosition>().Add(ent);
+
+        int ac = EcsActionService.CreateAction(ent);
+        EcsActionService.GetPool<ACLocalControllable>().Add(ac);
+        ref var proj = ref EcsActionService.GetPool<ACProjectileLaunch>().Add(ac);
+        proj.damage = 10;
+        proj.selfDestruct = true;
+        proj.velocity = 5;
 
     }
 }

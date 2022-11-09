@@ -42,7 +42,7 @@ namespace MyEcs.Net
             {
                 bufferMessage.netId = netId.id;
                 bufferPayload.UpdateThis(world.Value, ent);
-                if (NetStatic.IsServer)
+                if (NetStatic.IsServer) //you can find exception by getting the owner of entity, no need for exceptionId
                     NetCommunication.BroadcastToReadyExcept(send.exceptionConnectionId, bufferMessage, Channels.Reliable);
                 else
                     NetCommunication.SendToServer(bufferMessage, Channels.Reliable);

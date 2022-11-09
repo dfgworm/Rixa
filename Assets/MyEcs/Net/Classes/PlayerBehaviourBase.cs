@@ -17,10 +17,32 @@ namespace MyEcs.Net
                     return pb;
             return null;
         }
+        public static PlayerBehaviourBase GetByConnectionId(int connId)
+        {
+            var pbs = FindObjectsOfType<PlayerBehaviourBase>();
+            foreach (var pb in pbs)
+                if (pb.connection.connectionId == connId)
+                    return pb;
+            return null;
+        }
+        public static bool IsEntityLocalAuthority(int ent)
+        {
+            var world = EcsStatic.world;
+            if (world.GetPool<ECNetOwner>().Has(ent))
+                return world.GetPool<ECNetOwner>().Get(ent).IsLocalAuthority;
+            else
+                return NetStatic.IsServer;
+        }
         [SyncVar]
         public int playerId;
         public NetworkConnectionToClient connection;
         public EcsPackedEntity entity;
+        public bool OwnsNetId(ushort netId)
+        {
+            if (!NetIdService.TryGetEntity(netId, out int ent) || !EcsStatic.GetPool<ECNetOwner>().Has(ent))
+                return false;
+            return EcsStatic.GetPool<ECNetOwner>().Get(ent).playerId == playerId;
+        }
         public void Awake()
         {
 
@@ -73,14 +95,6 @@ namespace MyEcs.Net
         public bool BelongsToLocalPlayer => NetStatic.IsClient && playerId == PlayerBehaviourBase.localPlayer.playerId;
         public bool BelongsToOtherPlayer => NetStatic.IsClient && IsClientAuthority && playerId != PlayerBehaviourBase.localPlayer.playerId;
         public bool IsLocalAuthority => BelongsToLocalPlayer || (IsServerAuthority && NetStatic.IsServer);
-        public static bool IsEntityLocalAuthority(int ent) => IsEntityLocalAuthority(EcsStatic.world, ent);
-        public static bool IsEntityLocalAuthority(EcsWorld world, int ent)
-        {
-            if (world.GetPool<ECNetOwner>().Has(ent))
-                return world.GetPool<ECNetOwner>().Get(ent).IsLocalAuthority;
-            else
-                return NetStatic.IsServer;
-        }
     }
     public class NetOwnerBaggage : IBaggageAutoUnload
     {

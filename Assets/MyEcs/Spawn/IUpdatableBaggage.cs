@@ -16,7 +16,7 @@ namespace MyEcs.Spawn
     }
     public static class BaggagePayloadUpdatableExtension
     {
-        public static T EnsureBaggage<T>(this BaggagePayload payload, EcsWorld world, int ent)
+        public static T EnsureBaggageAndUnload<T>(this BaggagePayload payload, EcsWorld world, int ent)
             where T : IUpdatableBaggage, new()
         {
             T baggage = payload.Get<T>();

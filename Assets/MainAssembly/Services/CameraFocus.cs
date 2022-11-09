@@ -21,13 +21,13 @@ public class CameraFocus : MonoBehaviour
     }
 
     Camera cam;
-    private Vector2 position;
+    Vector2 position;
 
     void Awake()
     {
         cam = GetComponentInChildren<Camera>();
         UpdateCameraTransform();
-        position = new Vector2(transform.position.x, transform.position.z);
+        position = transform.position.Vec2();
     }
     public void SetCameraAngle(float angle)
     {
