@@ -14,7 +14,6 @@ namespace MyEcs.Actions
 {
     public class ProjectileSP : ScriptableObject, ISpawnPipeline
     {
-        public float health = 100;
         public void Spawn(EcsWorld world, int ent)
         {
             //expects ProjectileBaggage to have unloaded already
@@ -24,18 +23,17 @@ namespace MyEcs.Actions
             // it will cause problems with players joining midgame, unless handled explicitly
             // i can specifically detect and handle such projs, criteria are simple: long life and slow movespeed
 
-            var model = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            EcsGameObjectService.Link(world, ent, model);
-
-            PositionPipe.BuildPosition(world, ent, new PositionPipe.PosArgs
-            {
-                positionToTransform = true,
-            });
+            PositionPipe.BuildPosition(world, ent);
 
             ref var col = ref world.GetPool<ECCollider>().Add(ent);
             col.type = ColliderType.circle;
-            col.size = new Vector2(1, 0);
-            model.transform.localScale = new Vector3(col.size.x*2, 1, col.size.x*2);
+            col.size = new Vector2(0.3f, 0);
+
+            ref var mesh = ref world.GetPool<ECRenderMesh>().Add(ent);
+            mesh.meshId = (int)MeshService.basicMesh.Sphere;
+            mesh.rotation = Quaternion.identity;
+            mesh.scale = new Vector3(col.size.x, col.size.x, col.size.x);
+
             if (world.GetPool<ECProjectile>().Get(ent).ownerEntity.Unpack(world, out int ownerEnt))
                 world.GetPool<ECCollisionHashFilter>().SoftAdd(ent).filter.Add(ownerEnt);
 

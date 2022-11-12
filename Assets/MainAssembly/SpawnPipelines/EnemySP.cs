@@ -18,9 +18,7 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
         world.GetPool<ECNetAutoSpawn>().Add(ent);
 
 
-        PositionPipe.BuildPosition(world, ent, new PositionPipe.PosArgs {
-            positionToTransform = true,
-        });
+        PositionPipe.BuildPosition(world, ent, true);
 
         var model = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         EcsGameObjectService.Link(world, ent, model);

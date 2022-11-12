@@ -16,17 +16,17 @@ public class WallSP : ScriptableObject, ISpawnPipeline
     {
         EcsStatic.GetPool<ECNetAutoSpawn>().Add(ent);
 
-        PositionPipe.BuildPosition(world, ent, new PositionPipe.PosArgs{
-            positionToTransform = true,
-        });
+        PositionPipe.BuildPosition(world, ent);
         EcsStatic.GetPool<ECObstacle>().Add(ent);
-        var model = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        EcsGameObjectService.Link(world, ent, model);
+
         ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
         col.type = ColliderType.rectangle;
         col.size = new Vector2(1, 1);
-        model.transform.localScale = new Vector3(col.size.x, 1, col.size.y);
 
+        ref var mesh = ref EcsStatic.GetPool<ECRenderMesh>().Add(ent);
+        mesh.meshId = 0;
+        mesh.rotation = Quaternion.identity;
+        mesh.scale = Vector3.one;
 
     }
     public void Destroy(EcsWorld world, int ent)

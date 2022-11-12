@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a3a82ff6c752a4ba3a1118bd3b3c9c, type: 3}
   m_Name: PlayerSP
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  collisionSize: 1
+  moveSpeed: 10
+  collisionSize: 0.5
   health: 100
+  regen: 1
   syncPeriodFromClient: 0.05
   syncPeriodFromServer: 0.05

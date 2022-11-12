@@ -16,11 +16,11 @@ public static class PositionPipe
     {
         public bool positionToTransform;
     }
-    public static void BuildPosition(EcsWorld world, int ent, PosArgs args)
+    public static void BuildPosition(EcsWorld world, int ent, bool positionToTransform = false)
     {
         ref var pos = ref world.GetPool<ECPosition>().Add(ent);
         world.GetPool<EMSpawned>().Get(ent).payload.EnsureBaggageAndUnload<PositionBaggage>(world, ent);
-        if (args.positionToTransform)
+        if (positionToTransform)
         {
             world.GetPool<ECPositionToTransform>().Add(ent);
             var go = EcsGameObjectService.GetGameObject(ent);

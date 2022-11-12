@@ -25,6 +25,7 @@ public class EcsLauncher
         EcsStatic.Load();
         PrefabRegistry.Init();
         EcsActionService.Load();
+        MeshService.Load();
         var bus = EcsStatic.bus;
 
         updateSystems = EcsStatic.updateSystems
@@ -58,6 +59,8 @@ public class EcsLauncher
 
             .Add(new InterpolatedPositionSystem())
             .Add(new SyncSendSystem())
+
+            .Add(new RenderSystem())
             ;
 
         fixedUpdateSystems = EcsStatic.fixedUpdateSystems
@@ -95,6 +98,7 @@ public class EcsLauncher
 
     public void Destroy()
     {
+        MeshService.Unload();
         EcsStatic.Unload();
         EcsActionService.Unload();
         Debug.Log("EcsLauncher Destroyed");

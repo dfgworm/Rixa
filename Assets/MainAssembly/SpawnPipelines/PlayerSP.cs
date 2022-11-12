@@ -34,9 +34,7 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
 
         world.GetPool<ECNetAutoSpawn>().Add(ent);
 
-        PositionPipe.BuildPosition(world, ent, new PositionPipe.PosArgs {
-            positionToTransform = true,
-        });
+        PositionPipe.BuildPosition(world, ent, true);
         PositionPipe.BuildNetPosition(world, ent, new PositionPipe.NetPosArgs
         {
             syncPeriodFromServer = syncPeriodFromServer,
