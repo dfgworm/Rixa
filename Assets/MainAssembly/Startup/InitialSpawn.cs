@@ -12,6 +12,7 @@ using MyEcs.Spawn;
 using MyEcs.Actions;
 using MyEcs.Physics;
 using MyEcs.Net;
+using Generation;
 
 public static class InitialSpawn
 {
@@ -24,6 +25,22 @@ public static class InitialSpawn
             SpawnEnemy(0, -5);
         }
         LoadCameraFocus(EcsStatic.world);
+        var gen = new ShipGenerator();
+        var loc = gen.GenerateSmallShip(5,8,
+            extraExitCount:2
+            );
+
+        string[][] strings = new string[loc.Size.y][];
+        for (int y = 0; y < loc.Size.y; y++)
+            strings[y] = new string[loc.Size.x];
+        foreach (Cell c in loc.Cell.GetAllCells())
+        {
+            var room = loc.GetRoomAt(c);
+            string str = room.roomId.ToString()+((ShipGenerator.RoomType)room.typeId).ToString().PadRight(13);
+            strings[c.pos.y][c.pos.x] = str;
+        }
+        for (int y = 0; y < loc.Size.y; y++)
+            Debug.Log(String.Join(":", strings[y]));
         //SpawnChar();
     }
     static void SpawnWall(float x, float y)

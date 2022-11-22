@@ -39,7 +39,6 @@ public class DestroyTest
 
         EcsStatic.updateSystems.Run();
 
-        Assert.IsFalse(EcsStatic.world.GetPool<ECDestroyDelayed>().Has(ent));
         Assert.IsTrue(EcsStatic.world.GetPool<ECDestroy>().Has(ent));
 
         EcsStatic.updateSystems.Run();

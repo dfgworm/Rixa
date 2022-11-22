@@ -22,6 +22,10 @@ public class HealthTest
             .Add(new HealthSystem())
             .Inject(EcsStatic.bus)
             .Init();
+        EcsStatic.fixedUpdateSystems
+            .Add(new HealthPhysicsSystem())
+            .Inject(EcsStatic.bus)
+            .Init();
     }
 
     [Test]
@@ -68,14 +72,14 @@ public class HealthTest
         col.ent1 = EcsStatic.world.PackEntity(ent);
         col.ent2 = EcsStatic.world.PackEntity(ent2);
 
-        EcsStatic.updateSystems.Run();
+        EcsStatic.fixedUpdateSystems.Run();
 
         int count = 0;
         foreach (int i in EcsStatic.bus.GetEventBodies<EVDamage>(out var pool))
         {
             count++;
             ref var dmg = ref pool.Get(i);
-            Assert.AreEqual(touchDamage.dps * Time.deltaTime, dmg.amount);
+            Assert.AreEqual(touchDamage.dps * Time.fixedDeltaTime, dmg.amount);
             Assert.IsTrue(dmg.dealer.Unpack(EcsStatic.world, out int dealer));
             Assert.AreEqual(ent, dealer);
             Assert.IsTrue(dmg.victim.Unpack(EcsStatic.world, out int victim));

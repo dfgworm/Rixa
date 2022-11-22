@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 43.2
     width: 1536
     height: 790.4
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 24
+  controlID: 55
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 29
+  controlID: 84
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 76
+  controlID: 85
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,10 +187,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 261.6
+    width: 260
     height: 476
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 261.6
+    x: 260
     y: 0
-    width: 920.80005
+    width: 922.4
     height: 476
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 476
     width: 1182.4
     height: 264.40002
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -272,15 +272,15 @@ MonoBehaviour:
     y: 0
     width: 353.59998
     height: 740.4
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 22}
-  m_Selected: 0
-  m_LastSelected: 2
+  m_Selected: 2
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,9 +302,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 261.6
+    x: 2180
     y: 73.6
-    width: 918.80005
+    width: 920.4
     height: 455
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -352,23 +352,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 918.80005
+      width: 920.4
       height: 434
     m_Scale: {x: 0.7063802, y: 0.7063802}
-    m_Translation: {x: 459.40002, y: 217}
+    m_Translation: {x: 460.2, y: 217}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -650.35803
+      x: -651.49054
       y: -307.2
-      width: 1300.7161
+      width: 1302.9811
       height: 614.4
     m_MinimalGUI: 1
   m_defaultScale: 0.7063802
-  m_LastWindowPixelSize: {x: 1148.5, y: 568.75}
+  m_LastWindowPixelSize: {x: 1150.5, y: 568.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -395,9 +395,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 73.6
-    width: 260.6
+    width: 259
     height: 455
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -408,7 +408,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 32fbffff
+      m_ExpandedIDs: 52c2ffff9ae0ffff44e1ffff18e4fffffce6ffffa6e7ffff6cebfffff0eeffff9aefffff96f2ffff8af4ffff36f5ffffe8f8ffff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -453,9 +453,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 261.6
+    x: 2180
     y: 73.6
-    width: 918.80005
+    width: 920.4
     height: 455
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -466,8 +466,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -709,11 +709,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.11995396, y: 0.009653431, z: -0.005453857, w: 0.99420696}
     speed: 2
-    m_Value: {x: -0.11995396, y: -0.009653431, z: 0.0054538567, w: -0.99420696}
+    m_Value: {x: 0.11977687, y: 0.009639179, z: -0.0054458054, w: 0.99273914}
   m_Size:
-    m_Target: 338.25006
+    m_Target: 207.88698
     speed: 2
-    m_Value: 338.25006
+    m_Value: 207.88698
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -855,7 +855,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 549.60004
     width: 1181.4
     height: 243.40002
@@ -876,22 +876,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Tests
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Tests
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\dev\LifesBane
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 00700000
-    m_LastClickedID: 28672
-    m_ExpandedIDs: 00000000fc6f0000fe6f0000
+    scrollPos: {x: 0, y: 0.5999756}
+    m_SelectedIDs: 3e700000
+    m_LastClickedID: 28734
+    m_ExpandedIDs: 000000000e700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -919,7 +919,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc6f0000fe6f0000
+    m_ExpandedIDs: 000000000e700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -996,7 +996,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 549.60004
     width: 1181.4
     height: 243.40002
@@ -1202,7 +1202,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1182.4
+    x: 3102.4
     y: 73.6
     width: 352.59998
     height: 719.4
@@ -2265,7 +2265,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1182.4
+    x: 3102.4
     y: 73.6
     width: 352.59998
     height: 719.4
@@ -2274,7 +2274,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 201
+    ID: 120
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -2306,7 +2306,7 @@ MonoBehaviour:
       name: LifesBane
       fullName: LifesBane
       resultStatus: 1
-      duration: 0.2417472
+      duration: 0.2166283
       messages: 
       output: 
       stacktrace: 
@@ -2322,7 +2322,7 @@ MonoBehaviour:
       name: TestsBase.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsBase.dll
       resultStatus: 1
-      duration: 0.0775403
+      duration: 0.0615346
       messages: 
       output: 
       stacktrace: 
@@ -2338,7 +2338,7 @@ MonoBehaviour:
       name: EcsBaseTest
       fullName: EcsBaseTest
       resultStatus: 1
-      duration: 0.0696427
+      duration: 0.0536791
       messages: 
       output: 
       stacktrace: 
@@ -2354,7 +2354,7 @@ MonoBehaviour:
       name: FilterEnumWithSelf
       fullName: EcsBaseTest.FilterEnumWithSelf
       resultStatus: 1
-      duration: 0.0398244
+      duration: 0.0347762
       messages: 
       output: 
       stacktrace: 
@@ -2371,7 +2371,7 @@ MonoBehaviour:
       name: SetEntity
       fullName: EcsBaseTest.SetEntity
       resultStatus: 1
-      duration: 0.0017177
+      duration: 0.0016301
       messages: 
       output: 
       stacktrace: 
@@ -2388,7 +2388,7 @@ MonoBehaviour:
       name: SetGameObject
       fullName: EcsBaseTest.SetGameObject
       resultStatus: 1
-      duration: 0.0021234
+      duration: 0.0020017
       messages: 
       output: 
       stacktrace: 
@@ -2405,7 +2405,7 @@ MonoBehaviour:
       name: TestsHealth.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsHealth.dll
       resultStatus: 1
-      duration: 0.0822544
+      duration: 0.0711386
       messages: 
       output: 
       stacktrace: 
@@ -2421,7 +2421,7 @@ MonoBehaviour:
       name: HealthTest
       fullName: HealthTest
       resultStatus: 1
-      duration: 0.0744651
+      duration: 0.0632942
       messages: 
       output: 
       stacktrace: 
@@ -2437,7 +2437,7 @@ MonoBehaviour:
       name: DamageTest
       fullName: HealthTest.DamageTest
       resultStatus: 1
-      duration: 0.0127833
+      duration: 0.0387494
       messages: 
       output: 
       stacktrace: 
@@ -2454,7 +2454,7 @@ MonoBehaviour:
       name: RegenTest
       fullName: HealthTest.RegenTest
       resultStatus: 1
-      duration: 0.0013434
+      duration: 0.0013148
       messages: 
       output: 
       stacktrace: 
@@ -2471,7 +2471,7 @@ MonoBehaviour:
       name: TouchDamageTest
       fullName: HealthTest.TouchDamageTest
       resultStatus: 1
-      duration: 0.0485713
+      duration: 0.0080727
       messages: 
       output: 
       stacktrace: 
@@ -2488,7 +2488,7 @@ MonoBehaviour:
       name: TestsMainAssembly.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsMainAssembly.dll
       resultStatus: 1
-      duration: 0.0026939
+      duration: 0.0741965
       messages: 
       output: 
       stacktrace: 
@@ -2499,12 +2499,130 @@ MonoBehaviour:
       categories: []
       parentId: 1000
       parentUniqueId: '[LifesBane][suite]'
+    - id: 1012
+      uniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+      name: CellCursorTest
+      fullName: CellCursorTest
+      resultStatus: 1
+      duration: 0.071479
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1018
+      parentUniqueId: '[TestsMainAssembly][D:/dev/LifesBane/Library/ScriptAssemblies/TestsMainAssembly.dll][suite]'
+    - id: 1013
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CellBasics]
+      name: CellBasics
+      fullName: CellCursorTest.CellBasics
+      resultStatus: 1
+      duration: 0.003622
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+    - id: 1014
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CellGetAll]
+      name: CellGetAll
+      fullName: CellCursorTest.CellGetAll
+      resultStatus: 1
+      duration: 0.0045091
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+    - id: 1015
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CursorBasics]
+      name: CursorBasics
+      fullName: CellCursorTest.CursorBasics
+      resultStatus: 1
+      duration: 0.0014303
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+    - id: 1017
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CursorChange]
+      name: CursorChange
+      fullName: CellCursorTest.CursorChange
+      resultStatus: 1
+      duration: 0.0029632
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+    - id: 1018
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CursorGettingCells]
+      name: CursorGettingCells
+      fullName: CellCursorTest.CursorGettingCells
+      resultStatus: 1
+      duration: 0.0536168
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
+    - id: 1016
+      uniqueId: TestsMainAssembly.dll/CellCursorTest/[TestsMainAssembly][CellCursorTest.CursorUnoccupied]
+      name: CursorUnoccupied
+      fullName: CellCursorTest.CursorUnoccupied
+      resultStatus: 1
+      duration: 0.0015308
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CellCursorTest][suite]
     - id: 1006
       uniqueId: TestsMainAssembly.dll/[TestsMainAssembly][CollisionTest][suite]
       name: CollisionTest
       fullName: CollisionTest
       resultStatus: 1
-      duration: 0.000118
+      duration: 0.0000721
       messages: 
       output: 
       stacktrace: 
@@ -2520,7 +2638,7 @@ MonoBehaviour:
       name: TestsNet.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsNet.dll
       resultStatus: 1
-      duration: 0.0946263
+      duration: 0.067078
       messages: 
       output: 
       stacktrace: 
@@ -2536,7 +2654,7 @@ MonoBehaviour:
       name: InterpolationTest
       fullName: InterpolationTest
       resultStatus: 1
-      duration: 0.0077194
+      duration: 0.0059043
       messages: 
       output: 
       stacktrace: 
@@ -2552,7 +2670,7 @@ MonoBehaviour:
       name: PositionInterpolation
       fullName: InterpolationTest.PositionInterpolation
       resultStatus: 1
-      duration: 0.0040321
+      duration: 0.0018559
       messages: 
       output: 
       stacktrace: 
@@ -2569,7 +2687,7 @@ MonoBehaviour:
       name: NetDestroyTest
       fullName: NetDestroyTest
       resultStatus: 1
-      duration: 0.0230034
+      duration: 0.02163
       messages: 
       output: 
       stacktrace: 
@@ -2585,7 +2703,7 @@ MonoBehaviour:
       name: DelayedDestroy
       fullName: NetDestroyTest.DelayedDestroy
       resultStatus: 1
-      duration: 0.0183261
+      duration: 0.0152829
       messages: 
       output: 
       stacktrace: 
@@ -2602,7 +2720,7 @@ MonoBehaviour:
       name: Destroy
       fullName: NetDestroyTest.Destroy
       resultStatus: 1
-      duration: 0.0005531
+      duration: 0.000495
       messages: 
       output: 
       stacktrace: 
@@ -2619,7 +2737,7 @@ MonoBehaviour:
       name: NetSpawnTest
       fullName: NetSpawnTest
       resultStatus: 1
-      duration: 0.0314389
+      duration: 0.021834
       messages: 
       output: 
       stacktrace: 
@@ -2635,7 +2753,7 @@ MonoBehaviour:
       name: ConstructMessageAutosync
       fullName: NetSpawnTest.ConstructMessageAutosync
       resultStatus: 1
-      duration: 0.020006
+      duration: 0.0071279
       messages: 
       output: 
       stacktrace: 
@@ -2652,7 +2770,7 @@ MonoBehaviour:
       name: NetSpawnEntity
       fullName: NetSpawnTest.NetSpawnEntity
       resultStatus: 1
-      duration: 0.0081112
+      duration: 0.0056634
       messages: 
       output: 
       stacktrace: 
@@ -2669,7 +2787,7 @@ MonoBehaviour:
       name: ServiceTest
       fullName: ServiceTest
       resultStatus: 1
-      duration: 0.0293
+      duration: 0.0145744
       messages: 
       output: 
       stacktrace: 
@@ -2685,7 +2803,7 @@ MonoBehaviour:
       name: BaggageSerializerTest
       fullName: ServiceTest.BaggageSerializerTest
       resultStatus: 1
-      duration: 0.0195404
+      duration: 0.0095346
       messages: 
       output: 
       stacktrace: 
@@ -2702,7 +2820,7 @@ MonoBehaviour:
       name: NetIdTest
       fullName: ServiceTest.NetIdTest
       resultStatus: 1
-      duration: 0.0009236
+      duration: 0.0008026
       messages: 
       output: 
       stacktrace: 
@@ -2719,7 +2837,7 @@ MonoBehaviour:
       name: TestsPhysics.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsPhysics.dll
       resultStatus: 1
-      duration: 0.0610708
+      duration: 0.0434885
       messages: 
       output: 
       stacktrace: 
@@ -2735,7 +2853,7 @@ MonoBehaviour:
       name: CollisionTest
       fullName: CollisionTest
       resultStatus: 1
-      duration: 0.0293154
+      duration: 0.0230062
       messages: 
       output: 
       stacktrace: 
@@ -2751,7 +2869,7 @@ MonoBehaviour:
       name: CollisionEventTest
       fullName: CollisionTest.CollisionEventTest
       resultStatus: 1
-      duration: 0.0079183
+      duration: 0.0061543
       messages: 
       output: 
       stacktrace: 
@@ -2768,7 +2886,7 @@ MonoBehaviour:
       name: CollisionSolverTest
       fullName: CollisionTest.CollisionSolverTest
       resultStatus: 1
-      duration: 0.0166471
+      duration: 0.0128854
       messages: 
       output: 
       stacktrace: 
@@ -2785,7 +2903,7 @@ MonoBehaviour:
       name: MovementTest
       fullName: MovementTest
       resultStatus: 1
-      duration: 0.0272238
+      duration: 0.0177807
       messages: 
       output: 
       stacktrace: 
@@ -2801,7 +2919,7 @@ MonoBehaviour:
       name: Acceleration
       fullName: MovementTest.Acceleration
       resultStatus: 1
-      duration: 0.0158044
+      duration: 0.0098946
       messages: 
       output: 
       stacktrace: 
@@ -2818,7 +2936,7 @@ MonoBehaviour:
       name: ObstaclePush
       fullName: MovementTest.ObstaclePush
       resultStatus: 1
-      duration: 0.006144
+      duration: 0.0041728
       messages: 
       output: 
       stacktrace: 
@@ -2835,7 +2953,7 @@ MonoBehaviour:
       name: Velocity
       fullName: MovementTest.Velocity
       resultStatus: 1
-      duration: 0.0005395
+      duration: 0.0004243
       messages: 
       output: 
       stacktrace: 
@@ -2852,7 +2970,7 @@ MonoBehaviour:
       name: TestsSpawn.dll
       fullName: D:/dev/LifesBane/Library/ScriptAssemblies/TestsSpawn.dll
       resultStatus: 1
-      duration: 0.0558341
+      duration: 0.0457062
       messages: 
       output: 
       stacktrace: 
@@ -2868,7 +2986,7 @@ MonoBehaviour:
       name: BaggageTest
       fullName: BaggageTest
       resultStatus: 1
-      duration: 0.016955
+      duration: 0.0166844
       messages: 
       output: 
       stacktrace: 
@@ -2884,7 +3002,7 @@ MonoBehaviour:
       name: BaggageListTest
       fullName: BaggageTest.BaggageListTest
       resultStatus: 1
-      duration: 0.0091559
+      duration: 0.0031388
       messages: 
       output: 
       stacktrace: 
@@ -2901,7 +3019,7 @@ MonoBehaviour:
       name: UnloadTest
       fullName: BaggageTest.UnloadTest
       resultStatus: 1
-      duration: 0.0018488
+      duration: 0.0031795
       messages: 
       output: 
       stacktrace: 
@@ -2918,7 +3036,7 @@ MonoBehaviour:
       name: UpdatableBaggageTest
       fullName: BaggageTest.UpdatableBaggageTest
       resultStatus: 1
-      duration: 0.0013343
+      duration: 0.0020272
       messages: 
       output: 
       stacktrace: 
@@ -2935,7 +3053,7 @@ MonoBehaviour:
       name: DestroyTest
       fullName: DestroyTest
       resultStatus: 1
-      duration: 0.0105651
+      duration: 0.0045759
       messages: 
       output: 
       stacktrace: 
@@ -2951,7 +3069,7 @@ MonoBehaviour:
       name: DelayedDestroyEntity
       fullName: DestroyTest.DelayedDestroyEntity
       resultStatus: 1
-      duration: 0.0013824
+      duration: 0.0013343
       messages: 
       output: 
       stacktrace: 
@@ -2968,7 +3086,7 @@ MonoBehaviour:
       name: DestroyEntity
       fullName: DestroyTest.DestroyEntity
       resultStatus: 1
-      duration: 0.0003927
+      duration: 0.0003203
       messages: 
       output: 
       stacktrace: 
@@ -2985,7 +3103,7 @@ MonoBehaviour:
       name: SpawnPipelineTest
       fullName: SpawnPipelineTest
       resultStatus: 1
-      duration: 0.0161325
+      duration: 0.0097463
       messages: 
       output: 
       stacktrace: 
@@ -3001,7 +3119,7 @@ MonoBehaviour:
       name: PipelineSpawnDestroyActivation
       fullName: SpawnPipelineTest.PipelineSpawnDestroyActivation
       resultStatus: 1
-      duration: 0.013444
+      duration: 0.0076044
       messages: 
       output: 
       stacktrace: 
@@ -3018,7 +3136,7 @@ MonoBehaviour:
       name: SpawnTest
       fullName: SpawnTest
       resultStatus: 1
-      duration: 0.0074185
+      duration: 0.0105774
       messages: 
       output: 
       stacktrace: 
@@ -3034,7 +3152,7 @@ MonoBehaviour:
       name: SpawnEntity
       fullName: SpawnTest.SpawnEntity
       resultStatus: 1
-      duration: 0.0011926
+      duration: 0.0008854
       messages: 
       output: 
       stacktrace: 
@@ -3051,7 +3169,7 @@ MonoBehaviour:
       name: UnloadBaggage
       fullName: SpawnTest.UnloadBaggage
       resultStatus: 1
-      duration: 0.0032117
+      duration: 0.0022656
       messages: 
       output: 
       stacktrace: 
@@ -3063,13 +3181,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1012
       parentUniqueId: TestsSpawn.dll/[TestsSpawn][SpawnTest][suite]
-    m_ResultText: TouchDamageTest (0.049s)
+    m_ResultText: TestsHealth.dll (0.071s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8d9cdb6
-      m_LastClickedID: -1228023352
-      m_ExpandedIDs: d6fd278101d1ef8bec040e9596129d9abd33829b195d8dae48ab7ab825732bb9c32195c101214bc656328fd011c108d8774c36e1618fcae167b0adff03acc1005f993201bd41f902f5ebe811fff04e186a1a981880d398217be7292c03fe4433388d6a3689af923ec74f0e524ff9485307aeb6539d948756db71c4567e6c2c6401a3086a8a3a876df723c073eae7d47c80b6607effffff7f
+      m_SelectedIDs: 89af923e
+      m_LastClickedID: 1049800585
+      m_ExpandedIDs: d6fd278101d1ef8bec040e9596129d9abd33829b195d8dae48ab7ab825732bb9c32195c101214bc656328fd011c108d8774c36e1618fcae167b0adff03acc1005f993201bd41f902f5ebe811fff04e186a1a981880d398218d1d4b257be7292c03fe4433388d6a3689af923ec74f0e524ff9485307aeb6539d948756db71c4565796885b7e6c2c6401a3086a8a3a876df723c073eae7d47c80b6607effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
