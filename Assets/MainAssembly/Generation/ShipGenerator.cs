@@ -57,7 +57,7 @@ namespace Generation
             //left or right edge, except topmost and bottommost
             cursor.Reset()
                 .MoveToEdge(MyRandom.RollPick(0.5f, direction.left, direction.right))
-                .SelectAll(direction.vertical)
+                .Expand(direction.vertical, sizeY)
                 .Expand(direction.vertical, -1)
                 .PickRandom(new Vector2Int(1,1), out cell)
                 ;
@@ -70,7 +70,7 @@ namespace Generation
                 //left or right edge, except topmost and bottommost
                 bool succ = cursor.Reset()
                     .MoveToEdge(MyRandom.RollPick(0.5f, direction.left, direction.right))
-                    .SelectAll(direction.vertical)
+                    .Expand(direction.vertical, sizeY)
                     .Expand(direction.vertical, -1)
                     .PickRandom(new Vector2Int(1, 1), out cell, true)
                     ;

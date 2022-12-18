@@ -39,11 +39,11 @@ public class CollisionTest
         col2.type = ColliderType.rectangle;
         col2.size = new Vector2(1, 1);
 
-        pos2.position = new Vector2(1.5f, 1.5f);
+        pos2.position2 = new Vector2(1.5f, 1.5f);
         EcsStatic.fixedUpdateSystems.Run();
         Assert.AreEqual(0, CountCollisions());
 
-        pos2.position = new Vector2(0.5f, 0.5f);
+        pos2.position2 = new Vector2(0.5f, 0.5f);
         EcsStatic.fixedUpdateSystems.Run();
         Assert.AreEqual(1, CountCollisions());
 
@@ -53,15 +53,15 @@ public class CollisionTest
         col3.type = ColliderType.rectangle;
         col3.size = new Vector2(1, 1);
 
-        pos3.position = new Vector2(4f, 0f);
+        pos3.position2 = new Vector2(4f, 0f);
         EcsStatic.fixedUpdateSystems.Run();
         Assert.AreEqual(1, CountCollisions());
 
-        pos3.position = new Vector2(1.2f, 1.2f);
+        pos3.position2 = new Vector2(1.2f, 1.2f);
         EcsStatic.fixedUpdateSystems.Run();
         Assert.AreEqual(2, CountCollisions());
 
-        pos3.position = new Vector2(0.5f, 0);
+        pos3.position2 = new Vector2(0.5f, 0);
         EcsStatic.fixedUpdateSystems.Run();
         Assert.AreEqual(3, CountCollisions());
     }
@@ -89,42 +89,42 @@ public class CollisionTest
         for (int i = 0; i < 500; i++)
         {
             //rect
-            pos2.position = new Vector2(Random.Range(-0.99f, 0.99f), Random.Range(-0.99f, 0.99f));
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = new Vector2(Random.Range(-0.99f, 0.99f), Random.Range(-0.99f, 0.99f));
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
-            pos2.position = Random.insideUnitCircle * 1.49f;
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle * 1.49f;
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
-            pos2.position = new Vector2(Random.Range(-0.49f, 0.49f), Random.Range(-0.49f, 0.49f));
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.point, pos2.position, col2.size));
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.point, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = new Vector2(Random.Range(-0.49f, 0.49f), Random.Range(-0.49f, 0.49f));
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.point, pos2.position2, col2.size));
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.point, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
-            pos2.position = new Vector2(Random.Range(1.01f, 4), Random.Range(-1.01f, -4));
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = new Vector2(Random.Range(1.01f, 4), Random.Range(-1.01f, -4));
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
-            pos2.position = Random.insideUnitCircle.normalized * (2 + Random.value);
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle.normalized * (2 + Random.value);
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
-            pos2.position = new Vector2(Random.Range(0.51f, 3), Random.Range(-0.51f, -3));
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position, col1.size, ColliderType.point, pos2.position, col2.size));
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.point, pos1.position, col1.size, ColliderType.rectangle, pos2.position, col2.size));
+            pos2.position2 = new Vector2(Random.Range(0.51f, 3), Random.Range(-0.51f, -3));
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.rectangle, pos1.position2, col1.size, ColliderType.point, pos2.position2, col2.size));
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.point, pos1.position2, col1.size, ColliderType.rectangle, pos2.position2, col2.size));
 
             //circle
-            pos2.position = Random.insideUnitCircle * 1.99f;
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle * 1.99f;
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
 
-            pos2.position = Random.insideUnitCircle * 0.99f;
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.point, pos2.position, col2.size));
-            Assert.IsTrue(CollisionSolver.Solve(ColliderType.point, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle * 0.99f;
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.point, pos2.position2, col2.size));
+            Assert.IsTrue(CollisionSolver.Solve(ColliderType.point, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
 
-            pos2.position = Random.insideUnitCircle.normalized * (2.01f + Random.value);
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle.normalized * (2.01f + Random.value);
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
 
-            pos2.position = Random.insideUnitCircle.normalized * (1.01f + Random.value);
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position, col1.size, ColliderType.point, pos2.position, col2.size));
-            Assert.IsFalse(CollisionSolver.Solve(ColliderType.point, pos1.position, col1.size, ColliderType.circle, pos2.position, col2.size));
+            pos2.position2 = Random.insideUnitCircle.normalized * (1.01f + Random.value);
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.circle, pos1.position2, col1.size, ColliderType.point, pos2.position2, col2.size));
+            Assert.IsFalse(CollisionSolver.Solve(ColliderType.point, pos1.position2, col1.size, ColliderType.circle, pos2.position2, col2.size));
         }
     }
 

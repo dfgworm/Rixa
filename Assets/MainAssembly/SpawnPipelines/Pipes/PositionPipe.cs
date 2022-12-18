@@ -25,7 +25,7 @@ public static class PositionPipe
             world.GetPool<ECPositionToTransform>().Add(ent);
             var go = EcsGameObjectService.GetGameObject(ent);
             if (go != null)
-                go.transform.position = pos.position.Vec3();
+                go.transform.position = pos.position2.Vec3();
         }
     }
     public struct NetPosArgs
@@ -59,7 +59,7 @@ public static class PositionPipe
         else
         {
             world.GetPool<ECInterpolatePositionReceive>().Add(ent)
-                .Reset(world.GetPool<ECPosition>().Get(ent).position, (float)NetworkTime.time);
+                .Reset(world.GetPool<ECPosition>().Get(ent).position2, (float)NetworkTime.time);
         }
     }
 }
@@ -69,15 +69,15 @@ public class PositionBaggage : IUpdatableBaggage
     public void LoadToBaggage(EcsWorld world, int ent)
     {
         var pool = world.GetPool<ECPosition>();
-        position = pool.Get(ent).position;
+        position = pool.Get(ent).position2;
     }
     public void UnloadToWorld(EcsWorld world, int ent)
     {
-        world.GetPool<ECPosition>().Get(ent).position = position;
+        world.GetPool<ECPosition>().Get(ent).position2 = position;
     }
     public bool IsUpToDate(EcsWorld world, int ent)
     {
-        return world.GetPool<ECPosition>().Get(ent).position.FuzzyEquals(position);
+        return world.GetPool<ECPosition>().Get(ent).position2.FuzzyEquals(position);
     }
 }
 public class RotationBaggage : IUpdatableBaggage //this one doesn't belong here, but i don't need it yet

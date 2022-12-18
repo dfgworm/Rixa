@@ -33,7 +33,7 @@ namespace MyEcs.Physics
 
         void ApplyPosition(ref ECGameObject link, ref ECPosition pos, ref ECPositionToTransform appl)
         {
-            link.gameObject.transform.position = new Vector3(pos.position.x, 0, pos.position.y) + appl.shift;
+            link.gameObject.transform.position = new Vector3(pos.position2.x, 0, pos.position2.y) + appl.shift;
         }
         void ApplyRotation(ref ECGameObject link, ref ECRotation rot, ref ECRotationToTransform appl)
         {
@@ -42,7 +42,7 @@ namespace MyEcs.Physics
         void ReflectPosition(ref ECGameObject link, ref ECPosition pos, ref ECTransformToPosition refl)
         {
             var p = link.gameObject.transform.position;
-            pos.position = new Vector2(p.x, p.z) + refl.shift;
+            pos.position2 = new Vector2(p.x, p.z) + refl.shift;
         }
         void ReflectRotation(ref ECGameObject link, ref ECRotation rot, ref ECTransformToRotation refl)
         {

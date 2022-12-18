@@ -25,10 +25,11 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
         controls = new ControlsManager();
         controls.Enable();
         mousePos = Mouse.current.position.ReadValue();
+        MouseUpdate();
     }
     public void Run(IEcsSystems systems)
     {
-        MouseMovementUpdate();
+        MouseUpdate();
         screenSize = new Vector2(Screen.width, Screen.height);
         ScreenEdgeUpdate();
         MovementInputUpdate();
@@ -40,13 +41,15 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
         controls = null;
     }
 
-    void MouseMovementUpdate()
+    void MouseUpdate()
     {
         Vector2 newPos = Mouse.current.position.ReadValue();
         var delta = newPos - mousePos;
         mousePos = newPos;
         if (Camera.main != null)
             CalculateMouseWorldPos();
+        bus.Value.NewEventSingleton<InpMousePosition>().pos = mousePos;
+        bus.Value.NewEventSingleton<InpMouseWorldPosition>().pos = mouseWorldPos;
         if (delta != Vector2.zero)
             bus.Value.NewEventSingleton<InpMouseMoved>().dpos = delta;
         else
@@ -90,14 +93,14 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
             dir.y = Mathf.Sign(dir.y);
 
         if (dir != Vector2.zero)
-            bus.Value.NewEventSingleton<InpMovementInput>().dpos = dir;
+            bus.Value.NewEventSingleton<InpMovement>().dpos = dir;
         else
-            bus.Value.DestroyEventSingleton<InpMovementInput>();
+            bus.Value.DestroyEventSingleton<InpMovement>();
     }
     void ActionInputUpdate()
     {
         if (controls.Player.Fire.triggered)
-            bus.Value.NewEventSingleton<InpActionUse>().target = mouseWorldPos;
+            bus.Value.NewEventSingleton<InpActionUse>(); //need to identify action
         else
             bus.Value.DestroyEventSingleton<InpActionUse>();
     }
@@ -107,15 +110,22 @@ public struct InpScreenEdgeTouched : IEventSingleton
 {
     public Vector2 edge;
 }
+public struct InpMousePosition : IEventSingleton
+{
+    public Vector2 pos;
+}
+public struct InpMouseWorldPosition : IEventSingleton
+{
+    public Vector2 pos;
+}
 public struct InpMouseMoved : IEventSingleton
 {
     public Vector2 dpos;
 }
-public struct InpMovementInput : IEventSingleton
+public struct InpMovement : IEventSingleton
 {
     public Vector2 dpos;
 }
 public struct InpActionUse : IEventSingleton
 {
-    public Vector2 target;
 }

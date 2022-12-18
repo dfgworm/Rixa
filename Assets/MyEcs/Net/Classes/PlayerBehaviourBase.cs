@@ -25,14 +25,6 @@ namespace MyEcs.Net
                     return pb;
             return null;
         }
-        public static bool IsEntityLocalAuthority(int ent)
-        {
-            var world = EcsStatic.world;
-            if (world.GetPool<ECNetOwner>().Has(ent))
-                return world.GetPool<ECNetOwner>().Get(ent).IsLocalAuthority;
-            else
-                return NetStatic.IsServer;
-        }
         [SyncVar]
         public int playerId;
         public NetworkConnectionToClient connection;

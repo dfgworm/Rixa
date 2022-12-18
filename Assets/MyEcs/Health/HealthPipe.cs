@@ -13,18 +13,14 @@ namespace MyEcs.Health
 {
     public static class HealthPipe
     {
-        public struct HealthArgs {
-            public float max;
-            public float regen;
-        }
 
-        public static void BuildHealth(EcsWorld world, int ent, HealthArgs args)
+        public static void BuildHealth(EcsWorld world, int ent, float max, float regen = 0)
         {
             ref var hp = ref world.GetPool<ECHealth>().Add(ent);
-            hp.max = args.max;
+            hp.max = max;
             hp.Percent = 1;
-            if (args.regen > 0)
-                world.GetPool<ECHealthRegen>().Add(ent).regen = args.regen;
+            if (regen > 0)
+                world.GetPool<ECHealthRegen>().Add(ent).regen = regen;
             ref var hpDisp = ref world.GetPool<ECHealthDisplay>().Add(ent);
             hpDisp.Init();
             hpDisp.controller.shift = new Vector3(0,3,0);
@@ -32,7 +28,7 @@ namespace MyEcs.Health
         }
         public static void BuildNetHealth(EcsWorld world, int ent)
         {
-            if (PlayerBehaviourBase.IsEntityLocalAuthority(ent))
+            if (NetOwnershipService.IsEntityLocalAuthority(ent))
                 BuildHealthLocalAuthority(world, ent);
             else
                 BuildHealthRemoteAuthority(world, ent);

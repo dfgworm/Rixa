@@ -33,13 +33,27 @@ public class EcsLauncher
             .Add(new SyncReceiveSystem())
             
             .Add(new PlayerInputSystem())
+            .Add(new EntityHoverSystem())
             .Add(new LocalControllableSystem())
             .Add(new LocalCameraSystem())
 
 
 
-            .Add(new ActionSystem())
-            .Add(bus.GetDestroyEventsSystem().IncReplicant<AEVActionUse>())
+            .Add(new ChannellingSystem())
+            .Add(new NetActionSystem())
+
+            .Add(new InstantADSystem())
+            .Add(new ProjectileADSystem())
+
+            .Add(new DashActionSystem())
+            .Add(new HealEffectSystem())
+            .Add(new DamageEffectSystem())
+            .Add(new SpawnWallEffectSystem())
+            .Add(bus.GetDestroyEventsSystem()
+                .IncReplicant<AEVUse>()
+                .IncReplicant<AEVEntityHit>()
+                .IncReplicant<AEVPointHit>()
+            )
 
             .Add(new HealthSystem())
             .Add(new HealthDisplaySystem())

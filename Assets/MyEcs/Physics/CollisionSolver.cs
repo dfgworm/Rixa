@@ -18,7 +18,7 @@ namespace MyEcs.Physics
     public static class CollisionSolver
     {
         public static bool Solve(ref ECPosition pos1, ref ECCollider col1, ref ECPosition pos2, ref ECCollider col2)
-            => Solve(col1.type, pos1.position, col1.size, col2.type, pos2.position, col2.size);
+            => Solve(col1.type, pos1.position2, col1.size, col2.type, pos2.position2, col2.size);
         public static bool Solve(ColliderType col1, Vector2 pos1, Vector2 size1, ColliderType col2, Vector2 pos2, Vector2 size2)
         {
             if (col1 == ColliderType.rectangle && col2 == ColliderType.rectangle)

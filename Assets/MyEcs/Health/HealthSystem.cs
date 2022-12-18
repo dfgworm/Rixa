@@ -38,7 +38,7 @@ namespace MyEcs.Health
                 return;
             if (!healthPool.Value.Has(victim))
                 return;
-            if (!PlayerBehaviourBase.IsEntityLocalAuthority(victim))
+            if (!NetOwnershipService.IsEntityLocalAuthority(victim))
                 return;
             ref var hp = ref healthPool.Value.Get(victim);
             hp.Current -= dmg.amount;

@@ -36,23 +36,23 @@ namespace MyEcs.Health
 
         void UpdatePos(ref ECHealthDisplay disp, ref ECPosition pos)
         {
-            disp.controller.MoveTo(new Vector3(pos.position.x, 0, pos.position.y));
+            disp.controller.MoveTo(new Vector3(pos.position2.x, 0, pos.position2.y));
         }
         void UpdateFill(ref ECHealthDisplay disp, ref ECHealth hp)
         {
-            disp.controller.Fill = hp.Percent;
+            disp.controller.fill = hp.Percent;
         }
 
     }
     public struct ECHealthDisplay : IEcsAutoReset<ECHealthDisplay>
     {
-        public HealthDisplayController controller;
+        public FillBarController controller;
         static GameObject prefab;
         public void Init()
         {
             if (prefab == null)
                 prefab = Resources.Load<GameObject>("Prefabs/HealthDisplay");
-            controller = GameObject.Instantiate(prefab).GetComponent<HealthDisplayController>();
+            controller = GameObject.Instantiate(prefab).GetComponent<FillBarController>();
         }
         public void AutoReset(ref ECHealthDisplay c)
         {

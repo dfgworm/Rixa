@@ -36,8 +36,8 @@ public class MovementTest
 
         EcsStatic.fixedUpdateSystems.Run();
 
-        Assert.IsTrue(pos.position.x > 0);
-        Assert.IsTrue(pos.position.y > 0);
+        Assert.IsTrue(pos.position2.x > 0);
+        Assert.IsTrue(pos.position2.y > 0);
     }
 
     [Test]
@@ -45,7 +45,7 @@ public class MovementTest
     {
         int ent = EcsStatic.world.NewEntity();
         ref var vel = ref EcsStatic.GetPool<ECVelocity>().Add(ent);
-        ref var acc = ref EcsStatic.GetPool<ECAcceleration>().Add(ent);
+        ref var acc = ref EcsStatic.GetPool<ECTargetVelocity>().Add(ent);
 
         acc.direction = Vector2.one.normalized;
         acc.targetSpeed = 20;
@@ -76,7 +76,7 @@ public class MovementTest
         ref var col2 = ref EcsStatic.GetPool<ECCollider>().Add(obs);
         ref var obsComp = ref EcsStatic.GetPool<ECObstacle>().Add(obs);
 
-        pos2.position = new Vector2(0.25f, 1);
+        pos2.position2 = new Vector2(0.25f, 1);
         col2.type = ColliderType.rectangle;
         col2.size = new Vector2(1, 1);
 

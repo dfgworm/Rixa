@@ -47,7 +47,7 @@ public class RenderSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
         if (data.drawCount >= instanceCountLimit)
             DispatchInstancedRender(mesh.meshId);
         data.matrices[data.drawCount].SetTRS(
-            pos.position.Vec3() + mesh.offset,
+            pos.position2.Vec3() + mesh.offset,
             mesh.rotation, mesh.scale);
         data.drawCount += 1;
     }
@@ -67,11 +67,17 @@ public class RenderSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
         dataDictionary = null;
     }
 }
-public struct ECRenderMesh
+public struct ECRenderMesh : IEcsAutoReset<ECRenderMesh>
 {
     public Vector3 offset;
     public Quaternion rotation;
     public Vector3 scale;
     public int meshId;
 
+    public void AutoReset(ref ECRenderMesh c)
+    {
+        c.offset = Vector3.zero;
+        c.rotation = Quaternion.identity;
+        c.scale = Vector3.one;
+    }
 }

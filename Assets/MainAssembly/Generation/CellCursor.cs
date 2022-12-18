@@ -144,12 +144,9 @@ namespace Generation
                 return true;
             }
         }
-        public CellCursor SelectAll(direction dir = direction.all)
+        public CellCursor SelectAll()
         {
-            if (dir.HasFlag(direction.vertical))
-                Expand(direction.vertical, selectable.Size.y);
-            if (dir.HasFlag(direction.horizontal))
-                Expand(direction.horizontal, selectable.Size.x);
+            Cell = new Cell(Vector2Int.zero, selectable.Size);
             return this;
         }
         public CellCursor MoveToEdge(direction dir)

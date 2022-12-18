@@ -32,6 +32,15 @@ namespace MyEcs.Net
             TryGetNetId(world, ent, out ushort netId);
             return netId;
         }
+        public static bool TryGetNetId(EcsPackedEntity packed, out ushort netId)
+        {
+            if (!packed.Unpack(EcsStatic.world, out int ent))
+            {
+                netId = 0;
+                return false;
+            }
+            return TryGetNetId(EcsStatic.world, ent, out netId);
+        }
         public static bool TryGetNetId(int ent, out ushort netId) => TryGetNetId(EcsStatic.world, ent, out netId);
         public static bool TryGetNetId(EcsWorld world, int ent, out ushort netId)
         {

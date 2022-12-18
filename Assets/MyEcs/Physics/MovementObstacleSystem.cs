@@ -91,9 +91,9 @@ namespace MyEcs.Physics
         public static Vector2 GetPushVector(ref ECPosition obsPos, ref ECCollider obsCol, ref ECPosition entPos)
         {
             if (obsCol.type == ColliderType.rectangle)
-                return GetPushVectorRect(obsPos.position, obsCol.size, entPos.position);
+                return GetPushVectorRect(obsPos.position2, obsCol.size, entPos.position2);
             else
-                return GetPushVector(obsPos.position, entPos.position);
+                return GetPushVector(obsPos.position2, entPos.position2);
         }
         public static Vector2 GetPushVectorRect(Vector2 obsPos, Vector2 obsSize, Vector2 entPos)
         {

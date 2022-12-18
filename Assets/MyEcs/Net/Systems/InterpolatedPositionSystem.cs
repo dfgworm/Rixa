@@ -66,7 +66,7 @@ namespace MyEcs.Net
         {
             if (!inter.HasAny())
                 return;
-            pos.position = inter.GetPosition((float)NetworkTime.time - interpolationDelay);
+            pos.position2 = inter.GetPosition((float)NetworkTime.time - interpolationDelay);
         }
         void UpdateSendComponent(ref ECInterpolatePositionSend send, ref ECPosition pos, ref ECNetId netId)
         {
@@ -74,7 +74,7 @@ namespace MyEcs.Net
                 return;
             send.nextSend = Time.time + send.sendPeriod;
             bufferMessage.netId = netId.id;
-            bufferMessage.position = pos.position;
+            bufferMessage.position = pos.position2;
             if (NetStatic.IsServer)
                 NetCommunication.BroadcastToReadyExcept(send.exceptionConnectionId, bufferMessage, Channels.Unreliable);
             else
