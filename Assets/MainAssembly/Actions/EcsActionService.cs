@@ -100,4 +100,33 @@ namespace MyEcs.Actions
         public byte id;
         public EcsPackedEntity entity;
     }
+    public struct AEVUse : IEventReplicant
+    {
+        public bool netReceived;
+        public EcsPackedEntity action;
+        public ActionTargetContainer target;
+    }
+    public struct AEVEntityHit : IEventReplicant
+    {
+        public EcsPackedEntity action;
+        public EcsPackedEntity victim;
+    }
+    public struct AEVPointHit : IEventReplicant
+    {
+        public EcsPackedEntity action;
+        public Vector2 point;
+    }
+    public enum ActionTargetType : byte
+    {
+        none,
+        point,
+        direction,
+        entity,
+    }
+    public struct ActionTargetContainer
+    {
+        public ActionTargetType type;
+        public Vector2 vector;
+        public EcsPackedEntity entity;
+    }
 }

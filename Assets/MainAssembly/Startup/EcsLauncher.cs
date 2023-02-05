@@ -10,7 +10,6 @@ using Leopotam.EcsLite.ExtendedSystems;
 
 using MyEcs.Spawn;
 using MyEcs.Physics;
-using MyEcs.Net;
 using MyEcs.Health;
 using MyEcs.Actions;
 
@@ -30,7 +29,6 @@ public class EcsLauncher
 
         updateSystems = EcsStatic.updateSystems
 
-            .Add(new SyncReceiveSystem())
             
             .Add(new PlayerInputSystem())
             .Add(new EntityMouseHoverSystem())
@@ -40,7 +38,6 @@ public class EcsLauncher
 
 
             .Add(new ChannellingSystem())
-            .Add(new NetActionSystem())
 
             .Add(new InstantADSystem())
             .Add(new ProjectileADSystem())
@@ -60,9 +57,7 @@ public class EcsLauncher
 
             .Add(new SpawnSystem())
             .Add(new SpawnPipelineSystem())
-            .Add(new NetSpawnSystem())
 
-            .Add(new NetDestroySystem())
             .Add(new DestroySystem())
             .DelHere<EMSpawned>()
             .Add(bus.GetDestroyEventsSystem()
@@ -70,9 +65,6 @@ public class EcsLauncher
                 .IncReplicant<EVDamage>()
                 .IncSingleton<InpActionUse>() //this should be a replicant as well
                 )
-
-            .Add(new InterpolatedPositionSystem())
-            .Add(new SyncSendSystem())
 
             .Add(new RenderSystem())
             ;

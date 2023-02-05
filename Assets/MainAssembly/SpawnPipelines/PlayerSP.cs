@@ -5,8 +5,6 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using Mirror;
-using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
@@ -24,24 +22,10 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
 
     public void Spawn(EcsWorld world, int ent)
     {
-        ref var netOwner = ref world.GetPool<ECNetOwner>().Get(ent);
-        var pb = PlayerBehaviour.GetById(netOwner.playerId);
-
-        world.GetPool<ECPlayerBehaviour>().Add(ent).pb = pb;
-        pb.entity = world.PackEntity(ent);
-        if (netOwner.BelongsToLocalPlayer)
-            world.GetPool<ECLocalControllable>().Add(ent);
-
-        world.GetPool<ECNetAutoSpawn>().Add(ent);
-
         PositionPipe.BuildPosition(world, ent, true);
-        PositionPipe.BuildNetPosition(world, ent, new PositionPipe.NetPosArgs
-        {
-            syncPeriodFromServer = syncPeriodFromServer,
-        });
         HealthPipe.BuildHealth(world, ent, max: health, regen: regen);
-        HealthPipe.BuildNetHealth(world, ent);
 
+        world.GetPool<ECLocalControllable>().Add(ent);
         world.GetPool<ECTouchDamage>().Add(ent).dps = 10;
 
         ref var col = ref world.GetPool<ECCollider>().Add(ent);
@@ -51,20 +35,12 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
         var go = EcsGameObjectService.GetGameObject(ent);
         go.transform.localScale = new Vector3(col.size.x * 2, 1, col.size.x * 2);
 
-        if (netOwner.BelongsToLocalPlayer)
-        {
-            world.GetPool<ECSyncSend>().Get(ent).sendPeriod = syncPeriodFromClient;
 
-            ref var acc = ref world.GetPool<ECTargetVelocity>().Add(ent);
-            acc.targetSpeed = moveSpeed;
-            acc.acceleration = 25;
-            world.GetPool<ECVelocity>().Add(ent);
-            world.GetPool<ECRespectObstacles>().Add(ent);
-        }
-        else
-        {
-
-        }
+        ref var acc = ref world.GetPool<ECTargetVelocity>().Add(ent);
+        acc.targetSpeed = moveSpeed;
+        acc.acceleration = 25;
+        world.GetPool<ECVelocity>().Add(ent);
+        world.GetPool<ECRespectObstacles>().Add(ent);
 
         ref var channelDisplay = ref EcsStatic.GetPool<ECChannelDisplay>().Add(ent);
         channelDisplay.Init();
@@ -74,12 +50,10 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
     }
     void GiveAbility(EcsWorld world, int ent)
     {
-        ref var netOwner = ref world.GetPool<ECNetOwner>().Get(ent);
 
         var acWorld = EcsStatic.GetWorld("actions");
         int acEnt = EcsActionService.CreateAction(ent);
-        //if (netOwner.BelongsToLocalPlayer)
-        //    acWorld.GetPool<ACLocalControllable>().Add(acEnt).targetType = ActionTargetType.direction;
+        //acWorld.GetPool<ACLocalControllable>().Add(acEnt).targetType = ActionTargetType.direction;
         //ref var proj = ref acWorld.GetPool<ACProjectileDelivery>().Add(acEnt);
         //proj.lifetime = 5;
         //proj.selfDestruct = true;

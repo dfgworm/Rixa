@@ -11,20 +11,22 @@ using Leopotam.EcsLite.ExtendedSystems;
 using MyEcs.Spawn;
 using MyEcs.Actions;
 using MyEcs.Physics;
-using MyEcs.Net;
 using Generation;
 
 public static class InitialSpawn
 {
     public static void Spawn()
     {
-        if (NetStatic.IsServer) {
-            SpawnWall(5, 5);
-            SpawnWall(5, 0);
-            SpawnWall(0, 5);
-            SpawnEnemy(0, -5);
-        }
+        SpawnWall(5, 5);
+        SpawnWall(5, 0);
+        SpawnWall(0, 5);
+        SpawnEnemy(0, -5);
         LoadCameraFocus(EcsStatic.world);
+        ref var ev = ref EcsStatic.bus.NewEvent<EVSpawn>();
+        ev.Payload
+            .Add(SpawnPipelineBaggage.Get<PlayerSP>())
+            .Add(new PrefabIdBaggage { id = PrefabId.player })
+            .Add(new PositionBaggage { position = new Vector2(2, 2) });
         //SpawnChar();
         //GetPrintLoc();
     }
@@ -34,7 +36,6 @@ public static class InitialSpawn
         ev.Payload
             .Add(SpawnPipelineBaggage.Get<WallSP>())
             .Add(new PositionBaggage { position = new Vector2(x, y) })
-            .Add(NetIdBaggage.Allocate())
             ;
     }
     static void SpawnEnemy(float x, float y)
@@ -43,7 +44,6 @@ public static class InitialSpawn
         ev.Payload
             .Add(SpawnPipelineBaggage.Get<EnemySP>())
             .Add(new PositionBaggage { position = new Vector2(x, y) })
-            .Add(NetIdBaggage.Allocate())
             ;
     }
     static void LoadCameraFocus(EcsWorld world)
@@ -56,9 +56,11 @@ public static class InitialSpawn
     }
     static void SpawnChar()
     {
+
         int ent = EcsStatic.world.NewEntity();
         EcsStatic.GetPool<ECPosition>().Add(ent);
 
+        EcsStatic.GetPool<ECLocalControllable>().Add(ent);
         ref var mesh = ref EcsStatic.GetPool<ECRenderMesh>().Add(ent);
         mesh.meshId = (int)MeshService.basicMesh.Cylinder;
 

@@ -16,7 +16,6 @@ public class HealthTest
     [SetUp]
     public void Setup()
     {
-        NetStatic.SetIsServer();
         EcsStatic.Load();
         EcsStatic.updateSystems
             .Add(new HealthSystem())
@@ -93,7 +92,6 @@ public class HealthTest
     [TearDown]
     public void TearDown()
     {
-        NetStatic.Reset();
         EcsStatic.Unload();
     }
 

@@ -7,7 +7,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using MyEcs.Physics;
-using MyEcs.Net;
 
 namespace MyEcs.Actions
 {
@@ -34,8 +33,6 @@ namespace MyEcs.Actions
             if (!dashPool.Value.Has(ac))
                 return;
             if (!EcsActionService.TryGetEntity(ac, out int ent))
-                return;
-            if (!NetOwnershipService.IsEntityLocalAuthority(ent))
                 return;
 
             Vector2 pos = world.Value.GetPool<ECPosition>().Get(ent).position2;

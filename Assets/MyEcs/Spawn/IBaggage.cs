@@ -8,7 +8,7 @@ using Leopotam.EcsLite.Di;
 
 namespace MyEcs.Spawn
 {
-    public interface IBaggage : Mirror.NetworkMessage
+    public interface IBaggage
     {
         public void UnloadToWorld(EcsWorld world, int ent);
     }

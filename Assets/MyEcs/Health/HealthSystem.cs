@@ -7,8 +7,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using MyEcs.Physics;
-using MyEcs.Net;
-
 namespace MyEcs.Health
 {
     public class HealthSystem : IEcsInitSystem, IEcsRunSystem
@@ -37,8 +35,6 @@ namespace MyEcs.Health
             if (!dmg.victim.Unpack(EcsStatic.world, out int victim))
                 return;
             if (!healthPool.Value.Has(victim))
-                return;
-            if (!NetOwnershipService.IsEntityLocalAuthority(victim))
                 return;
             ref var hp = ref healthPool.Value.Get(victim);
             hp.Current -= dmg.amount;

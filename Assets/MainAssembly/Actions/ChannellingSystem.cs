@@ -6,7 +6,6 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using MyEcs.Net;
 
 namespace MyEcs.Actions
 {
@@ -46,8 +45,6 @@ namespace MyEcs.Actions
         void FinishChannel(int ent, EMChannelling channel)
         {
             channelMarkPool.Value.Del(ent);
-            if (!NetOwnershipService.IsEntityLocalAuthority(ent))
-                return;
             if (!channel.useEvent.action.Unpack(acWorld.Value, out int ac))
                 return;
             if (!channelledPool.Value.Has(ac))

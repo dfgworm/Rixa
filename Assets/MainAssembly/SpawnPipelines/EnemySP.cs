@@ -5,7 +5,6 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
@@ -15,7 +14,6 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
     public float health = 100;
     public void Spawn(EcsWorld world, int ent)
     {
-        world.GetPool<ECNetAutoSpawn>().Add(ent);
 
 
         PositionPipe.BuildPosition(world, ent, true);
@@ -35,7 +33,6 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
         world.GetPool<ECTouchDamage>().Add(ent).dps = 2;
 
         HealthPipe.BuildHealth(world, ent, max: health);
-        HealthPipe.BuildNetHealth(world, ent);
     }
     public void Destroy(EcsWorld world, int ent)
     {

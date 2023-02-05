@@ -5,8 +5,6 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using Mirror;
-using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 
@@ -14,7 +12,6 @@ public class WallSP : ScriptableObject, ISpawnPipeline
 {
     public void Spawn(EcsWorld world, int ent)
     {
-        EcsStatic.GetPool<ECNetAutoSpawn>().Add(ent);
 
         PositionPipe.BuildPosition(world, ent);
         EcsStatic.GetPool<ECObstacle>().Add(ent);

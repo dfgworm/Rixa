@@ -5,8 +5,6 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using Mirror;
-using MyEcs.Net;
 using MyEcs.Spawn;
 using MyEcs.Physics;
 
@@ -26,40 +24,6 @@ public static class PositionPipe
             var go = EcsGameObjectService.GetGameObject(ent);
             if (go != null)
                 go.transform.position = pos.position2.Vec3();
-        }
-    }
-    public struct NetPosArgs
-    {
-        public float syncPeriodFromServer;
-    }
-    public static void BuildNetPosition(EcsWorld world, int ent, NetPosArgs args)
-    {
-        if (world.GetPool<ECNetOwner>().Get(ent).IsLocalAuthority)
-            BuildLocalAuthority(world, ent, args);
-        else
-            BuildRemoteAuthority(world, ent, args);
-
-    }
-    static void BuildLocalAuthority(EcsWorld world, int ent, NetPosArgs args)
-    {
-        ref var send = ref world.GetPool<ECSyncSend>().SoftAdd(ent);
-        send.Payload.Add(new PositionBaggage());
-    }
-    static void BuildRemoteAuthority(EcsWorld world, int ent, NetPosArgs args)
-    {
-        if (NetStatic.IsServer)
-        {
-            ref var netOwner = ref world.GetPool<ECNetOwner>().Get(ent);
-            var pb = PlayerBehaviour.GetById(netOwner.playerId);
-            world.GetPool<ECSyncReceive>().SoftAdd(ent);
-            ref var send = ref world.GetPool<ECInterpolatePositionSend>().Add(ent);
-            send.sendPeriod = args.syncPeriodFromServer;
-            send.exceptionConnectionId = pb.connection.connectionId;
-        }
-        else
-        {
-            world.GetPool<ECInterpolatePositionReceive>().Add(ent)
-                .Reset(world.GetPool<ECPosition>().Get(ent).position2, (float)NetworkTime.time);
         }
     }
 }
