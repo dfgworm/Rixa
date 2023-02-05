@@ -7,11 +7,11 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-public class EntityHoverSystem : IEcsRunSystem
+public class EntityMouseHoverSystem : IEcsRunSystem
 {
     readonly EcsWorldInject world = default;
 
-    readonly EcsFilterInject<Inc<ECPosition, ECHoverable>> hoverFilter = default;
+    readonly EcsFilterInject<Inc<ECPosition, ECMouseHoverable>> hoverFilter = default;
 
     readonly EcsCustomInject<EventBus> bus = default;
 
@@ -28,12 +28,12 @@ public class EntityHoverSystem : IEcsRunSystem
         foreach (int i in hoverFilter.Value)
             RayCast(ray, i, ref hoverFilter.Pools.Inc1.Get(i), ref hoverFilter.Pools.Inc2.Get(i));
         if (currentEntity >= 0)
-            bus.Value.NewEventSingleton<InpEntityHover>().entity = world.Value.PackEntity(currentEntity);
+            bus.Value.NewEventSingleton<InpEntityMouseHover>().entity = world.Value.PackEntity(currentEntity);
         else
-            bus.Value.DestroyEventSingleton<InpEntityHover>();
+            bus.Value.DestroyEventSingleton<InpEntityMouseHover>();
     }
 
-    public void RayCast(Ray ray, int ent, ref ECPosition pos, ref ECHoverable hover)
+    public void RayCast(Ray ray, int ent, ref ECPosition pos, ref ECMouseHoverable hover)
     {
         var point = pos.position2.Vec3() + hover.offset;
         float rayToClosestPoint = Vector3.Dot(point - ray.origin, ray.direction);
@@ -50,13 +50,13 @@ public class EntityHoverSystem : IEcsRunSystem
     }
 
 }
-public struct ECHoverable
+public struct ECMouseHoverable
 {
     public Vector3 offset;
     public float radius;
 }
 
-public struct InpEntityHover : IEventSingleton
+public struct InpEntityMouseHover : IEventSingleton
 {
     public EcsPackedEntity entity;
 }

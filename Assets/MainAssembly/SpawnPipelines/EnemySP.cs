@@ -28,7 +28,7 @@ public class EnemySP : ScriptableObject, ISpawnPipeline
         col.size = new Vector2(1, 0);
         model.transform.localScale = new Vector3(col.size.x*2, 1, col.size.x*2);
 
-        ref var hover = ref world.GetPool<ECHoverable>().Add(ent);
+        ref var hover = ref world.GetPool<ECMouseHoverable>().Add(ent);
         hover.radius = col.size.x;
         
 

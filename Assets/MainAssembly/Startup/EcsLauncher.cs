@@ -33,7 +33,7 @@ public class EcsLauncher
             .Add(new SyncReceiveSystem())
             
             .Add(new PlayerInputSystem())
-            .Add(new EntityHoverSystem())
+            .Add(new EntityMouseHoverSystem())
             .Add(new LocalControllableSystem())
             .Add(new LocalCameraSystem())
 

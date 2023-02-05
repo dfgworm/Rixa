@@ -54,8 +54,8 @@ public class LocalControllableSystem : IEcsRunSystem
                 ev.target.vector = bus.Value.GetEventBodySingleton<InpMouseWorldPosition>().pos - pos;
             }
         } else if (ev.target.type == ActionTargetType.entity)
-            if (bus.Value.HasEventSingleton<InpEntityHover>())
-                ev.target.entity = bus.Value.GetEventBodySingleton<InpEntityHover>().entity;
+            if (bus.Value.HasEventSingleton<InpEntityMouseHover>())
+                ev.target.entity = bus.Value.GetEventBodySingleton<InpEntityMouseHover>().entity;
     }
 }
 
