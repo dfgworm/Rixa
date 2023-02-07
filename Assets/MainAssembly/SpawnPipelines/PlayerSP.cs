@@ -46,29 +46,35 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
         channelDisplay.Init();
         channelDisplay.controller.shift = new Vector3(0, 3, 0);
 
-        GiveAbility(world, ent);
+        GiveDash(world, ent);
+        GiveChargedShot(world, ent);
     }
-    void GiveAbility(EcsWorld world, int ent)
+    void GiveDash(EcsWorld world, int ent)
     {
 
-        var acWorld = EcsStatic.GetWorld("actions");
         int acEnt = EcsActionService.CreateAction(ent);
-        //acWorld.GetPool<ACLocalControllable>().Add(acEnt).targetType = ActionTargetType.direction;
-        //ref var proj = ref acWorld.GetPool<ACProjectileDelivery>().Add(acEnt);
-        //proj.lifetime = 5;
-        //proj.selfDestruct = true;
-        //proj.velocity = 5;
-        //ref var heal = ref acWorld.GetPool<ACDamage>().Add(acEnt);
-        //heal.amount = 20;
-        ref var dash = ref acWorld.GetPool<ACDash>().Add(acEnt);
+        ref var dash = ref EcsActionService.GetPool<ACDash>().Add(acEnt);
         dash.range = 8;
         dash.velocity = 16;
+        EcsActionService.GetPool<ACInputType>().Add(acEnt).targetType = ActionTargetType.point;
+        PlayerInputSystem.ConnectActionToInput(PlayerInputSystem.controls.Player.Dash, acEnt);
+    }
+    void GiveChargedShot(EcsWorld world, int ent)
+    {
 
+        int acEnt = EcsActionService.CreateAction(ent);
+        ref var proj = ref EcsActionService.GetPool<ACProjectileDelivery>().Add(acEnt);
+        proj.lifetime = 5;
+        proj.selfDestruct = true;
+        proj.velocity = 5;
+        ref var dmg = ref EcsActionService.GetPool<ACDamage>().Add(acEnt);
+        dmg.amount = 20;
 
         int channelAc = EcsActionService.CreateAction(ent);
-        EcsActionService.GetPool<ACLocalControllable>().Add(channelAc).targetType = ActionTargetType.point;
+        EcsActionService.GetPool<ACInputType>().Add(channelAc).targetType = ActionTargetType.direction;
+        PlayerInputSystem.ConnectActionToInput(PlayerInputSystem.controls.Player.SecondaryAttack, channelAc);
         ref var channel = ref EcsActionService.GetPool<ACChannelled>().Add(channelAc);
-        channel.duration = 0.2f;
+        channel.duration = 0.5f;
         channel.finishAction = EcsActionService.acWorld.PackEntity(acEnt);
     }
     public void Destroy(EcsWorld world, int ent)

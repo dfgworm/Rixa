@@ -13,7 +13,7 @@ public class LocalControllableSystem : IEcsRunSystem
 {
 
     readonly EcsFilterInject<Inc<ECTargetVelocity, ECLocalControllable>> moveFilter = default;
-    readonly EcsFilterInject<Inc<ACLocalControllable>> abilityFilter = "actions";
+    readonly EcsFilterInject<Inc<ACInputType>> abilityFilter = "actions";
 
     readonly EcsCustomInject<EventBus> bus = default;
 
@@ -24,9 +24,8 @@ public class LocalControllableSystem : IEcsRunSystem
     {
         foreach (int i in moveFilter.Value)
             ControlMove(ref moveFilter.Pools.Inc1.Get(i));
-        if (bus.Value.HasEventSingleton<InpActionUse>())
-            foreach (int i in abilityFilter.Value)
-                UseAction(i, ref abilityFilter.Pools.Inc1.Get(i));
+        foreach (int ev in bus.Value.GetEventBodies<InpActionUse>(out var pool))
+            ProcessAction(ref pool.Get(ev));
     }
 
     void ControlMove(ref ECTargetVelocity mover)
@@ -36,9 +35,11 @@ public class LocalControllableSystem : IEcsRunSystem
         else
             mover.direction = Vector2.zero;
     }
-    void UseAction(int ac, ref ACLocalControllable localContr)
+    void ProcessAction(ref InpActionUse inputEvent)
     {
-        ref var inpEv = ref bus.Value.GetEventBodySingleton<InpActionUse>();
+        if (!inputEvent.action.Unpack(EcsActionService.acWorld, out int ac))
+            return;
+        ref ACInputType localContr = ref EcsActionService.GetPool<ACInputType>().Get(ac);
 
         ref var ev = ref bus.Value.NewEvent<AEVUse>();
         ev.action = acWorld.Value.PackEntity(ac);
@@ -62,7 +63,7 @@ public class LocalControllableSystem : IEcsRunSystem
 public struct ECLocalControllable
 {
 }
-public struct ACLocalControllable
+public struct ACInputType //this should have more customization options, including it's own enum
 {
     public ActionTargetType targetType;
 }

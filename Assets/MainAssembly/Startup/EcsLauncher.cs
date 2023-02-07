@@ -63,7 +63,7 @@ public class EcsLauncher
             .Add(bus.GetDestroyEventsSystem()
                 .IncReplicant<EVSpawn>()
                 .IncReplicant<EVDamage>()
-                .IncSingleton<InpActionUse>() //this should be a replicant as well
+                .IncReplicant<InpActionUse>()
                 )
 
             .Add(new RenderSystem())

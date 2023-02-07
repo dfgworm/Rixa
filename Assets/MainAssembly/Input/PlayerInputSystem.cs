@@ -17,13 +17,27 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
     Vector2 screenSize;
     Vector2 edgePercent = new Vector2(0.05f, 0.05f);
 
-    float deadZone = 0.04f;
-    ControlsManager controls;
+    const float DEADZONE = 0.04f;
+    static public ControlsManager controls;
 
+    static public void ConnectActionToInput(InputAction inp, int ac)
+    {
+        ref var connected = ref MyEcs.Actions.EcsActionService.GetPool<ACConnectedInputAction>().SoftAdd(ac);
+        connected.input = inp;
+        EcsPackedEntity packedAc = MyEcs.Actions.EcsActionService.acWorld.PackEntity(ac);
+        connected.Connect(delegate (InputAction.CallbackContext context)
+        {
+            ref var ev = ref EcsStatic.bus.NewEvent<InpActionUse>();
+            ev.action = packedAc;
+            ev.context = context;
+        });
+
+    }
     public void Init(IEcsSystems systems)
     {
         controls = new ControlsManager();
         controls.Enable();
+        
         mousePos = Mouse.current.position.ReadValue();
         MouseUpdate();
     }
@@ -33,7 +47,6 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
         screenSize = new Vector2(Screen.width, Screen.height);
         ScreenEdgeUpdate();
         MovementInputUpdate();
-        ActionInputUpdate();
     }
     public void Destroy(IEcsSystems systems)
     {
@@ -83,11 +96,11 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
     {
         
         Vector2 dir = controls.Player.Move.ReadValue<Vector2>();
-        if (Mathf.Abs(dir.x) <= deadZone)
+        if (Mathf.Abs(dir.x) <= DEADZONE)
             dir.x = 0;
         else
             dir.x = Mathf.Sign(dir.x);
-        if (Mathf.Abs(dir.y) <= deadZone)
+        if (Mathf.Abs(dir.y) <= DEADZONE)
             dir.y = 0;
         else
             dir.y = Mathf.Sign(dir.y);
@@ -96,13 +109,6 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
             bus.Value.NewEventSingleton<InpMovement>().dpos = dir;
         else
             bus.Value.DestroyEventSingleton<InpMovement>();
-    }
-    void ActionInputUpdate()
-    {
-        if (controls.Player.Fire.triggered)
-            bus.Value.NewEventSingleton<InpActionUse>(); //need to identify action
-        else
-            bus.Value.DestroyEventSingleton<InpActionUse>();
     }
 }
 
@@ -126,6 +132,24 @@ public struct InpMovement : IEventSingleton
 {
     public Vector2 dpos;
 }
-public struct InpActionUse : IEventSingleton
+public struct InpActionUse : IEventReplicant //
 {
+    public InputAction.CallbackContext context;
+    public EcsPackedEntity action;
+}
+public struct ACConnectedInputAction : IEcsAutoReset<ACConnectedInputAction>
+{
+    public InputAction input;
+    Action<InputAction.CallbackContext> connectedFunction;
+
+    public void Connect(Action<InputAction.CallbackContext> action)
+    {
+        connectedFunction = action;
+        input.performed += connectedFunction;
+    }
+    public void AutoReset(ref ACConnectedInputAction c)
+    {
+        if (c.input != null && c.connectedFunction != null)
+            c.input.performed -= c.connectedFunction;
+    }
 }

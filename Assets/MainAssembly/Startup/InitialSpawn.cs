@@ -74,7 +74,7 @@ public static class InitialSpawn
         dash.velocity = 30;
 
         int channelAc = EcsActionService.CreateAction(ent);
-        EcsActionService.GetPool<ACLocalControllable>().Add(channelAc).targetType = ActionTargetType.point;
+        EcsActionService.GetPool<ACInputType>().Add(channelAc).targetType = ActionTargetType.point;
         ref var channel = ref EcsActionService.GetPool<ACChannelled>().Add(channelAc);
         channel.duration = 0.5f;
         channel.finishAction = EcsActionService.acWorld.PackEntity(ac);
