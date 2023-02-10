@@ -5,37 +5,34 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
 
-public class EnemySP : ScriptableObject, ISpawnPipeline
+public static class EnemySP
 {
-    public float health = 100;
-    public void Spawn(EcsWorld world, int ent)
+    public static float health = 100;
+    public static int Spawn()
     {
+        int ent = EcsStatic.world.NewEntity();
 
-
-        PositionPipe.BuildPosition(world, ent, true);
+        EcsStatic.GetPool<ECPosition>().Add(ent);
+        EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
 
         var model = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        EcsGameObjectService.Link(world, ent, model);
+        EcsGameObjectService.Link(ent, model);
 
-        ref var col = ref world.GetPool<ECCollider>().Add(ent);
+        ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
         col.type = ColliderType.circle;
         col.size = new Vector2(1, 0);
         model.transform.localScale = new Vector3(col.size.x*2, 1, col.size.x*2);
 
-        ref var hover = ref world.GetPool<ECMouseHoverable>().Add(ent);
+        ref var hover = ref EcsStatic.GetPool<ECMouseHoverable>().Add(ent);
         hover.radius = col.size.x;
-        
 
-        world.GetPool<ECTouchDamage>().Add(ent).dps = 2;
 
-        HealthPipe.BuildHealth(world, ent, max: health);
-    }
-    public void Destroy(EcsWorld world, int ent)
-    {
+        EcsStatic.GetPool<ECTouchDamage>().Add(ent).dps = 2;
 
+        HealthPipe.BuildHealth(ent, max: health);
+        return ent;
     }
 }

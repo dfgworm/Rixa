@@ -8,10 +8,9 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.ExtendedSystems;
 
-using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
-using MyEcs.Actions;
+using MyEcs.Acts;
 
 public class EcsLauncher
 {
@@ -22,9 +21,9 @@ public class EcsLauncher
     {
         Debug.Log("EcsLauncher Starting");
         EcsStatic.Load();
-        PrefabRegistry.Init();
-        EcsActionService.Load();
+        ActService.Load();
         MeshService.Load();
+        PrefabRegistry.Init();
         var bus = EcsStatic.bus;
 
         updateSystems = EcsStatic.updateSystems
@@ -42,7 +41,7 @@ public class EcsLauncher
             .Add(new InstantADSystem())
             .Add(new ProjectileADSystem())
 
-            .Add(new DashActionSystem())
+            .Add(new DashActSystem())
             .Add(new HealEffectSystem())
             .Add(new DamageEffectSystem())
             .Add(new SpawnWallEffectSystem())
@@ -55,15 +54,11 @@ public class EcsLauncher
             .Add(new HealthSystem())
             .Add(new HealthDisplaySystem())
 
-            .Add(new SpawnSystem())
-            .Add(new SpawnPipelineSystem())
 
             .Add(new DestroySystem())
-            .DelHere<EMSpawned>()
             .Add(bus.GetDestroyEventsSystem()
-                .IncReplicant<EVSpawn>()
                 .IncReplicant<EVDamage>()
-                .IncReplicant<InpActionUse>()
+                .IncReplicant<InpActUse>()
                 )
 
             .Add(new RenderSystem())
@@ -106,7 +101,7 @@ public class EcsLauncher
     {
         MeshService.Unload();
         EcsStatic.Unload();
-        EcsActionService.Unload();
+        ActService.Unload();
         Debug.Log("EcsLauncher Destroyed");
     }
 }

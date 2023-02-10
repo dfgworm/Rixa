@@ -5,15 +5,15 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using MyEcs.Spawn;
 using MyEcs.Physics;
 
-public class WallSP : ScriptableObject, ISpawnPipeline
-{
-    public void Spawn(EcsWorld world, int ent)
-    {
 
-        PositionPipe.BuildPosition(world, ent);
+public static class WallSP
+{
+    public static int Spawn(Vector2 pos = new Vector2())
+    {
+        int ent = EcsStatic.world.NewEntity();
+        EcsStatic.GetPool<ECPosition>().Add(ent).position2 = pos;
         EcsStatic.GetPool<ECObstacle>().Add(ent);
 
         ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
@@ -24,10 +24,6 @@ public class WallSP : ScriptableObject, ISpawnPipeline
         mesh.meshId = 0;
         mesh.rotation = Quaternion.identity;
         mesh.scale = Vector3.one;
-
-    }
-    public void Destroy(EcsWorld world, int ent)
-    {
-
+        return ent;
     }
 }

@@ -20,15 +20,15 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
     const float DEADZONE = 0.04f;
     static public ControlsManager controls;
 
-    static public void ConnectActionToInput(InputAction inp, int ac)
+    static public void ConnectActToInput(InputAction inp, int ac)
     {
-        ref var connected = ref MyEcs.Actions.EcsActionService.GetPool<ACConnectedInputAction>().SoftAdd(ac);
+        ref var connected = ref MyEcs.Acts.ActService.GetPool<ACConnectedInputAct>().SoftAdd(ac);
         connected.input = inp;
-        EcsPackedEntity packedAc = MyEcs.Actions.EcsActionService.acWorld.PackEntity(ac);
+        EcsPackedEntity packedAc = MyEcs.Acts.ActService.world.PackEntity(ac);
         connected.Connect(delegate (InputAction.CallbackContext context)
         {
-            ref var ev = ref EcsStatic.bus.NewEvent<InpActionUse>();
-            ev.action = packedAc;
+            ref var ev = ref EcsStatic.bus.NewEvent<InpActUse>();
+            ev.act = packedAc;
             ev.context = context;
         });
 
@@ -132,12 +132,12 @@ public struct InpMovement : IEventSingleton
 {
     public Vector2 dpos;
 }
-public struct InpActionUse : IEventReplicant //
+public struct InpActUse : IEventReplicant
 {
     public InputAction.CallbackContext context;
-    public EcsPackedEntity action;
+    public EcsPackedEntity act;
 }
-public struct ACConnectedInputAction : IEcsAutoReset<ACConnectedInputAction>
+public struct ACConnectedInputAct : IEcsAutoReset<ACConnectedInputAct>
 {
     public InputAction input;
     Action<InputAction.CallbackContext> connectedFunction;
@@ -147,7 +147,7 @@ public struct ACConnectedInputAction : IEcsAutoReset<ACConnectedInputAction>
         connectedFunction = action;
         input.performed += connectedFunction;
     }
-    public void AutoReset(ref ACConnectedInputAction c)
+    public void AutoReset(ref ACConnectedInputAct c)
     {
         if (c.input != null && c.connectedFunction != null)
             c.input.performed -= c.connectedFunction;

@@ -5,30 +5,31 @@ using System;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-using MyEcs.Spawn;
 using MyEcs.Physics;
 using MyEcs.Health;
-using MyEcs.Actions;
+using MyEcs.Acts;
 
-public class PlayerSP : ScriptableObject, ISpawnPipeline
+public static class PlayerSP
 {
-    public float moveSpeed = 5f;
-    public float collisionSize = 1f;
-    public float health = 100;
-    public float regen = 1;
+    public static float moveSpeed = 5f;
+    public static float collisionSize = 1f;
+    public static float health = 100;
+    public static float regen = 1;
 
-    public float syncPeriodFromClient = 1 / 20f;
-    public float syncPeriodFromServer = 1 / 20f;
+    public static float syncPeriodFromClient = 1 / 20f;
+    public static float syncPeriodFromServer = 1 / 20f;
 
-    public void Spawn(EcsWorld world, int ent)
+    public static int Spawn()
     {
-        PositionPipe.BuildPosition(world, ent, true);
-        HealthPipe.BuildHealth(world, ent, max: health, regen: regen);
+        int ent = EcsStatic.world.NewEntity();
+        EcsStatic.GetPool<ECPosition>().Add(ent);
+        EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
+        HealthPipe.BuildHealth(ent, max: health, regen: regen);
 
-        world.GetPool<ECLocalControllable>().Add(ent);
-        world.GetPool<ECTouchDamage>().Add(ent).dps = 10;
+        EcsStatic.GetPool<ECLocalControllable>().Add(ent);
+        EcsStatic.GetPool<ECTouchDamage>().Add(ent).dps = 10;
 
-        ref var col = ref world.GetPool<ECCollider>().Add(ent);
+        ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
         col.type = ColliderType.circle;
         col.size = new Vector2(collisionSize, 0);
 
@@ -36,49 +37,46 @@ public class PlayerSP : ScriptableObject, ISpawnPipeline
         go.transform.localScale = new Vector3(col.size.x * 2, 1, col.size.x * 2);
 
 
-        ref var acc = ref world.GetPool<ECTargetVelocity>().Add(ent);
+        ref var acc = ref EcsStatic.GetPool<ECTargetVelocity>().Add(ent);
         acc.targetSpeed = moveSpeed;
         acc.acceleration = 25;
-        world.GetPool<ECVelocity>().Add(ent);
-        world.GetPool<ECRespectObstacles>().Add(ent);
+        EcsStatic.GetPool<ECVelocity>().Add(ent);
+        EcsStatic.GetPool<ECRespectObstacles>().Add(ent);
 
         ref var channelDisplay = ref EcsStatic.GetPool<ECChannelDisplay>().Add(ent);
         channelDisplay.Init();
         channelDisplay.controller.shift = new Vector3(0, 3, 0);
 
-        GiveDash(world, ent);
-        GiveChargedShot(world, ent);
+        GiveDash(ent);
+        GiveChargedShot(ent);
+        return ent;
     }
-    void GiveDash(EcsWorld world, int ent)
+    static void GiveDash(int ent)
     {
 
-        int acEnt = EcsActionService.CreateAction(ent);
-        ref var dash = ref EcsActionService.GetPool<ACDash>().Add(acEnt);
+        int acEnt = ActService.CreateAct(ent);
+        ref var dash = ref ActService.GetPool<ACDash>().Add(acEnt);
         dash.range = 8;
         dash.velocity = 16;
-        EcsActionService.GetPool<ACInputType>().Add(acEnt).targetType = ActionTargetType.point;
-        PlayerInputSystem.ConnectActionToInput(PlayerInputSystem.controls.Player.Dash, acEnt);
+        ActService.GetPool<ACInputType>().Add(acEnt).targetType = ActTargetType.point;
+        PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.Dash, acEnt);
     }
-    void GiveChargedShot(EcsWorld world, int ent)
+    static void GiveChargedShot(int ent)
     {
 
-        int acEnt = EcsActionService.CreateAction(ent);
-        ref var proj = ref EcsActionService.GetPool<ACProjectileDelivery>().Add(acEnt);
+        int acEnt = ActService.CreateAct(ent);
+        ref var proj = ref ActService.GetPool<ACProjectileDelivery>().Add(acEnt);
         proj.lifetime = 5;
         proj.selfDestruct = true;
         proj.velocity = 5;
-        ref var dmg = ref EcsActionService.GetPool<ACDamage>().Add(acEnt);
+        ref var dmg = ref ActService.GetPool<ACDamage>().Add(acEnt);
         dmg.amount = 20;
 
-        int channelAc = EcsActionService.CreateAction(ent);
-        EcsActionService.GetPool<ACInputType>().Add(channelAc).targetType = ActionTargetType.direction;
-        PlayerInputSystem.ConnectActionToInput(PlayerInputSystem.controls.Player.SecondaryAttack, channelAc);
-        ref var channel = ref EcsActionService.GetPool<ACChannelled>().Add(channelAc);
+        int channelAc = ActService.CreateAct(ent);
+        ActService.GetPool<ACInputType>().Add(channelAc).targetType = ActTargetType.direction;
+        PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.SecondaryAttack, channelAc);
+        ref var channel = ref ActService.GetPool<ACChannelled>().Add(channelAc);
         channel.duration = 0.5f;
-        channel.finishAction = EcsActionService.acWorld.PackEntity(acEnt);
-    }
-    public void Destroy(EcsWorld world, int ent)
-    {
-
+        channel.finishAct = ActService.world.PackEntity(acEnt);
     }
 }

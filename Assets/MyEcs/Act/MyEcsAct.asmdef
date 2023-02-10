@@ -1,0 +1,23 @@
+{
+    "name": "MyEcsAct",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e59bf9fc7d5a44b18a819a92edd46163",
+        "GUID:f5f01a091e0d746659b4380253d52f4e",
+        "GUID:e06a58708b83247ca9dc984644f5b40b",
+        "GUID:49581b8faa7164ea9b686cab95a9406e",
+        "GUID:3127717e6fdff28488ea88f403e18ebd",
+        "GUID:5b924790e0eeb2a4fb630ed4297b06c9",
+        "GUID:a57582a4770a6cd4796e390338cadddb",
+        "GUID:9ceeaac18f60ab04e81948b23766d937"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

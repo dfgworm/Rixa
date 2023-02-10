@@ -7,7 +7,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using MyEcs.Physics;
-using MyEcs.Spawn;
 
 namespace MyEcs.Health
 {

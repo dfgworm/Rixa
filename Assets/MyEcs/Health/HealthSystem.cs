@@ -6,7 +6,6 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using MyEcs.Physics;
 namespace MyEcs.Health
 {
     public class HealthSystem : IEcsInitSystem, IEcsRunSystem

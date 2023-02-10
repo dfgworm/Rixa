@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "MyEcsBase",
-        "Leopotam.EcsLite"
+        "Leopotam.EcsLite",
+        "Leopotam.EcsLite.Di"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
