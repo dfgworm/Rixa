@@ -13,12 +13,12 @@ public class LocalControllableSystem : IEcsRunSystem
 {
 
     readonly EcsFilterInject<Inc<ECTargetVelocity, ECLocalControllable>> moveFilter = default;
-    readonly EcsFilterInject<Inc<ACInputType>> abilityFilter = "actions";
+    readonly EcsFilterInject<Inc<ACInputType>> abilityFilter = "act";
 
     readonly EcsCustomInject<EventBus> bus = default;
 
     readonly EcsWorldInject world = default;
-    readonly EcsWorldInject actWorld = "actions";
+    readonly EcsWorldInject actWorld = "act";
 
     public void Run(IEcsSystems systems)
     {

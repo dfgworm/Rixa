@@ -33,7 +33,7 @@ public static class PlayerSP
         col.type = ColliderType.circle;
         col.size = new Vector2(collisionSize, 0);
 
-        var go = EcsGameObjectService.GetGameObject(ent);
+        var go = PrefabRegistry.CreateForEntity(ent, PrefabId.player);
         go.transform.localScale = new Vector3(col.size.x * 2, 1, col.size.x * 2);
 
 
