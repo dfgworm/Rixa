@@ -7,7 +7,7 @@ using UnityEngine;
 using Unity.Collections;
 using Leopotam.EcsLite;
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     public static class ActService
     {
@@ -28,19 +28,20 @@ namespace MyEcs.Acts
         public static int CreateAct(int ent)
         {
             var world = EcsStatic.world;
-            var list = world.GetPool<ECActs>().SoftAdd(ent).acts;
+            var list = world.GetPool<ECActs>().SafeAdd(ent).acts;
             int ac = ActService.world.NewEntity();
             byte c = (byte)list.Count;
             list.Add(ac);
             ref var acEnt = ref GetPool<ACEntity>().Add(ac);
-            acEnt.entity = world.PackEntity(ent);
+            acEnt.entity = ent;
             acEnt.id = c;
             return ac;
         }
         public static void RemoveAct(int ac)
         {
             var world = EcsStatic.world;
-            if (TryGetEntity(ac, out int ent) && world.GetPool<ECActs>().Has(ent))
+            int ent = GetEntity(ac);
+            if (world.GetPool<ECActs>().Has(ent))
             {
                 var list = world.GetPool<ECActs>().Get(ent).acts;
                 list.Remove(ac);
@@ -52,11 +53,11 @@ namespace MyEcs.Acts
             }
             ActService.world.DelEntity(ac);
         }
-        public static bool TryGetEntity(int ac, out int ent)
+        public static int GetEntity(int ac)
         {
-            return GetPool<ACEntity>().Get(ac).entity.Unpack(EcsStatic.world, out ent);
+            return GetPool<ACEntity>().Get(ac).entity;
         }
-        public static byte GetActId(int ac)
+        public static byte GetActId(int ac) //Act id is completely unreliable and might change if entity's act list changes
         {
             return GetPool<ACEntity>().Get(ac).id;
         }
@@ -98,23 +99,41 @@ namespace MyEcs.Acts
     public struct ACEntity
     {
         public byte id;
-        public EcsPackedEntity entity;
+        public int entity;
     }
-    public struct AEVUse : IEventReplicant
+    public struct AMUsed : IEcsAutoReset<AMUsed>
     {
-        public bool netReceived;
-        public EcsPackedEntity act;
-        public ActTargetContainer target;
+        public List<ActUsageContainer> usages;
+
+        public void AutoReset(ref AMUsed c)
+        {
+            if (c.usages == null)
+                c.usages = new List<ActUsageContainer>(2);
+            else
+                c.usages.Clear();
+        }
     }
-    public struct AEVEntityHit : IEventReplicant
+    public struct AMEntityHit : IEcsAutoReset<AMEntityHit>
     {
-        public EcsPackedEntity act;
-        public EcsPackedEntity victim;
+        public List<EcsPackedEntity> victims;
+        public void AutoReset(ref AMEntityHit c)
+        {
+            if (c.victims == null)
+                c.victims = new List<EcsPackedEntity>(2);
+            else
+                c.victims.Clear();
+        }
     }
-    public struct AEVPointHit : IEventReplicant
+    public struct AMPointHit : IEcsAutoReset<AMPointHit>
     {
-        public EcsPackedEntity act;
-        public Vector2 point;
+        public List<Vector2> points;
+        public void AutoReset(ref AMPointHit c)
+        {
+            if (c.points == null)
+                c.points = new List<Vector2>(2);
+            else
+                c.points.Clear();
+        }
     }
     public enum ActTargetType : byte
     {
@@ -123,9 +142,9 @@ namespace MyEcs.Acts
         direction,
         entity,
     }
-    public struct ActTargetContainer
+    public struct ActUsageContainer
     {
-        public ActTargetType type;
+        public ActTargetType targetType;
         public Vector2 vector;
         public EcsPackedEntity entity;
     }

@@ -7,22 +7,19 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     //i think i need to transmit channelling cancel, perhaps make it a separate action altogether? I will probably need it anyway
-    public class ChannellingSystem : IEcsRunSystem
+    public class ActChannellingSystem : IEcsRunSystem
     {
-        readonly EcsPoolInject<EMChannelling> channelMarkPool = default;
+        readonly EcsPoolInject<AMChannelingProcess> channelMarkPool = "act";
         readonly EcsPoolInject<ECPosition> posPool = default;
         readonly EcsPoolInject<ACChannelled> channelledPool = "act";
 
-        //readonly EcsWorldInject world = default;
-        readonly EcsWorldInject actWorld = "act";
+        readonly EcsFilterInject<Inc<AMChannelingProcess>> channelFilter = "act";
+        readonly EcsFilterInject<Inc<ACChannelDisplay>> channelDisplayFilter = "act";
 
-        readonly EcsCustomInject<EventBus> bus = default;
-
-        readonly EcsFilterInject<Inc<EMChannelling>> channelFilter = default;
-        readonly EcsFilterInject<Inc<ECChannelDisplay>> channelDisplayFilter = default;
+        readonly EcsFilterInject<Inc<AMUsed, ACChannelled>> useFilter = "act";
 
         public void Run(IEcsSystems systems)
         {
@@ -30,32 +27,29 @@ namespace MyEcs.Acts
                 UpdateChannel(i, ref channelFilter.Pools.Inc1.Get(i));
             foreach (int i in channelDisplayFilter.Value)
                 UpdateChannelDisplay(i,ref channelDisplayFilter.Pools.Inc1.Get(i));
-            foreach (int i in bus.Value.GetEventBodies<AEVUse>(out var pool))
-                ProcessActUse(ref pool.Get(i));
+
+            foreach (int i in useFilter.Value)
+                foreach (var usage in useFilter.Pools.Inc1.Get(i).usages)
+                    ProcessActUse(i, usage);
         }
 
-        void UpdateChannel(int ent, ref EMChannelling channel)
+        void UpdateChannel(int act, ref AMChannelingProcess channel)
         {
             channel.timer += Time.deltaTime;
             if (channel.timer >= channel.duration)
-                FinishChannel(ent, channel);
+                FinishChannel(act, channel);
         }
-        void FinishChannel(int ent, EMChannelling channel)
+        void FinishChannel(int act, AMChannelingProcess channel)
         {
-            channelMarkPool.Value.Del(ent);
-            if (!channel.useEvent.act.Unpack(actWorld.Value, out int ac))
-                return;
-            if (!channelledPool.Value.Has(ac))
+            channelMarkPool.Value.Del(act);
+            if (!channelledPool.Value.Has(act) || !channelledPool.Value.Get(act).finishAct.Unpack(ActService.world, out int finishAct))
                 return;
 
-
-            ref var useEv = ref bus.Value.NewEvent<AEVUse>();
-            useEv = channel.useEvent;
-            useEv.act = channelledPool.Value.Get(ac).finishAct;
+            ActService.GetPool<AMUsed>().SafeAdd(finishAct).usages.Add(channel.usage);
         }
-        void UpdateChannelDisplay(int ent, ref ECChannelDisplay display)
+        void UpdateChannelDisplay(int act, ref ACChannelDisplay display)
         {
-            if (!channelMarkPool.Value.Has(ent))
+            if (!channelMarkPool.Value.Has(act))
             {
                 if (display.controller.gameObject.activeSelf)
                     display.controller.gameObject.SetActive(false);
@@ -63,25 +57,20 @@ namespace MyEcs.Acts
             }
             if (!display.controller.gameObject.activeSelf)
                 display.controller.gameObject.SetActive(true);
+            int ent = ActService.GetEntity(act);
             if (posPool.Value.Has(ent))
                 display.controller.MoveTo(posPool.Value.Get(ent).position3);
-            var mark = channelMarkPool.Value.Get(ent);
+            var mark = channelMarkPool.Value.Get(act);
             display.controller.fill = mark.timer / mark.duration;
         }
-        void ProcessActUse(ref AEVUse ev)
+        void ProcessActUse(int ac, ActUsageContainer usage)
         {
-            if (!ev.act.Unpack(actWorld.Value, out int ac))
-                return;
-            if (!channelledPool.Value.Has(ac))
-                return;
-            if (!ActService.TryGetEntity(ac, out int ent))
-                return;
-            if (channelMarkPool.Value.Has(ent))
+            if (channelMarkPool.Value.Has(ac))
                 return;
 
             ref var acChannel = ref channelledPool.Value.Get(ac);
-            ref var mark = ref channelMarkPool.Value.Add(ent);
-            mark.useEvent = ev;
+            ref var mark = ref channelMarkPool.Value.Add(ac);
+            mark.usage = usage;
             mark.duration = acChannel.duration;
         }
     }
@@ -90,13 +79,13 @@ namespace MyEcs.Acts
         public float duration;
         public EcsPackedEntity finishAct;
     }
-    public struct EMChannelling
+    public struct AMChannelingProcess
     {
         public float timer;
         public float duration;
-        public AEVUse useEvent;
+        public ActUsageContainer usage;
     }
-    public struct ECChannelDisplay : IEcsAutoReset<ECChannelDisplay>
+    public struct ACChannelDisplay : IEcsAutoReset<ACChannelDisplay>
     {
         public FillBarController controller;
         static GameObject prefab;
@@ -106,7 +95,7 @@ namespace MyEcs.Acts
                 prefab = Resources.Load<GameObject>("Prefabs/ChannelDisplay");
             controller = GameObject.Instantiate(prefab).GetComponent<FillBarController>();
         }
-        public void AutoReset(ref ECChannelDisplay c)
+        public void AutoReset(ref ACChannelDisplay c)
         {
             if (c.controller != null)
             {

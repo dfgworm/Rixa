@@ -22,9 +22,9 @@ public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySyste
 
     static public void ConnectActToInput(InputAction inp, int ac)
     {
-        ref var connected = ref MyEcs.Acts.ActService.GetPool<ACConnectedInputAct>().SoftAdd(ac);
+        ref var connected = ref MyEcs.Act.ActService.GetPool<ACConnectedInputAct>().SafeAdd(ac);
         connected.input = inp;
-        EcsPackedEntity packedAc = MyEcs.Acts.ActService.world.PackEntity(ac);
+        EcsPackedEntity packedAc = MyEcs.Act.ActService.world.PackEntity(ac);
         connected.Connect(delegate (InputAction.CallbackContext context)
         {
             ref var ev = ref EcsStatic.bus.NewEvent<InpActUse>();

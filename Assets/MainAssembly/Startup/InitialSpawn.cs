@@ -8,7 +8,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.ExtendedSystems;
 
-using MyEcs.Acts;
+using MyEcs.Act;
 using MyEcs.Physics;
 using Generation;
 

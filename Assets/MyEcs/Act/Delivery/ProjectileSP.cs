@@ -9,14 +9,14 @@ using MyEcs.Health;
 using MyEcs.Physics;
 
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     public static class ProjectileSP
     {
-        public static int Spawn(int owner, int act, Vector2 dir)
+        public static int Spawn(int act, Vector2 pos, Vector2 dir)
         {
             int ent = EcsStatic.world.NewEntity();
-            EcsStatic.GetPool<ECPosition>().Add(ent).position2 = EcsStatic.GetPool<ECPosition>().Get(owner).position2;
+            EcsStatic.GetPool<ECPosition>().Add(ent).position2 = pos;
 
             ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
             col.type = ColliderType.circle;
@@ -27,8 +27,7 @@ namespace MyEcs.Acts
             mesh.rotation = Quaternion.identity;
             mesh.scale = new Vector3(col.size.x, col.size.x, col.size.x);
 
-            var proj = EcsStatic.GetPool<ECProjectile>().Add(ent);
-            proj.ownerEntity = EcsStatic.world.PackEntity(owner);
+            ref var proj = ref EcsStatic.GetPool<ECProjectile>().Add(ent);
             proj.sourceAct = ActService.world.PackEntity(act);
 
             ref var acProj = ref ActService.GetPool<ACProjectileDelivery>().Get(act);
@@ -38,10 +37,10 @@ namespace MyEcs.Acts
             else
                 EcsStatic.GetPool<ECLimitedCollision>().Add(ent);
             EcsStatic.GetPool<ECVelocity>().Add(ent).velocity = dir*acProj.velocity;
-            EcsStatic.GetPool<ECDestroyDelayed>().SoftAdd(ent).time = acProj.lifetime;
+            EcsStatic.GetPool<ECDestroyDelayed>().SafeAdd(ent).time = acProj.lifetime;
 
-            if (proj.ownerEntity.Unpack(EcsStatic.world, out int ownerEnt))
-                EcsStatic.GetPool<ECCollisionHashFilter>().SoftAdd(ent).filter.Add(ownerEnt);
+            int owner = ActService.GetEntity(act);
+            EcsStatic.GetPool<ECCollisionHashFilter>().SafeAdd(ent).filter.Add(owner);
             return ent;
         }
     }

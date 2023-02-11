@@ -6,34 +6,25 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     public class SpawnWallEffectSystem : IEcsRunSystem
     {
-        readonly EcsPoolInject<ACSpawnWall> spawnWallPool = "act";
 
-        readonly EcsWorldInject actWorld = "act";
-
-        readonly EcsCustomInject<EventBus> bus = default;
-
+        readonly EcsFilterInject<Inc<AMPointHit, ACSpawnWall>> pointHitFilter = "act";
 
         public void Run(IEcsSystems systems)
         {
-            foreach (int i in bus.Value.GetEventBodies<AEVPointHit>(out var pool))
-                ProcessActEffect(ref pool.Get(i));
+
+            foreach (int i in pointHitFilter.Value)
+                foreach (var point in pointHitFilter.Pools.Inc1.Get(i).points)
+                    ProcessHit(i, point, ref pointHitFilter.Pools.Inc2.Get(i));
 
         }
 
-        void ProcessActEffect(ref AEVPointHit ev)
+        void ProcessHit(int ac, Vector2 point, ref ACSpawnWall acWall)
         {
-            if (!ev.act.Unpack(actWorld.Value, out int ac))
-                return;
-            if (!spawnWallPool.Value.Has(ac))
-                return;
-
-
-            ref var acWall = ref spawnWallPool.Value.Get(ac);
-            int wall = WallSP.Spawn(pos: ev.point);
+            int wall = WallSP.Spawn(pos: point);
             EcsStatic.GetPool<ECDestroyDelayed>().Add(wall).time = acWall.lifetime;
         }
 

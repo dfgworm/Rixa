@@ -8,45 +8,42 @@ using Leopotam.EcsLite.Di;
 
 using MyEcs.Physics;
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     public class DashActSystem : IEcsRunSystem
     {
         readonly EcsPoolInject<ACDash> dashPool = "act";
 
-        readonly EcsWorldInject world = default;
-        readonly EcsWorldInject actWorld = "act";
 
-        readonly EcsCustomInject<EventBus> bus = default;
+        readonly EcsFilterInject<Inc<AMUsed, ACDash>> useFilter = "act";
 
 
         public void Run(IEcsSystems systems)
         {
-            foreach (int i in bus.Value.GetEventBodies<AEVUse>(out var pool))
-                ProcessActUse(ref pool.Get(i));
+
+            foreach (int i in useFilter.Value)
+                foreach (var usage in useFilter.Pools.Inc1.Get(i).usages)
+                    ProcessActUse(i, usage);
         }
 
-        void ProcessActUse(ref AEVUse ev)
+        void ProcessActUse(int act, ActUsageContainer usage)
         {
-            if (!ev.act.Unpack(actWorld.Value, out int ac))
-                return;
-            if (!dashPool.Value.Has(ac))
-                return;
-            if (!ActService.TryGetEntity(ac, out int ent))
-                return;
-
-            Vector2 pos = world.Value.GetPool<ECPosition>().Get(ent).position2;
+            int ent = ActService.GetEntity(act);
+            Vector2 pos = EcsStatic.GetPool<ECPosition>().Get(ent).position2;
             Vector2 dir;
-            if (ev.target.type == ActTargetType.direction)
-                dir = ev.target.vector.normalized;
+            if (usage.targetType == ActTargetType.direction)
+                dir = usage.vector.normalized;
             else
-                dir = (ev.target.vector - pos).normalized;
+                dir = (usage.vector - pos).normalized;
 
 
-            ref var dash = ref dashPool.Value.Get(ac);
-            world.Value.GetPool<ECVelocity>().Get(ent).velocity = dir*dash.velocity;
-            ref var pushMark = ref world.Value.GetPool<ECPushed>().SoftAdd(ent);
+            ref var dash = ref dashPool.Value.Get(act);
+            ref var pushMark = ref EcsStatic.GetPool<ECPushed>().SafeAdd(ent);
             pushMark.duration = dash.range / dash.velocity;
+            pushMark.velocity = dir*dash.velocity;
+            pushMark.maxForce = dash.maxForce;
+            if (EcsStatic.GetPool<ECVelocity>().Has(ent))
+                EcsStatic.GetPool<ECVelocity>().Get(ent).velocity = pushMark.velocity;
         }
 
     }
@@ -54,5 +51,6 @@ namespace MyEcs.Acts
     {
         public float range;
         public float velocity;
+        public float maxForce;
     }
 }

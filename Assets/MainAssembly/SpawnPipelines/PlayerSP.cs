@@ -7,7 +7,7 @@ using Leopotam.EcsLite;
 
 using MyEcs.Physics;
 using MyEcs.Health;
-using MyEcs.Acts;
+using MyEcs.Act;
 
 public static class PlayerSP
 {
@@ -43,10 +43,6 @@ public static class PlayerSP
         EcsStatic.GetPool<ECVelocity>().Add(ent);
         EcsStatic.GetPool<ECRespectObstacles>().Add(ent);
 
-        ref var channelDisplay = ref EcsStatic.GetPool<ECChannelDisplay>().Add(ent);
-        channelDisplay.Init();
-        channelDisplay.controller.shift = new Vector3(0, 3, 0);
-
         GiveDash(ent);
         GiveChargedShot(ent);
         return ent;
@@ -58,6 +54,7 @@ public static class PlayerSP
         ref var dash = ref ActService.GetPool<ACDash>().Add(acEnt);
         dash.range = 8;
         dash.velocity = 16;
+        dash.maxForce = 10;
         ActService.GetPool<ACInputType>().Add(acEnt).targetType = ActTargetType.point;
         PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.Dash, acEnt);
     }
@@ -78,5 +75,8 @@ public static class PlayerSP
         ref var channel = ref ActService.GetPool<ACChannelled>().Add(channelAc);
         channel.duration = 0.5f;
         channel.finishAct = ActService.world.PackEntity(acEnt);
+        ref var channelDisplay = ref ActService.GetPool<ACChannelDisplay>().Add(channelAc);
+        channelDisplay.Init();
+        channelDisplay.controller.shift = new Vector3(0, 3, 0);
     }
 }

@@ -71,14 +71,14 @@ namespace MyEcs.Health
         {
             if (!world.Value.GetPool<ECLimitedCollision>().Has(ent1))
                 return;
-            var set = world.Value.GetPool<ECCollisionHashFilter>().SoftAdd(ent1).filter;
+            var set = world.Value.GetPool<ECCollisionHashFilter>().SafeAdd(ent1).filter;
             set.Add(ent2);
         }
         void ProcessSelfDestruct(int ent)
         {
             if (!world.Value.GetPool<ECSelfDestructOnCollision>().Has(ent))
                 return;
-            destroyPool.Value.SoftAdd(ent);
+            destroyPool.Value.SafeAdd(ent);
         }
     }
     public struct ECTouchDamage

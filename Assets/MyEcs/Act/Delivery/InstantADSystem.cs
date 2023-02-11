@@ -6,47 +6,30 @@ using Unity.Collections;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-namespace MyEcs.Acts
+namespace MyEcs.Act
 {
     //Action Delivery
     public class InstantADSystem : IEcsRunSystem
     {
-        readonly EcsPoolInject<ACInstantDelivery> deliveryPool = "act";
 
-        readonly EcsWorldInject world = default;
-        readonly EcsWorldInject actWorld = "act";
 
-        readonly EcsCustomInject<EventBus> bus = default;
-
+        readonly EcsFilterInject<Inc<AMUsed, ACInstantDelivery>> useFilter = "act";
 
         public void Run(IEcsSystems systems)
         {
-            foreach (int i in bus.Value.GetEventBodies<AEVUse>(out var pool))
-                ProcessActionUse(ref pool.Get(i));
+
+            foreach (int i in useFilter.Value)
+                foreach (var usage in useFilter.Pools.Inc1.Get(i).usages)
+                    ProcessActUse(i, usage);
 
         }
 
-        void ProcessActionUse(ref AEVUse ev)
+        void ProcessActUse(int act, ActUsageContainer usage)
         {
-            if (!ev.act.Unpack(actWorld.Value, out int ac))
-                return;
-            if (!deliveryPool.Value.Has(ac))
-                return;
-
-            if (ev.target.type == ActTargetType.point)
-            {
-                ref var evHit = ref bus.Value.NewEvent<AEVPointHit>();
-                evHit.act = ev.act;
-                evHit.point = ev.target.vector;
-            }
-
-            if (ev.target.type == ActTargetType.entity)
-                if (ev.target.entity.Unpack(world.Value, out int victim))
-                {
-                    ref var evHit = ref bus.Value.NewEvent<AEVEntityHit>();
-                    evHit.act = ev.act;
-                    evHit.victim = ev.target.entity;
-                }
+            if (usage.targetType == ActTargetType.point)
+                ActService.GetPool<AMPointHit>().SafeAdd(act).points.Add(usage.vector);
+            if (usage.targetType == ActTargetType.entity)
+                ActService.GetPool<AMEntityHit>().SafeAdd(act).victims.Add(usage.entity);
         }
     }
     public struct ACInstantDelivery

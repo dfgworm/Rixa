@@ -1,5 +1,5 @@
 {
-    "name": "TestsMainAssembly",
+    "name": "TestsAct",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
@@ -10,7 +10,6 @@
         "Leopotam.EcsLite.ExtendedSystemsDI",
         "MyEcsBase",
         "MyEcsPhysics",
-        "MainAssembly",
         "MyEcsAct",
         "MyEcsHealth"
     ],

@@ -31,14 +31,14 @@ public static class VectorExtentions
 
 public static class PoolExtensions
 {
-    public static ref T SoftAdd<T>(this EcsPool<T> pool, int ent) where T : struct
+    public static ref T SafeAdd<T>(this EcsPool<T> pool, int ent) where T : struct
     {
         if (pool.Has(ent))
             return ref pool.Get(ent);
         else
             return ref pool.Add(ent);
     }
-    public static bool SoftDel<T>(this EcsPool<T> pool, int ent) where T : struct
+    public static bool SafeDel<T>(this EcsPool<T> pool, int ent) where T : struct
     {
         bool has = pool.Has(ent);
         if (has)

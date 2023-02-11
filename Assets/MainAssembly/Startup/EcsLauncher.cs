@@ -10,7 +10,7 @@ using Leopotam.EcsLite.ExtendedSystems;
 
 using MyEcs.Physics;
 using MyEcs.Health;
-using MyEcs.Acts;
+using MyEcs.Act;
 
 public class EcsLauncher
 {
@@ -36,7 +36,7 @@ public class EcsLauncher
 
 
 
-            .Add(new ChannellingSystem())
+            .Add(new ActChannellingSystem())
 
             .Add(new InstantADSystem())
             .Add(new ProjectileADSystem())
@@ -45,21 +45,21 @@ public class EcsLauncher
             .Add(new HealEffectSystem())
             .Add(new DamageEffectSystem())
             .Add(new SpawnWallEffectSystem())
+            .DelHere<AMUsed>("act")
+            .DelHere<AMEntityHit>("act")
+            .DelHere<AMPointHit>("act")
             .Add(bus.GetDestroyEventsSystem()
-                .IncReplicant<AEVUse>()
-                .IncReplicant<AEVEntityHit>()
-                .IncReplicant<AEVPointHit>()
+                .IncReplicant<InpActUse>()
             )
 
             .Add(new HealthSystem())
             .Add(new HealthDisplaySystem())
+            .Add(bus.GetDestroyEventsSystem()
+                .IncReplicant<EVDamage>()
+                )
 
 
             .Add(new DestroySystem())
-            .Add(bus.GetDestroyEventsSystem()
-                .IncReplicant<EVDamage>()
-                .IncReplicant<InpActUse>()
-                )
 
             .Add(new RenderSystem())
             ;

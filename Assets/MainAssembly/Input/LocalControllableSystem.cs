@@ -7,18 +7,16 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using MyEcs.Physics;
-using MyEcs.Acts;
+using MyEcs.Act;
 
 public class LocalControllableSystem : IEcsRunSystem
 {
 
     readonly EcsFilterInject<Inc<ECTargetVelocity, ECLocalControllable>> moveFilter = default;
-    readonly EcsFilterInject<Inc<ACInputType>> abilityFilter = "act";
 
     readonly EcsCustomInject<EventBus> bus = default;
 
     readonly EcsWorldInject world = default;
-    readonly EcsWorldInject actWorld = "act";
 
     public void Run(IEcsSystems systems)
     {
@@ -41,22 +39,20 @@ public class LocalControllableSystem : IEcsRunSystem
             return;
         ref ACInputType localContr = ref ActService.GetPool<ACInputType>().Get(ac);
 
-        ref var ev = ref bus.Value.NewEvent<AEVUse>();
-        ev.act = actWorld.Value.PackEntity(ac);
-        ev.target = new ActTargetContainer { type = localContr.targetType };
+        ref var used = ref ActService.GetPool<AMUsed>().SafeAdd(ac);
+        var target = new ActUsageContainer { targetType = localContr.targetType };
 
-        if (ev.target.type == ActTargetType.point) {
-            ev.target.vector = bus.Value.GetEventBodySingleton<InpMouseWorldPosition>().pos;
-        } else if (ev.target.type == ActTargetType.direction)
+        if (target.targetType == ActTargetType.point) {
+            target.vector = bus.Value.GetEventBodySingleton<InpMouseWorldPosition>().pos;
+        } else if (target.targetType == ActTargetType.direction)
         {
-            if (ActService.TryGetEntity(ac, out int ent))
-            {
-                var pos = world.Value.GetPool<ECPosition>().Get(ent).position2;
-                ev.target.vector = bus.Value.GetEventBodySingleton<InpMouseWorldPosition>().pos - pos;
-            }
-        } else if (ev.target.type == ActTargetType.entity)
+            int ent = ActService.GetEntity(ac);
+            var pos = world.Value.GetPool<ECPosition>().Get(ent).position2;
+            target.vector = bus.Value.GetEventBodySingleton<InpMouseWorldPosition>().pos - pos;
+        } else if (target.targetType == ActTargetType.entity)
             if (bus.Value.HasEventSingleton<InpEntityMouseHover>())
-                ev.target.entity = bus.Value.GetEventBodySingleton<InpEntityMouseHover>().entity;
+                target.entity = bus.Value.GetEventBodySingleton<InpEntityMouseHover>().entity;
+        used.usages.Add(target);
     }
 }
 
