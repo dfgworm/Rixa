@@ -43,7 +43,31 @@ public class ActTest
         Assert.AreEqual(0, ActService.world.GetEntitiesCount());
     }
     [Test]
-    public void ActChannelTest()
+    public void ActAmmo()
+    {
+        EcsStatic.updateSystems.Add(new AmmoLimitationSystem()).Inject(EcsStatic.bus).Init();
+
+        int ent = EcsStatic.world.NewEntity();
+        int act = ActService.CreateAct(ent);
+        ref var ammo = ref ActService.GetPool<ACAmmo>().Add(act);
+        ammo.max = 3;
+        ammo.Current = 1;
+
+        ref var usage = ref ActService.GetPool<AMUsed>().Add(act);
+        usage.usages.Add(new ActUsageContainer());
+
+        EcsStatic.updateSystems.Run();
+
+        Assert.AreEqual(1, usage.usages.Count);
+        Assert.AreEqual(0, ammo.Current);
+
+        EcsStatic.updateSystems.Run();
+
+        Assert.AreEqual(0, usage.usages.Count);
+
+    }
+    [Test]
+    public void ActChannel()
     {
         EcsStatic.updateSystems.Add(new ActChannellingSystem()).Inject(EcsStatic.bus).Init();
 

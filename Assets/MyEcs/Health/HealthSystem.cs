@@ -40,7 +40,7 @@ namespace MyEcs.Health
         }
         void UpdateRegen(ref ECHealth hp, ref ECHealthRegen regen)
         {
-            hp.Current += regen.regen*Time.deltaTime;
+            hp.Current += regen.rate*Time.deltaTime;
         }
 
     }
@@ -62,7 +62,7 @@ namespace MyEcs.Health
     }
     public struct ECHealthRegen
     {
-        public float regen;
+        public float rate;
     }
     public struct EVDamage : IEventReplicant
     {

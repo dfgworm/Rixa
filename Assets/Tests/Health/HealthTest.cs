@@ -35,7 +35,7 @@ public class HealthTest
         hp.max = 200;
         hp.Current = 100;
         ref var regen = ref EcsStatic.GetPool<ECHealthRegen>().Add(ent);
-        regen.regen = 5;
+        regen.rate = 5;
 
         EcsStatic.updateSystems.Run();
 

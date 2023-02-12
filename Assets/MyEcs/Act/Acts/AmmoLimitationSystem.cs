@@ -1,0 +1,69 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using Unity.Collections;
+using Leopotam.EcsLite;
+using Leopotam.EcsLite.Di;
+
+using MyEcs.Health;
+
+namespace MyEcs.Act
+{
+    public class AmmoLimitationSystem : IEcsRunSystem
+    {
+        readonly EcsWorldInject world = default;
+
+
+        readonly EcsFilterInject<Inc<ACAmmo, ACAmmoRegen>> regenFilter = "act";
+        readonly EcsFilterInject<Inc<AMUsed, ACAmmo>> useFilter = "act";
+
+        public void Run(IEcsSystems systems)
+        {
+            foreach (int i in regenFilter.Value)
+                UpdateRegen(ref regenFilter.Pools.Inc1.Get(i), regenFilter.Pools.Inc2.Get(i));
+            foreach (int i in useFilter.Value)
+                ProcessActUse(i, ref useFilter.Pools.Inc1.Get(i), ref useFilter.Pools.Inc2.Get(i));
+
+        }
+        void UpdateRegen(ref ACAmmo ammo, ACAmmoRegen regen)
+        {
+            ammo.Current += regen.rate*Time.deltaTime;
+        }
+        void ProcessActUse(int ac, ref AMUsed usage, ref ACAmmo ammo)
+            //ActChannelingSystem both consumes and produces AMUsed marks, which conflicts with this system
+            // as of now, channel-starting acts are not filtered
+        {
+            int count = usage.usages.Count;
+            int available = Mathf.FloorToInt(ammo.Current);
+            if (count > available)
+            {
+                usage.usages.RemoveRange(available, count - available);
+                count = available;
+            }
+            ammo.Current -= count;
+        }
+
+    }
+    public struct ACAmmo
+    {
+        float _current;
+        public float max;
+        public float Current
+        {
+            get => _current;
+            set => _current = Mathf.Clamp(value, 0, max);
+        }
+
+        public float Percent
+        {
+            get => _current / max;
+            set => _current = Mathf.Clamp01(value) * max;
+        }
+    }
+    public struct ACAmmoRegen
+    {
+        public float rate;
+        public float Cooldown { get => 1 / rate; set => rate = 1 / value; }
+    }
+}

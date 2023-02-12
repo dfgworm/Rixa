@@ -37,6 +37,7 @@ public class EcsLauncher
 
 
             .Add(new ActChannellingSystem())
+            .Add(new AmmoLimitationSystem())
 
             .Add(new InstantADSystem())
             .Add(new AreaADSystem())

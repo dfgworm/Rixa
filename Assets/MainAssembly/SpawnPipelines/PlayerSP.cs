@@ -68,17 +68,14 @@ public static class PlayerSP
         proj.selfDestruct = true;
         proj.velocity = 15;
         ref var dmg = ref ActService.GetPool<ACDamage>().Add(acEnt);
-        dmg.amount = 75;
+        dmg.amount = 20;
+        ActService.GetPool<ACInputType>().Add(acEnt).targetType = ActTargetType.direction;
+        PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.SecondaryAttack, acEnt);
 
-        int channelAc = ActService.CreateAct(ent);
-        ActService.GetPool<ACInputType>().Add(channelAc).targetType = ActTargetType.direction;
-        PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.SecondaryAttack, channelAc);
-        ref var channel = ref ActService.GetPool<ACChannelled>().Add(channelAc);
-        channel.duration = 0.5f;
-        channel.finishAct = ActService.world.PackEntity(acEnt);
-        ref var channelDisplay = ref ActService.GetPool<ACChannelDisplay>().Add(channelAc);
-        channelDisplay.Init();
-        channelDisplay.controller.shift = new Vector3(0, 3, 0);
+        ref var ammo = ref ActService.GetPool<ACAmmo>().Add(acEnt);
+        ammo.max = 3;
+        ammo.Current = 3;
+        ActService.GetPool<ACAmmoRegen>().Add(acEnt).Cooldown = 1;
     }
     static void GiveSlash(int ent)
     {

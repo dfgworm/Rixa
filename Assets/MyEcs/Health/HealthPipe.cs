@@ -16,7 +16,7 @@ namespace MyEcs.Health
             hp.max = max;
             hp.Percent = 1;
             if (regen > 0)
-                EcsStatic.GetPool<ECHealthRegen>().Add(ent).regen = regen;
+                EcsStatic.GetPool<ECHealthRegen>().Add(ent).rate = regen;
             ref var hpDisp = ref EcsStatic.GetPool<ECHealthDisplay>().Add(ent);
             hpDisp.Init();
             hpDisp.controller.shift = new Vector3(0, 3, 0);
