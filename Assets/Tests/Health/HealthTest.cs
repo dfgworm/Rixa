@@ -32,22 +32,22 @@ public class HealthTest
     {
         int ent = EcsStatic.world.NewEntity();
         ref var hp = ref EcsStatic.GetPool<ECHealth>().Add(ent);
-        hp.max = 200;
-        hp.Current = 100;
+        hp.amount.max = 200;
+        hp.amount.Current = 100;
         ref var regen = ref EcsStatic.GetPool<ECHealthRegen>().Add(ent);
         regen.rate = 5;
 
         EcsStatic.updateSystems.Run();
 
-        Assert.IsTrue(hp.Current > 100);
+        Assert.IsTrue(hp.amount.Current > 100);
     }
     [Test]
     public void DamageTest()
     {
         int ent = EcsStatic.world.NewEntity();
         ref var hp = ref EcsStatic.GetPool<ECHealth>().Add(ent);
-        hp.max = 200;
-        hp.Current = 100;
+        hp.amount.max = 200;
+        hp.amount.Current = 100;
 
         ref var dmg = ref EcsStatic.bus.NewEvent<EVDamage>();
         dmg.amount = 50;
@@ -55,7 +55,7 @@ public class HealthTest
 
         EcsStatic.updateSystems.Run();
 
-        Assert.AreEqual(50, hp.Current);
+        Assert.AreEqual(50, hp.amount.Current);
     }
     [Test]
     public void TouchDamageTest()

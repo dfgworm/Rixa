@@ -50,8 +50,8 @@ public class ActTest
         int ent = EcsStatic.world.NewEntity();
         int act = ActService.CreateAct(ent);
         ref var ammo = ref ActService.GetPool<ACAmmo>().Add(act);
-        ammo.max = 3;
-        ammo.Current = 1;
+        ammo.amount.max = 3;
+        ammo.amount.Current = 1;
 
         ref var usage = ref ActService.GetPool<AMUsed>().Add(act);
         usage.usages.Add(new ActUsageContainer());
@@ -59,7 +59,7 @@ public class ActTest
         EcsStatic.updateSystems.Run();
 
         Assert.AreEqual(1, usage.usages.Count);
-        Assert.AreEqual(0, ammo.Current);
+        Assert.AreEqual(0, ammo.amount.Current);
 
         EcsStatic.updateSystems.Run();
 
@@ -85,9 +85,9 @@ public class ActTest
 
         Assert.IsTrue(ActService.GetPool<AMChannelingProcess>().Has(act));
         ref var channelProcess = ref ActService.GetPool<AMChannelingProcess>().Get(act);
-        Assert.AreEqual(channeled.duration, channelProcess.duration);
+        Assert.AreEqual(channeled.duration, channelProcess.timer.max);
 
-        channelProcess.timer = channeled.duration + 1;
+        channelProcess.timer.Current = channeled.duration + 1;
         ActService.GetPool<AMUsed>().Del(act);
         EcsStatic.updateSystems.Run();
         Assert.IsFalse(ActService.GetPool<AMChannelingProcess>().Has(act));

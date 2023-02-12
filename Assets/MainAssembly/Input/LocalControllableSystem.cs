@@ -12,7 +12,7 @@ using MyEcs.Act;
 public class LocalControllableSystem : IEcsRunSystem
 {
 
-    readonly EcsFilterInject<Inc<ECTargetVelocity, ECLocalControllable>> moveFilter = default;
+    readonly EcsFilterInject<Inc<ECDesiredVelocity, ECLocalControllable>> moveFilter = default;
 
     readonly EcsCustomInject<EventBus> bus = default;
 
@@ -26,7 +26,7 @@ public class LocalControllableSystem : IEcsRunSystem
             ProcessAct(ref pool.Get(ev));
     }
 
-    void ControlMove(ref ECTargetVelocity mover)
+    void ControlMove(ref ECDesiredVelocity mover)
     {
         if (bus.Value.HasEventSingleton<InpMovement>())
             mover.direction = bus.Value.GetEventBodySingleton<InpMovement>().dpos.normalized;

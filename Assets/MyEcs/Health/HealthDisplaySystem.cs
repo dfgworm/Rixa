@@ -40,7 +40,7 @@ namespace MyEcs.Health
         }
         void UpdateFill(ref ECHealthDisplay disp, ref ECHealth hp)
         {
-            disp.controller.fill = hp.Percent;
+            disp.controller.fill = hp.amount.Percent;
         }
 
     }

@@ -32,6 +32,9 @@ public class EcsLauncher
             .Add(new PlayerInputSystem())
             .Add(new EntityMouseHoverSystem())
             .Add(new LocalControllableSystem())
+            .Add(new AITargetSearchSystem())
+            .Add(new AIFollowerSystem())
+
             .Add(new LocalCameraSystem())
 
 

@@ -37,14 +37,15 @@ public static class PlayerSP
         go.transform.localScale = new Vector3(col.size.x * 2, 1, col.size.x * 2);
 
 
-        ref var acc = ref EcsStatic.GetPool<ECTargetVelocity>().Add(ent);
+        ref var acc = ref EcsStatic.GetPool<ECDesiredVelocity>().Add(ent);
         acc.targetSpeed = moveSpeed;
         acc.acceleration = 100;
         EcsStatic.GetPool<ECVelocity>().Add(ent);
         EcsStatic.GetPool<ECRespectObstacles>().Add(ent);
 
+        EcsStatic.GetPool<ECPotentialTarget>().Add(ent);
         GiveDash(ent);
-        GiveChargedShot(ent);
+        GiveShot(ent);
         GiveSlash(ent);
         return ent;
     }
@@ -59,22 +60,22 @@ public static class PlayerSP
         ActService.GetPool<ACInputType>().Add(acEnt).targetType = ActTargetType.point;
         PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.Dash, acEnt);
     }
-    static void GiveChargedShot(int ent)
+    static void GiveShot(int ent)
     {
 
         int acEnt = ActService.CreateAct(ent);
         ref var proj = ref ActService.GetPool<ACProjectileDelivery>().Add(acEnt);
         proj.lifetime = 5;
         proj.selfDestruct = true;
-        proj.velocity = 15;
+        proj.velocity = 20;
         ref var dmg = ref ActService.GetPool<ACDamage>().Add(acEnt);
         dmg.amount = 20;
         ActService.GetPool<ACInputType>().Add(acEnt).targetType = ActTargetType.direction;
         PlayerInputSystem.ConnectActToInput(PlayerInputSystem.controls.Player.SecondaryAttack, acEnt);
 
         ref var ammo = ref ActService.GetPool<ACAmmo>().Add(acEnt);
-        ammo.max = 3;
-        ammo.Current = 3;
+        ammo.amount.max = 3;
+        ammo.amount.Current = 3;
         ActService.GetPool<ACAmmoRegen>().Add(acEnt).Cooldown = 1;
     }
     static void GiveSlash(int ent)

@@ -21,6 +21,16 @@ namespace MyEcs.Act
 
             world = EcsStatic.AddWorld("act");
         }
+        public static EcsEntity Entity(int act)
+        {
+            return new EcsEntity(act, world);
+        }
+        public static bool Unpack(EcsPackedEntity packed, out EcsEntity entity)
+        {
+            return EcsEntity.Unpack(packed, world, out entity);
+        }
+        public static bool UnpackAct(this EcsPackedEntity packed, out EcsEntity ent)
+            => Unpack(packed, out ent);
         public static EcsPool<T> GetPool<T>() where T : struct
         {
             return world.GetPool<T>();
@@ -37,6 +47,8 @@ namespace MyEcs.Act
             acEnt.id = c;
             return ac;
         }
+        public static EcsEntity CreateActStruct(int ent)
+            => Entity(CreateAct(ent));
         public static void RemoveAct(int ac)
         {
             var world = EcsStatic.world;
@@ -57,9 +69,17 @@ namespace MyEcs.Act
         {
             return GetPool<ACEntity>().Get(ac).entity;
         }
+        public static EcsEntity GetEntity(this EcsEntity act)
+        {
+            return EcsStatic.Entity(GetEntity(act.entity));
+        }
         public static byte GetActId(int ac) //Act id is completely unreliable and might change if entity's act list changes
         {
             return GetPool<ACEntity>().Get(ac).id;
+        }
+        public static byte GetActId(this EcsEntity act)
+        {
+            return GetActId(act.entity);
         }
         public static bool TryGetAct(int ent, byte id, out int ac)
         {
@@ -80,6 +100,7 @@ namespace MyEcs.Act
             world = null;
         }
     }
+
     public struct ECActs : IEcsAutoReset<ECActs>
     {
         public List<int> acts;

@@ -36,29 +36,17 @@ namespace MyEcs.Health
             if (!healthPool.Value.Has(victim))
                 return;
             ref var hp = ref healthPool.Value.Get(victim);
-            hp.Current -= dmg.amount;
+            hp.amount.Current -= dmg.amount;
         }
         void UpdateRegen(ref ECHealth hp, ref ECHealthRegen regen)
         {
-            hp.Current += regen.rate*Time.deltaTime;
+            hp.amount.Current += regen.rate*Time.deltaTime;
         }
 
     }
     public struct ECHealth
     {
-        float _current;
-        public float max;
-        public float Current
-        {
-            get => _current;
-            set => _current = Mathf.Clamp(value, 0, max);
-        }
-
-        public float Percent
-        {
-            get => _current / max;
-            set => _current = Mathf.Clamp01(value) * max;
-        }
+        public LimitedFloat amount;
     }
     public struct ECHealthRegen
     {

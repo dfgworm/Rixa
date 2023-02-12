@@ -45,7 +45,7 @@ public class MovementTest
     {
         int ent = EcsStatic.world.NewEntity();
         ref var vel = ref EcsStatic.GetPool<ECVelocity>().Add(ent);
-        ref var acc = ref EcsStatic.GetPool<ECTargetVelocity>().Add(ent);
+        ref var acc = ref EcsStatic.GetPool<ECDesiredVelocity>().Add(ent);
 
         acc.direction = Vector2.one.normalized;
         acc.targetSpeed = 20;

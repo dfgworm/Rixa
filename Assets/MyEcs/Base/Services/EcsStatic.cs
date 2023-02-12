@@ -33,6 +33,12 @@ public static class EcsStatic
         world.Destroy();
         bus.Destroy();
     }
+    public static EcsEntity Entity(int _ent)
+        => new EcsEntity(_ent, world);
+    public static bool Unpack(EcsPackedEntity packed, out EcsEntity entity)
+        => EcsEntity.Unpack(packed, world, out entity);
+    public static bool UnpackEntity(this EcsPackedEntity packed, out EcsEntity ent)
+        => Unpack(packed, out ent);
     public static EcsWorld AddWorld(string name)
     {
         var world = new EcsWorld();

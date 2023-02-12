@@ -30,7 +30,7 @@ namespace MyEcs.Act
         {
             if (!world.Value.GetPool<ECHealth>().Has(target))
                 return;
-            world.Value.GetPool<ECHealth>().Get(target).Current += heal.amount; //should this be done via event like EVDamage?
+            world.Value.GetPool<ECHealth>().Get(target).amount.Current += heal.amount; //should this be done via event like EVDamage?
 
         }
 

@@ -13,8 +13,8 @@ namespace MyEcs.Health
         public static void BuildHealth(int ent, float max, float regen = 0)
         {
             ref var hp = ref EcsStatic.GetPool<ECHealth>().Add(ent);
-            hp.max = max;
-            hp.Percent = 1;
+            hp.amount.max = max;
+            hp.amount.Percent = 1;
             if (regen > 0)
                 EcsStatic.GetPool<ECHealthRegen>().Add(ent).rate = regen;
             ref var hpDisp = ref EcsStatic.GetPool<ECHealthDisplay>().Add(ent);

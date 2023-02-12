@@ -35,8 +35,8 @@ namespace MyEcs.Act
 
         void UpdateChannel(int act, ref AMChannelingProcess channel)
         {
-            channel.timer += Time.deltaTime;
-            if (channel.timer >= channel.duration)
+            channel.timer.Current += Time.deltaTime;
+            if (channel.timer.Current >= channel.timer.max)
                 FinishChannel(act, channel);
         }
         void FinishChannel(int act, AMChannelingProcess channel)
@@ -61,7 +61,7 @@ namespace MyEcs.Act
             if (posPool.Value.Has(ent))
                 display.controller.MoveTo(posPool.Value.Get(ent).position3);
             var mark = channelMarkPool.Value.Get(act);
-            display.controller.fill = mark.timer / mark.duration;
+            display.controller.fill = mark.timer.Percent;
         }
         void ProcessActUse(int ac, ActUsageContainer usage)
         {
@@ -71,7 +71,7 @@ namespace MyEcs.Act
             ref var acChannel = ref channelledPool.Value.Get(ac);
             ref var mark = ref channelMarkPool.Value.Add(ac);
             mark.usage = usage;
-            mark.duration = acChannel.duration;
+            mark.timer.max = acChannel.duration;
         }
     }
     public struct ACChannelled
@@ -81,8 +81,7 @@ namespace MyEcs.Act
     }
     public struct AMChannelingProcess
     {
-        public float timer;
-        public float duration;
+        public LimitedFloat timer;
         public ActUsageContainer usage;
     }
     public struct ACChannelDisplay : IEcsAutoReset<ACChannelDisplay>

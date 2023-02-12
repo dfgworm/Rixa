@@ -12,7 +12,7 @@ namespace MyEcs.Physics
     public class MovementSystem : IEcsRunSystem
     {
 
-        readonly EcsFilterInject<Inc<ECVelocity, ECTargetVelocity>, Exc<ECPushed>> accelerationFilter = default;
+        readonly EcsFilterInject<Inc<ECVelocity, ECDesiredVelocity>, Exc<ECPushed>> accelerationFilter = default;
         readonly EcsFilterInject<Inc<ECPosition, ECVelocity>> moveFilter = default;
         readonly EcsFilterInject<Inc<ECPushed, ECVelocity>> pushFilter = default;
 
@@ -27,7 +27,7 @@ namespace MyEcs.Physics
 
         }
 
-        void Accelerate(ref ECVelocity vel, ref ECTargetVelocity accel)
+        void Accelerate(ref ECVelocity vel, ref ECDesiredVelocity accel)
         {
             vel.velocity = Vector2.MoveTowards(vel.velocity, accel.direction * accel.targetSpeed, accel.acceleration*Time.fixedDeltaTime);
         }
@@ -47,7 +47,7 @@ namespace MyEcs.Physics
         }
 
     }
-    public struct ECTargetVelocity
+    public struct ECDesiredVelocity
     {
         public Vector2 direction;
         public float targetSpeed;
