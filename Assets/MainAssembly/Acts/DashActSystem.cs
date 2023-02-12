@@ -41,7 +41,7 @@ namespace MyEcs.Act
             ref var pushMark = ref EcsStatic.GetPool<ECPushed>().SafeAdd(ent);
             pushMark.duration = dash.range / dash.velocity;
             pushMark.velocity = dir*dash.velocity;
-            pushMark.maxForce = dash.maxForce;
+            pushMark.acceleration = dash.maxForce;
             if (EcsStatic.GetPool<ECVelocity>().Has(ent))
                 EcsStatic.GetPool<ECVelocity>().Get(ent).velocity = pushMark.velocity;
         }

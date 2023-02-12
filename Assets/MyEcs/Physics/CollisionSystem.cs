@@ -61,6 +61,16 @@ namespace MyEcs.Physics
     {
         public ColliderType type;
         public Vector2 size;
+        public float ApproximateRadius {
+            get {
+                if (type == ColliderType.circle)
+                    return size.x;
+                else if (type == ColliderType.rectangle)
+                    return Mathf.Min(size.x, size.y);
+                else
+                    return 0;
+            }
+        }
     }
     public struct ECCollisionHashFilter : IEcsAutoReset<ECCollisionHashFilter>
     {

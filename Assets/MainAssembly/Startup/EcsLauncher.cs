@@ -39,6 +39,7 @@ public class EcsLauncher
             .Add(new ActChannellingSystem())
 
             .Add(new InstantADSystem())
+            .Add(new AreaADSystem())
             .Add(new ProjectileADSystem())
 
             .Add(new DashActSystem())

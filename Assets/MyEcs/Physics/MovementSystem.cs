@@ -37,7 +37,7 @@ namespace MyEcs.Physics
             if (push.duration <= 0)
                 pushFilter.Pools.Inc1.Del(ent);
             else
-                vel.velocity = Vector2.MoveTowards(vel.velocity, push.velocity, push.maxForce * Time.fixedDeltaTime);
+                vel.velocity = Vector2.MoveTowards(vel.velocity, push.velocity, push.acceleration * Time.fixedDeltaTime);
         }
         void Move(ref ECPosition pos, ref ECVelocity vel)
         {
@@ -64,6 +64,6 @@ namespace MyEcs.Physics
     {
         public float duration;
         public Vector2 velocity;
-        public float maxForce;
+        public float acceleration;
     }
 }

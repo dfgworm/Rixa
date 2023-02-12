@@ -14,6 +14,7 @@ public static class EnemySP
     public static int Spawn()
     {
         int ent = EcsStatic.world.NewEntity();
+        TeamService.SetTeam(ent, Team.enemy);
 
         EcsStatic.GetPool<ECPosition>().Add(ent);
         EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
@@ -30,7 +31,7 @@ public static class EnemySP
         hover.radius = col.size.x;
 
 
-        EcsStatic.GetPool<ECTouchDamage>().Add(ent).dps = 2;
+        EcsStatic.GetPool<ECTouchDamage>().Add(ent).dps = 10;
 
         HealthPipe.BuildHealth(ent, max: health);
         return ent;
