@@ -42,7 +42,7 @@ namespace MyEcs.Act
     }
     public struct ACAmmo
     {
-        public LimitedFloat amount;
+        public FloatLimited amount;
 
     }
     public struct ACAmmoRegen

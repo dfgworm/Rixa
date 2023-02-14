@@ -46,7 +46,7 @@ namespace MyEcs.Health
     }
     public struct ECHealth
     {
-        public LimitedFloat amount;
+        public FloatLimited amount;
     }
     public struct ECHealthRegen
     {

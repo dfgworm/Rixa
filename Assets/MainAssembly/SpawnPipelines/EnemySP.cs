@@ -9,67 +9,73 @@ using MyEcs.Physics;
 using MyEcs.Health;
 using MyEcs.Act;
 
+public enum EnemyType {
+    Shooter,
+    Swordsman,
+    Rushdown,
+    Shielder,
+}
 public static class EnemySP
 {
     public static float health = 100;
     public static float moveSpeed = 2f;
-    public static int Spawn()
+    public static int Spawn(EnemyType type)
     {
-        int ent = EcsStatic.world.NewEntity();
-        TeamService.SetTeam(ent, Team.enemy);
+        int entInt = EcsStatic.world.NewEntity();
+        EcsEntity ent = EcsStatic.GetEntity(entInt);
+        TeamService.SetTeam(entInt, Team.enemy);
 
-        EcsStatic.GetPool<ECPosition>().Add(ent);
-        EcsStatic.GetPool<ECPositionToTransform>().Add(ent);
+        EcsStatic.GetPool<ECPosition>().Add(entInt);
+        EcsStatic.GetPool<ECPositionToTransform>().Add(entInt);
 
-        ref var acc = ref EcsStatic.GetPool<ECDesiredVelocity>().Add(ent);
+        ref var acc = ref EcsStatic.GetPool<ECDesiredVelocity>().Add(entInt);
         acc.targetSpeed = moveSpeed;
         acc.acceleration = 100;
-        EcsStatic.GetPool<ECVelocity>().Add(ent);
-        EcsStatic.GetPool<ECRespectObstacles>().Add(ent);
+        EcsStatic.GetPool<ECVelocity>().Add(entInt);
+        EcsStatic.GetPool<ECRespectObstacles>().Add(entInt);
 
         var model = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        EcsGameObjectService.Link(ent, model);
+        EcsGameObjectService.Link(entInt, model);
 
-        ref var col = ref EcsStatic.GetPool<ECCollider>().Add(ent);
+        ref var col = ref EcsStatic.GetPool<ECCollider>().Add(entInt);
         col.type = ColliderType.circle;
         col.size = new Vector2(1, 0);
         model.transform.localScale = new Vector3(col.size.x*2, 1, col.size.x*2);
 
-        ref var hover = ref EcsStatic.GetPool<ECMouseHoverable>().Add(ent);
+        ref var hover = ref EcsStatic.GetPool<ECMouseHoverable>().Add(entInt);
         hover.radius = col.size.x;
 
-        ref var follower = ref EcsStatic.GetPool<ECFollowTargetAI>().Add(ent);
-        follower.minDistance = 5;
-        follower.maxDistance = 15;
 
-        EcsStatic.GetPool<ECTouchDamage>().Add(ent).dps = 10;
+        EcsStatic.GetPool<ECTouchDamage>().Add(entInt).dps = 10;
 
-        EcsStatic.GetPool<ECTarget>().Add(ent);
-        EcsStatic.GetPool<ECSearchTarget>().Add(ent).distance = 10;
+        EcsStatic.GetPool<ECSearchTarget>().Add(entInt).distance = 10;
 
-        HealthPipe.BuildHealth(ent, max: health);
+        if (type == EnemyType.Shooter)
+        {
+            AIShooterPipe.BuildEntity(ent, new FloatRange(7, 15));
+            var act = GiveShot(entInt);
+            AIShooterPipe.BuildAct(act, new FloatRange(5,20));
+        }
 
-        GiveShot(ent);
-        return ent;
+        HealthPipe.BuildHealth(entInt, max: health);
+
+        return entInt;
     }
-    static void GiveShot(int ent)
+    static EcsEntity GiveShot(int ent)
     {
-        int acEnt = ActService.CreateAct(ent);
-        ref var proj = ref ActService.GetPool<ACProjectileDelivery>().Add(acEnt);
+        EcsEntity acEnt = ActService.CreateActStruct(ent);
+        ref var proj = ref acEnt.Add<ACProjectileDelivery>();
         proj.lifetime = 2;
         proj.selfDestruct = true;
         proj.velocity = 20;
-        ref var dmg = ref ActService.GetPool<ACDamage>().Add(acEnt);
+        ref var dmg = ref acEnt.Add<ACDamage>();
         dmg.amount = 20;
 
-        ref var ammo = ref ActService.GetPool<ACAmmo>().Add(acEnt);
+        ref var ammo = ref acEnt.Add<ACAmmo>();
         ammo.amount.max = 1;
         ammo.amount.Current = 1;
-        ActService.GetPool<ACAmmoRegen>().Add(acEnt).Cooldown = 2;
+        acEnt.Add<ACAmmoRegen>().Cooldown = 2;
         
-        ref var attack = ref ActService.world.GetPool<ACAttackTargetAI>().Add(acEnt);
-        attack.targetType = ActTargetType.point;
-        attack.minDistance = 2;
-        attack.maxDistance = 20;
+        return acEnt;
     }
 }

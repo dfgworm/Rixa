@@ -35,9 +35,8 @@ public static class InitialSpawn
     }
     static void SpawnEnemy(float x, float y)
     {
-        int ent = EnemySP.Spawn();
+        int ent = EnemySP.Spawn(EnemyType.Shooter);
         EcsStatic.GetPool<ECPosition>().Get(ent).position2 = new Vector2(x, y);
-            ;
     }
     static void LoadCameraFocus()
     {

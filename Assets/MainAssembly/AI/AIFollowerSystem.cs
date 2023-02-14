@@ -12,60 +12,60 @@ using MyEcs.Act;
 public class AIFollowerSystem : IEcsRunSystem
 {
 
-    readonly EcsFilterInject<Inc<ECFollowTargetAI, ECTarget, ECDesiredVelocity, ECPosition>> moveFilter = default;
-    readonly EcsFilterInject<Inc<ACAttackTargetAI>> attackFilter = "act";
+    readonly EcsFilterInject<Inc<ECFollowAI, ECDesiredVelocity, ECPosition>> moveFilter = default;
+    readonly EcsFilterInject<Inc<ACAttackAI>> attackFilter = "act";
 
     readonly EcsCustomInject<EventBus> bus = default;
 
     public void Run(IEcsSystems systems)
     {
         foreach (int i in moveFilter.Value)
-            ControlFollow(i, ref moveFilter.Pools.Inc1.Get(i), ref moveFilter.Pools.Inc2.Get(i), ref moveFilter.Pools.Inc3.Get(i));
+            ControlFollow(EcsStatic.GetEntity(i), ref moveFilter.Pools.Inc1.Get(i), ref moveFilter.Pools.Inc2.Get(i));
         foreach (int i in attackFilter.Value)
-            ProcessAct(ActService.Entity(i), ref attackFilter.Pools.Inc1.Get(i));
+            ProcessAct(ActService.GetAct(i), ref attackFilter.Pools.Inc1.Get(i));
     }
 
-    void ControlFollow(int ent, ref ECFollowTargetAI follower, ref ECTarget target, ref ECDesiredVelocity mover)
+    void ControlFollow(EcsEntity ent, ref ECFollowAI follower, ref ECDesiredVelocity mover)
     {
-        if (!target.entity.Unpack(EcsStatic.world, out int targetEnt) || !EcsStatic.GetPool<ECPosition>().Has(targetEnt)) {
+        if (!follower.target.UnpackEntity(out EcsEntity targetEnt) || !targetEnt.Has<ECPosition>()) {
             mover.direction = Vector2.zero;
             return;
         }
-        var pos = EcsStatic.GetPool<ECPosition>().Get(ent).position2;
-        var targetPos = EcsStatic.GetPool<ECPosition>().Get(targetEnt).position2;
+        var pos = ent.Get<ECPosition>().position2;
+        var targetPos = targetEnt.Get<ECPosition>().position2;
         var diff = targetPos - pos;
         var dist = diff.magnitude;
-        if (dist > follower.maxDistance)
+        if (dist > follower.distance.max)
             mover.direction = diff.normalized;
-        else if (dist < follower.minDistance)
+        else if (dist < follower.distance.min)
             mover.direction = -diff.normalized;
         else
             mover.direction = Vector2.zero;
 
     }
-    void ProcessAct(EcsEntity act, ref ACAttackTargetAI attack)
+    void ProcessAct(EcsEntity act, ref ACAttackAI attack)
     {
-        EcsEntity ent = act.GetEntity();
-        Debug.Log($"process attack ai 1 {ent.entity}");
-        if (!ent.Has<ECTarget>() || !ent.Get<ECTarget>().entity.UnpackEntity(out EcsEntity targetEnt))
+        if (!attack.target.UnpackEntity(out EcsEntity targetEnt))
             return;
 
-        Debug.Log("process attack ai 2");
         if (act.Has<ACAmmo>() && act.Get<ACAmmo>().amount.Current < 1)
             return;
+        EcsEntity ent = act.GetActOwner();
+        var pos = ent.Get<ECPosition>().position2;
+        if (!targetEnt.Has<ECPosition>())
+            return;
+        var targetPos = targetEnt.Get<ECPosition>().position2;
+        var dist = (targetPos - pos).magnitude;
+        if (!attack.distance.IsInRange(dist))
+            return;
 
-        var usage = new ActUsageContainer { targetType = attack.targetType };
+        var usage = new ActUsageContainer { targetType = attack.usageTargetType };
         if (usage.targetType == ActTargetType.point)
         {
-            if (!targetEnt.Has<ECPosition>())
-                return;
-            usage.vector = targetEnt.Get<ECPosition>().position2;
+            usage.vector = targetPos;
         } else if (usage.targetType == ActTargetType.direction)
         {
-            if (!targetEnt.Has<ECPosition>())
-                return;
-            var pos = ent.Get<ECPosition>().position2;
-            usage.vector = targetEnt.Get<ECPosition>().position2 - pos;
+            usage.vector = targetPos - pos;
         } else if (usage.targetType == ActTargetType.entity)
             if (bus.Value.HasEventSingleton<InpEntityMouseHover>())
                 usage.entity = targetEnt.Pack();
@@ -75,14 +75,14 @@ public class AIFollowerSystem : IEcsRunSystem
     }
 }
 
-public struct ECFollowTargetAI
+public struct ECFollowAI
 {
-    public float minDistance;
-    public float maxDistance;
+    public FloatRange distance;
+    public EcsPackedEntity target;
 }
-public struct ACAttackTargetAI
+public struct ACAttackAI
 {
-    public float minDistance;
-    public float maxDistance;
-    public ActTargetType targetType;
+    public FloatRange distance;
+    public ActTargetType usageTargetType;
+    public EcsPackedEntity target;
 }

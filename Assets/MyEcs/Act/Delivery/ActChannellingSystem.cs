@@ -81,7 +81,7 @@ namespace MyEcs.Act
     }
     public struct AMChannelingProcess
     {
-        public LimitedFloat timer;
+        public FloatLimited timer;
         public ActUsageContainer usage;
     }
     public struct ACChannelDisplay : IEcsAutoReset<ACChannelDisplay>

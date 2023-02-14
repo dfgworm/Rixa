@@ -54,10 +54,15 @@ public struct EcsEntity
         return world.GetPool<T>().SafeDel(entity);
     }
 }
-public struct LimitedFloat
+public struct FloatLimited
 {
     float _current;
     public float max;
+    public FloatLimited(float amount)
+    {
+        _current = amount;
+        max = amount;
+    }
     public float Current
     {
         get => _current;
@@ -70,10 +75,15 @@ public struct LimitedFloat
         set => _current = Mathf.Clamp01(value) * max;
     }
 }
-public struct LimitedInt
+public struct IntLimited
 {
     int _current;
     public int max;
+    public IntLimited(int amount)
+    {
+        _current = amount;
+        max = amount;
+    }
     public int Current
     {
         get => _current;
@@ -86,10 +96,17 @@ public struct LimitedInt
         set => _current = Mathf.FloorToInt(Mathf.Clamp01(value) * max);
     }
 }
-public struct RangeFloat
+public struct FloatRange
 {
     public float min;
     public float max;
+    public FloatRange(float _min, float _max)
+    {
+        min = _min;
+        max = _max;
+    }
     public float Clamp(float num)
         => Mathf.Clamp(num, min, max);
+    public bool IsInRange(float num)
+        => num >= min && num <= max;
 }

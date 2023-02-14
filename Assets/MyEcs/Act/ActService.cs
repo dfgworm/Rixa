@@ -21,7 +21,7 @@ namespace MyEcs.Act
 
             world = EcsStatic.AddWorld("act");
         }
-        public static EcsEntity Entity(int act)
+        public static EcsEntity GetAct(int act)
         {
             return new EcsEntity(act, world);
         }
@@ -48,7 +48,7 @@ namespace MyEcs.Act
             return ac;
         }
         public static EcsEntity CreateActStruct(int ent)
-            => Entity(CreateAct(ent));
+            => GetAct(CreateAct(ent));
         public static void RemoveAct(int ac)
         {
             var world = EcsStatic.world;
@@ -69,9 +69,9 @@ namespace MyEcs.Act
         {
             return GetPool<ACEntity>().Get(ac).entity;
         }
-        public static EcsEntity GetEntity(this EcsEntity act)
+        public static EcsEntity GetActOwner(this EcsEntity act)
         {
-            return EcsStatic.Entity(GetEntity(act.entity));
+            return EcsStatic.GetEntity(GetEntity(act.entity));
         }
         public static byte GetActId(int ac) //Act id is completely unreliable and might change if entity's act list changes
         {
